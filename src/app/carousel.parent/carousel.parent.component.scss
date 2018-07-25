@@ -1,0 +1,155 @@
+.carousel{
+    text-align: center;
+}
+.radiolabel{
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin: 5px 5px 5px 2px !important;
+    cursor: pointer;
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    font: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 5px;
+    vertical-align: baseline;
+    color: #40403f;
+    font-weight: 600;
+}
+input[type='radio'].custom{
+     position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+input[type='radio'].custom:checked+label span {
+    background-position: -35px -10px;
+}
+input[type='radio'].custom+label span {
+    background: url("../../assets/inputs_light.png") no-repeat;
+    background-size: 60px 90px;
+    background-position: -10px -10px;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+   
+}
+section.widget {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    z-index: 30;
+    display: block;
+    width: 25%;
+    max-height: 583px;
+    margin-left: -495px;
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    color: #FFF;
+}
+.clear {
+    clear: both;
+    //overflow: hidden;
+}
+section.widget .widget-option .top-title {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 21px;
+    padding-right: 10px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    font-family: Montserrat-Regular,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 21px;
+    color: #40403f;
+    border-bottom: 1px solid #e7e8e8;
+    text-transform: uppercase;
+    letter-spacing: .001em;
+}
+
+
+section.widget .widget-option {
+display: flex;
+background-color: #fff;
+color: #40403f;
+padding: 10px;
+position: relative;
+padding-top: 40px;
+margin-top: 57px;
+width: 100%;
+border-radius: 4px;
+
+}
+
+section.widget .widget-option,label {
+    margin-left: 0;
+    font-weight: normal;
+    line-height: 115%;
+    font-family: Montserrat-UltraLight,Helvetica,Arial,Sans-Serif!important;
+    -webkit-font-smoothing: antialiased;
+
+}
+dd{
+    width: 100%;
+
+}
+.row.pad-5{
+   padding-bottom: 5px;
+   padding-top: 5px;
+  
+}
+.row.pad-left-15{
+    padding-left: 15px;
+   
+ }
+.connector{
+    display:inline-flex;
+    width: 1.75em;
+    height: 1.7em;
+    font-weight:600;
+    background: transparent url("../../assets/site_sprite.png") -1px -2409px no-repeat;
+}
+.center{
+    text-align: center; 
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center; 
+    padding-left: 5px; 
+}
+.left{
+    text-align: left; 
+    justify-content: left; /* center items vertically, in this case */
+    align-items: left;  
+    padding-left: 2px;
+}
+.no-border-rad{
+    border-radius: 0;
+    height: 2em !important;
+    font:inherit !important;
+}
+.calendarClickIcon{
+    display: block;
+    width: 1.967em;
+    height: 2em;
+    background: transparent url("../../assets/site_sprite.png") -1px -1211px;
+    left: 9.4em;
+    position: absolute;
+    top: .1666666667em;
+    font-size:10px;
+    cursor:pointer;
+}
+
+div{
+    position: relative;
+}
+.form-control{
+   border:1px solid #28ab8c;
+}

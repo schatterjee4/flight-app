@@ -1,0 +1,30 @@
+body {
+    color: #40403f !important;
+	font-family: DroidSans, Arial, Sans-serif !important;
+    font-size: 1em !important;
+    padding: 0px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: ProximaNova-Regular, Arial, Sans-serif;
+	letter-spacing: 0.001em;
+	color: #36424a;
+}
+h1 {
+   font-size: 2em;
+}
+header{
+    background: #fff;
+}
+nav{
+    z-index: 1000;
+    background: #fff;
+}
+.navbar-sm {min-height:20px;}
+.clear{
+    margin-top:20px;
+}
+dd{
+    width: 100%;
+
+}

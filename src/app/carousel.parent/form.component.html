@@ -1,0 +1,74 @@
+<form [formGroup]="myForm">
+    <div class="container-fluid">
+        Value: {{ myForm.value | json }}
+
+        <div class="row pad-5 pad-left-15">
+            <input type="radio" class="custom" id="flights-oneway" value="one" formControlName="triptype">
+            <label for="flights-oneway" class="radiolabel">
+                <span></span>One Way
+            </label>
+            <input type="radio" class="custom" id="flights-return" value="round" formControlName="triptype">
+            <label for="flights-return" class="radiolabel">
+                <span></span>Round Trip
+            </label>
+        </div>
+        <div class="row ">
+            <div class="input-group">
+
+                <div class="col-5 pr-0">
+                    <label for="originCity" class="requiredLabel">FROM</label>
+                </div>
+                <div class="col-1 left"></div>
+                <div class="col-5 pl-0">
+                    <label for="destCity" class="requiredLabel">TO</label>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="input-group">
+
+                <div class="col-5 pr-0">
+                    <input id="typeahead-basic" type="text" class="form-control no-border-rad" formControlName="origin" [ngbTypeahead]="search"
+                    />
+                </div>
+                <div class="col-1 center">
+                    <span class="connector"></span>
+                </div>
+                <div class="col-5 pl-0">
+                    <input id="typeahead-basic" type="text" class="form-control no-border-rad" formControlName="dest" [ngbTypeahead]="search"
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+                <div class="input-group">
+    
+                    <div class="col-5 pr-0">
+                        <label for="originCity" class="requiredLabel">DEPATURE DATE</label>
+                    </div>
+                    <div class="col-1 left"></div>
+                    <div class="col-5 pl-0">
+                        <label for="destCity" class="requiredLabel">ARRIVAL DATE</label>
+                    </div>
+                </div>
+            </div>
+        <div class="row ">
+            <div class="input-group">
+                <div class="col-5 pr-0">
+                    <input class="form-control no-border-rad" placeholder="yyyy-mm-dd" name="or" formControlName="datefrom" ngbDatepicker #d1="ngbDatepicker">
+                        <span class="calendarClickIcon" (click)="d1.toggle()" id="origDateCalIcon"></span>
+                </div>
+                <div class="col-1 center">
+                    </div>
+                <div class="col-5 pl-0">
+                    <input class="form-control no-border-rad" placeholder="yyyy-mm-dd" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
+                    <span class="calendarClickIcon" (click)="d2.toggle()" id="depDateCalIcon"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
