@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
-import { BasicFormComponent } from "./form.component";
 
 
 @Component({

@@ -10,35 +10,64 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
+
 </head>
 
 <body>
-    <div>
-        <nav id="header" class="navbar fixed-top navbar-sm ">
-          <div id="header-container" class="container navbar-container">
-            <div class="navbar-header">
-              <a id="brand" class="navbar-brand" href="#">Project name</a>
+  <header>
+    <nav id="header" class="navbar fixed-top navbar-sm ">
+      <div id="header-container" class="container navbar-container">
+        <div class="navbar-header">
+          <a id="brand" class="navbar-brand" href="#">Project name</a>
+        </div>
+      </div>
+      <!-- /.container -->
+    </nav>
+  </header>
+  <div class="clear "></div>
+  <main role="main" id="maincontent">
+  <div class="main-div">
+      <div id="main-content" class="wrapper heroWrapper">
+        <carousel-parent containername="containername"></carousel-parent>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8" class="footer-top-widget-area-1">
+            <div id="text-2" class="widget widget_text">
+              <div class="textwidget">
+                <div class="social-icons-footer">
+                  <a href="http://twitter.com/cognizant" target="_blank">
+                    <img src="images/Twitter.png" class="img-responsive">
+                  </a>
+                  <a href="http://www.facebook.com/Cognizant" target="_blank">
+                    <img src="images/Facebook.png" class="img-responsive">
+                  </a>
+                  <a href="http://www.linkedin.com/company/cognizant" target="_blank">
+                    <img src="images/Linkedin.png" class="img-responsive">
+                  </a>
+                  <a href="https://www.youtube.com/user/cognizant" target="_blank">
+                    <img src="images/youtube.png" class="img-responsive">
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- /.container -->
-        </nav>
-      <div class="clear "></div>
-    <div >
-      <main role="main" id="maincontent">
-        <div id="main-content" class="wrapper heroWrapper">
-          <carousel-parent containername="containername"></carousel-parent>
+
+          <div class="col-sm-4" class="footer-top-widget-area-3">
+            <div id="text-4" class="widget widget_text">
+              <div class="textwidget">©2017 Cognizant, all rights reserved</div>
+            </div>
+          </div>
+
         </div>
-
-
-      </main>
-      <footer>
-          <p>© Company 2014</p>
-      </footer>
-
-
+      </div>
     </div>
-  </div>
+  </footer>
 </body>
 
 </html>

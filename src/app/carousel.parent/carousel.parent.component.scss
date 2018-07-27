@@ -15,7 +15,9 @@
     padding-right: 5px;
     vertical-align: baseline;
     color: #40403f;
-    font-weight: 600;
+    font-weight: 300;
+	font-size:12px;
+
 }
 input[type='radio'].custom{
      position: absolute;
@@ -38,18 +40,24 @@ input[type='radio'].custom+label span {
     height: 15px;
    
 }
-section.widget {
+.form-control.ellip{
+    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+section.widget,.flight-out-component,.flight-in-component {
     position: absolute;
     top: 2%;
     left: 50%;
     z-index: 30;
     display: block;
     width: 25%;
-    max-height: 583px;
+   // max-height: 583px;
     margin-left: -495px;
     font-family: arial,sans-serif;
     font-size: 12px;
     color: #FFF;
+    background-color: #F2F2F2;
 }
 .clear {
     clear: both;
@@ -111,6 +119,10 @@ dd{
     padding-left: 15px;
    
  }
+ .row.pad-left-12{
+    padding-left: 12px;
+   
+ }
 .connector{
     display:inline-flex;
     width: 1.75em;
@@ -152,4 +164,333 @@ div{
 }
 .form-control{
    border:1px solid #28ab8c;
+}
+.pd-top-5{
+padding-top:5px
+}
+.pd-top-10{
+padding-top:10px
+}
+.right-0{
+right:0 !important;
+left:unset !important;
+
+}
+.right{
+text-align: right; 
+    justify-content: right; /* center items vertically, in this case */
+    align-items: right; 
+
+}
+input.submit {
+    text-transform: uppercase;
+    height: 30px;
+    float: right;
+    border: 0;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: Montserrat-SemiBold,DroidSans,Arial,Sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+    color: #fff;
+    font-size: 14px;
+    background: #d6083b;
+    text-decoration: none;
+	font-weight:bold;
+	padding:10px;
+	}
+	input.submit:hover {
+    background: #51585c;
+    text-decoration: none;
+}
+input[type="text"]{
+	    border: 1px solid #ababb5;
+    padding: 5px 0 5px 5px;
+    font-family: Montserrat-UltraLight,DroidSans,Arial,Sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+    font-size: 13px;
+    color: #40403f;
+    cursor: pointer;
+	font-weight:600;
+	}
+	input[type="text"].custom-date{
+	
+	background: #fff url("../../assets/site_sprite.png") no-repeat 96% -26px;
+	}
+	
+.margin-bottom-0{
+
+margin-bottom: 0!important;
+}
+
+.requiredLabel{
+font-size: 11px;
+}
+.invisible{
+
+    opacity:0;
+}
+.tabs-content {
+
+
+    background-image: url("../../assets/carousel/vg-4.jpeg");
+    background-color: #fff;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+@media only screen and (min-width: 1279px)
+{.tabs-content {
+    min-height: 600px;
+}
+}
+@media only screen and (min-width: 1023px)
+{.tabs-content {
+    min-height: 400px;
+}}
+@media only screen and (min-width: 992px)
+{.tabs-content {
+    min-height: 540px;
+}}
+.row-table::before{
+    content: " ";
+    display:table
+
+}
+.flight-out-component,.flight-in-component{
+    background-color: #fff;
+    width: 60% !important;
+    border-radius: 4px;
+
+}
+.row-table{
+    font-size: 12px;
+    line-height: 21px;
+    color: #40403f;
+   // border-bottom: 1px solid #e7e8e8;
+    letter-spacing: .001em;
+    font-family: "Montserrat",Verdana,sans-serif!important;
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    vertical-align: baseline;
+    margin-bottom: 2px;
+  }
+.flight-schedule-item{
+    text-transform: uppercase;
+    font-size:14px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.trip-head{
+    color:#52585d;
+    //font-size: .875rem;
+   // margin:10px;
+}
+.tripTime{
+display: inline-block;
+    color:#52585d;
+    font-size:28px;
+    font-weight:500;
+    //font-size: .875rem;
+    line-height: 1.3;
+  //  margin:10px;
+    //color: #6f6660;
+}
+.tripTime sub{
+   bottom:0!important;
+   font-size:11px;
+}
+.to-icon{
+    background-position: -14px -1669px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-image: url("../../assets/sprites-shopping.png");
+    background-repeat:no-repeat;
+    margin-bottom:15px;
+    margin-left:15px; 
+    margin-right:15px;
+    margin-top:20px;
+}
+.padding-md-none{
+    padding: 0!important; 
+}
+.padding-right-md-none{
+    padding-right: 0!important; 
+}
+.detail-container{
+    border-right: 1px solid #e7e8e8;
+}
+.detail-container-head{
+    border-top: 10px solid #e6e5e5; 
+
+}
+.to-icon-dotted{
+    border-top:1px dotted #51585c;
+    position: absolute;
+    top:50%;
+}
+.border-connector{
+    padding: 0;
+    height: 2px;
+    //line-height: 21px;
+    border-bottom: 1px dotted #51585c;
+    margin: 0 auto;
+}
+.border-connector-row{
+margin-left: 2px;
+margin-right: 2px;
+}
+.details-expand a+span{
+    background: url("../../assets/sprites-shopping.png") no-repeat;
+    background-position: -26px -1690px;
+    height: 13px;
+    width: 13px;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.details-expand.expanded a+span{
+
+background-position: -13px -1690px;
+}
+.details-expand a{
+    display: inline-block;
+}
+.details-expand{
+    margin-top:15px;
+}
+.fareClassHeader {
+    margin-left:1px;
+}
+.fareWrapper{
+    border-right: 1px solid #e7e8e8;
+}
+.brandLadderWrapper{
+    border-right: 1px solid #e7e8e8;
+    min-height:inherit;
+    position: relative;
+}
+.brandLadder{
+    bottom: 0;
+    left: 0;
+    margin-left: 1px;
+    position: absolute;
+    width: 99%;
+    height:0.4030224200000001rem;
+}
+.brandLadderFirst{
+    height:15%;
+    background-color:#0761AC
+}
+.brandLadderSecond{
+    height:30%;
+    background-color:#065391
+}.brandLadderThird{
+    height:60%;
+    background-color:#054478;
+}
+.pr-1{
+    padding-right: 1px!important;
+}
+.text-left {
+    vertical-align: baseline;
+
+}
+.flight-component-head{
+   // background:#666;
+    text-transform:uppercase;
+    color:#52585d78;
+    font-weight:700;
+  
+
+}
+.plain-content{
+min-height:20px;
+}
+.marginr-2{
+margin-right:2px;
+}
+.fareBasisHeader{
+ border-left:1px solid #e7e8e8;
+}
+.paxTypeInfo{
+    font-size: 9px;
+color:red;
+display:inline-block;
+padding-left: 2px;
+}
+.picto-currency:after {
+    content: "G";
+}
+.picto-gray:after {
+    color: #6f6660;
+}
+.picto:after, .picto-block:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    font-family: "swiss-piktos";
+    font-size: 30px;
+    color: #47423f;
+    content: attr(data-icon);
+    text-align: left;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none !important;
+    speak: none;
+    display: inline-block;
+    text-decoration: none;
+    width: 30px;
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+}
+.amenityIcons.icon_twoku {
+    background-position: -35px -1822px;
+    width: 19px;
+    height: 17px;
+}
+
+.amenityIcons {
+    display: inline-block;
+    background-image: url("../../assets/sprites-shopping.png");
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: right;
+}
+.amenityIcons.icon_usb {
+    background-position: -66px -1084px;
+    width: 10px;
+    height: 17px;
+}
+.amenityIcons.icon_110 {
+    background-position: -28px -1158px;
+    width: 15px;
+    height: 17px;
+}
+.amenityIcons.icon_stu {
+    background-position: -3px -1138px;
+    width: 21px;
+    height: 17px;
+}
+.tripDate{
+    display: inline-block;
+    color: #52585d;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.3;
+    vertical-align: middle;
+}
+.tripDateParent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flight-section{
+    border-right: 1px solid #cacaca
 }

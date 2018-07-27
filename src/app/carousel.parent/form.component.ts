@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 
-const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
+const states = ['Alabama', 'Alaska', 'American Samoagggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'Arizona', 'Arkansas', 'California', 'Colorado',
   'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
   'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
   'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
@@ -20,7 +21,7 @@ export class BasicFormComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private router: Router) { }
   public model: any;
 
   search = (text$: Observable<string>) =>
@@ -32,14 +33,24 @@ export class BasicFormComponent implements OnInit {
     );
   ngOnInit() {
     this.myForm = this.fb.group({
-     triptype: '',
+     triptype: 'one',
       dest: '',
       origin: '',
       datefrom:'',
-      dateto:''
+      dateto:'',
+	  adult:'',
+	  child:'',
+	  infant:''
     })
 
     this.myForm.valueChanges.subscribe(console.log)
+  }
+  onSubmit() {
+    if (this.myForm.valid) {
+      console.log("Form Submitted!");
+    }
+    console.log("Form entry!");
+    this.router.navigate(['search', { data: { type: this.myForm.value } } ]);
   }
 
 }

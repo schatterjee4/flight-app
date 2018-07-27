@@ -22,9 +22,43 @@ nav{
 }
 .navbar-sm {min-height:20px;}
 .clear{
-    margin-top:20px;
+    margin-top:60px;
 }
 dd{
     width: 100%;
 
 }
+body,html,main{
+    min-height: 100%;
+}
+.main-div,.wrapper {
+   min-height: 80%;
+}
+.footer-top {
+    background-color: #50b3cf;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.footer-top {
+    padding: 0;
+    color: #ffffff;
+    font-size: 11px;
+    text-align: center;
+    line-height: 43px;
+}
+.footer-top {
+    position: relative;
+}
+@media only screen and (min-width: 1279px)
+{.heroWrapper {
+    min-height: 600px;
+}
+}
+@media only screen and (min-width: 1023px)
+{.heroWrapper {
+    min-height: 400px;
+}}
+@media only screen and (min-width: 992px)
+{.heroWrapper {
+    min-height: 540px;
+}}

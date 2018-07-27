@@ -6,11 +6,16 @@ import { CarouselParentComponent } from './carousel.parent.component';
 import { CarouselModule } from './carousel/carousel.module';
 import { BasicFormComponent } from "./form.component";
 import { MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule } from '@angular/material';
-
+import { FlightResultComponent } from "./flight.result/flight.result.component";
+import {Routes, RouterModule} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarouselSectionComponent } from './carousel.section.component';
 
 //import { CarouselService } from './carousel.service';
-
+const routes: Routes = [
+    { path: '', component: CarouselSectionComponent, pathMatch: 'full' },
+    { path: 'search', component: FlightResultComponent }
+   ];
 
 @NgModule({
     imports: [
@@ -22,11 +27,15 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatButtonModule,
         MatSelectModule,
         MatCheckboxModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule.forRoot(routes,{ useHash: false })
+
     ],
     declarations: [
         CarouselParentComponent,
-        BasicFormComponent
+        BasicFormComponent,
+        FlightResultComponent,
+        CarouselSectionComponent
     ],
     providers: [
         // CarouselService,

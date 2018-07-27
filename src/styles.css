@@ -26,3 +26,6 @@ font-feature-settings: "liga" 0, "clig" 0;
 font-style: inherit;
 }
 
+body, html {
+    height: 90%;
+}

@@ -1,8 +1,7 @@
-<form [formGroup]="myForm">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div class="container-fluid">
-        Value: {{ myForm.value | json }}
 
-        <div class="row pad-5 pad-left-15">
+        <div class="row pad-5 pad-left-12">
             <input type="radio" class="custom" id="flights-oneway" value="one" formControlName="triptype">
             <label for="flights-oneway" class="radiolabel">
                 <span></span>One Way
@@ -15,11 +14,11 @@
         <div class="row ">
             <div class="input-group">
 
-                <div class="col-5 pr-0">
+                <div class="col-6 pr-0">
                     <label for="originCity" class="requiredLabel">FROM</label>
                 </div>
                 <div class="col-1 left"></div>
-                <div class="col-5 pl-0">
+                <div class="col-5 pl-0 pr-0">
                     <label for="destCity" class="requiredLabel">TO</label>
                 </div>
             </div>
@@ -27,44 +26,106 @@
         <div class="row ">
             <div class="input-group">
 
-                <div class="col-5 pr-0">
-                    <input id="typeahead-basic" type="text" class="form-control no-border-rad" formControlName="origin" [ngbTypeahead]="search"
+                <div class="col-6 pr-0">
+                    <input id="typeahead-basic" type="text" class="form-control no-border-rad ellip" formControlName="origin" [ngbTypeahead]="search"
                     />
                 </div>
                 <div class="col-1 center">
                     <span class="connector"></span>
                 </div>
-                <div class="col-5 pl-0">
-                    <input id="typeahead-basic" type="text" class="form-control no-border-rad" formControlName="dest" [ngbTypeahead]="search"
+                <div class="col-5 pl-0 pr-0">
+                    <input id="typeahead-basic" type="text" class="form-control no-border-rad ellip" formControlName="dest" [ngbTypeahead]="search"
                     />
                 </div>
             </div>
         </div>
         <div class="row ">
-                <div class="input-group">
-    
-                    <div class="col-5 pr-0">
+            <div class="input-group">
+
+                <div class="col-6 pr-0">
+                    <div class="pd-top-10">
+
                         <label for="originCity" class="requiredLabel">DEPATURE DATE</label>
                     </div>
-                    <div class="col-1 left"></div>
-                    <div class="col-5 pl-0">
+                </div>
+                <div class="col-1 left"></div>
+                <div class="col-5 pl-0 pr-0 invisible">
+                    <div class="pd-top-10">
                         <label for="destCity" class="requiredLabel">ARRIVAL DATE</label>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="row ">
             <div class="input-group">
-                <div class="col-5 pr-0">
-                    <input class="form-control no-border-rad" placeholder="yyyy-mm-dd" name="or" formControlName="datefrom" ngbDatepicker #d1="ngbDatepicker">
-                        <span class="calendarClickIcon" (click)="d1.toggle()" id="origDateCalIcon"></span>
-                </div>
-                <div class="col-1 center">
-                    </div>
-                <div class="col-5 pl-0">
-                    <input class="form-control no-border-rad" placeholder="yyyy-mm-dd" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
-                    <span class="calendarClickIcon" (click)="d2.toggle()" id="depDateCalIcon"></span>
+                <div class="col-6 pr-0" id="origDate">
+                    <input type="text" class="form-control no-border-rad custom-date" name="dp" formControlName="datefrom" ngbDatepicker #d1="ngbDatepicker">
+                    <span class="calendarClickIcon right-0" (click)="d1.toggle()" id="origDateCalIcon"></span>
 
                 </div>
+                <div class="col-1 center">
+                </div>
+                <div class="col-5 pl-0 pr-0 invisible" id="destDate">
+                    <input type="text" class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
+                    <span class="calendarClickIcon right-0" (click)="d2.toggle()" id="depDateCalIcon"></span>
+
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-11 ">
+                <div class="pd-top-10">
+                    <label class="requiredLabel">GUEST :</label>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-11 ">
+                <div>
+                    <label for="adult" class="requiredLabel margin-bottom-0 pd-top-5">ADULT</label>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-8 ">
+                <input id="adult" type="text" class="form-control no-border-rad" formControlName="adult" />
+
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-11 ">
+                <div class="pd-top-5">
+                    <label for="child" class="requiredLabel margin-bottom-0 pd-top-5">CHILD<span class="paxTypeInfo">2-11 yrs</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-8 ">
+                <input id="child" type="text" class="form-control no-border-rad" formControlName="child" />
+
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-11 ">
+                <div class="pd-top-5">
+
+                    <label for="infant" class="requiredLabel margin-bottom-0 pd-top-5">INFANT<span class="paxTypeInfo"><2yrs</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-8 ">
+                <input id="infant" type="text" class="form-control no-border-rad" formControlName="infant" />
+
+            </div>
+        </div>
+        <div class="row ">
+            <div class="pull-right offset-md-4 col-8 right ">
+                <div class="pd-top-10">
+
+                    <input src="" class="submit" id="flights-submit" name="ap3-flights-submit" type="submit" value="FIND FLIGHTS">
+                </div>
+
             </div>
         </div>
     </div>
