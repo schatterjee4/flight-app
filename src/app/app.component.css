@@ -14,15 +14,15 @@ h1 {
    font-size: 2em;
 }
 header{
-    background: #fff;
+    background:black;
 }
 nav{
     z-index: 1000;
-    background: #fff;
+    background:black;
 }
-.navbar-sm {min-height:20px;}
+.navbar-sm {min-height:10px;max-height: 34px;}
 .clear{
-    margin-top:60px;
+    margin-top:34px;
 }
 dd{
     width: 100%;
@@ -62,3 +62,55 @@ body,html,main{
 {.heroWrapper {
     min-height: 540px;
 }}
+.fixed-header{
+    margin-right: auto;
+    margin-left: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    background-color: black;
+    max-height:20px;
+}
+.threePointHighlight {
+    background-color: #fff;
+    color: #333333;
+    font-size: 16px;
+    padding: 25px 0px;
+}
+.threePointHighlight .highlightLogo::before {
+    content: "\f0a3";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    left:-5px;
+    position:absolute;
+    top:0;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #333;
+    padding-right: 10px;
+}
+.bold{
+    display: block;
+    clear: both;
+    font-weight: bold;
+}
+.threePointHighlight .highlightCheckMark{
+    float: left;
+    padding-right:2px;
+}
+.threePointHighlight .highlightCheckMark::before{   
+    content: "\f00c";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    color:rgb(11, 192, 11);
+    display: inline-block;
+}
+.pr-15{
+    padding-left:15px;
+}

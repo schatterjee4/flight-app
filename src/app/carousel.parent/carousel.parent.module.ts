@@ -10,11 +10,13 @@ import { FlightResultComponent } from "./flight.result/flight.result.component";
 import {Routes, RouterModule} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import { CarouselSectionComponent } from './carousel.section.component';
+import { FlightPaymentComponent} from './flight.payment/flight.payment.component';
 
 //import { CarouselService } from './carousel.service';
 const routes: Routes = [
     { path: '', component: CarouselSectionComponent, pathMatch: 'full' },
-    { path: 'search', component: FlightResultComponent }
+    { path: 'search', component: FlightResultComponent },
+    { path: 'payment', component: FlightPaymentComponent }
    ];
 
 @NgModule({
@@ -35,7 +37,8 @@ const routes: Routes = [
         CarouselParentComponent,
         BasicFormComponent,
         FlightResultComponent,
-        CarouselSectionComponent
+        CarouselSectionComponent,
+        FlightPaymentComponent
     ],
     providers: [
         // CarouselService,

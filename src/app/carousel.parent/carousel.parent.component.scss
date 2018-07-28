@@ -19,7 +19,7 @@
 	font-size:12px;
 
 }
-input[type='radio'].custom{
+input[type='radio'].custom,input[type='radio'].customfare{
      position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -40,24 +40,120 @@ input[type='radio'].custom+label span {
     height: 15px;
    
 }
+.selectLinkFare{
+   background-color: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    font-weight: 600;
+    font-size: 1.2em;
+    text-transform: uppercase;
+   // color: #fff;
+    text-align: center;
+    width: 100%;
+    height:100%;
+    margin: 0;
+    z-index: 7;
+    display:inline-block;
+    text-decoration: none !important;
+
+}
+.currencydiv:hover {
+   // background-color:#3169bb;
+    //color:#fff;
+}
+.selectLinkFare:hover,.currencydiv:hover .checkMark{
+  // display:inline-block;
+   //background-image: url("../../assets/green_check.jpg");
+
+}
+.tblCntBigTxt{
+    width:100%;
+    text-align: center;
+    font-size:20px;
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkMark{
+    display:inline-block;
+    text-align: center;
+   // background-size: cover;
+ //  background-image: url("../../assets/black_check_small.jpg");
+    background-repeat: no-repeat;
+    height: max-content;
+    width:  30px;
+    //font-size: 0;
+    line-height: 0;
+    //height: 0;
+    //padding-top: 63.3%;
+    //background-position: 50% 50%;
+
+    /* margin-bottom: 15px; */
+    /* margin-left: 15px; */
+    /* margin-right: 15px; */
+    /* margin-top: 20px; */
+}
+.checkMark::before{   
+    content: "\f00c";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    color:rgb(11, 192, 11);
+}
+.priceBfrDec{
+    display: inline-block;
+    font-size:25px;
+  
+
+}
+.currencydiv{
+    position: relative;
+    color:#52585d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+}
 .form-control.ellip{
     text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-section.widget,.flight-out-component,.flight-in-component {
+section.widget,.flight-out-component,.flight-in-component,.flight-cost-component {
     position: absolute;
     top: 2%;
-    left: 50%;
+    left: 10%;
     z-index: 30;
     display: block;
     width: 25%;
    // max-height: 583px;
-    margin-left: -495px;
+    //margin-left: -495px;
     font-family: arial,sans-serif;
     font-size: 12px;
     color: #FFF;
-    background-color: #F2F2F2;
+   // background-color: #F2F2F2;
+}
+.flight-out-component,.flight-in-component,.flight-cost-component{
+    position: relative !important;
+    left:unset;
+    background-color: transparent!important;
+}
+.flight-cost-component{
+    top: unset;
+    //right: 15%;
+   // left:unset;
+    z-index: 30;
+    display: block;
+    width: auto!important; 
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom:50%;
+    margin-left:5%;
+}
+.flight-out-component,.flight-in-component{
+    background-color: #fff;
+  //  width: 60% !important;
+    border-radius: 4px;
+
 }
 .clear {
     clear: both;
@@ -232,12 +328,13 @@ font-size: 11px;
 .tabs-content {
 
 
-    background-image: url("../../assets/carousel/vg-4.jpeg");
-    background-color: #fff;
+   background-image: url("../../assets/carousel/vg-4.jpeg");
+    //background-color: #ddd;
       /* Center and scale the image nicely */
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      padding-bottom: 10px;
 }
 @media only screen and (min-width: 1279px)
 {.tabs-content {
@@ -254,15 +351,10 @@ font-size: 11px;
 }}
 .row-table::before{
     content: " ";
-    display:table
+   display:table
 
 }
-.flight-out-component,.flight-in-component{
-    background-color: #fff;
-    width: 60% !important;
-    border-radius: 4px;
 
-}
 .row-table{
     font-size: 12px;
     line-height: 21px;
@@ -273,7 +365,7 @@ font-size: 11px;
     -webkit-font-smoothing: antialiased;
     text-align: left;
     vertical-align: baseline;
-    margin-bottom: 2px;
+    //margin-bottom: 2px;
   }
 .flight-schedule-item{
     text-transform: uppercase;
@@ -319,11 +411,15 @@ display: inline-block;
     padding-right: 0!important; 
 }
 .detail-container{
-    border-right: 1px solid #e7e8e8;
+    //border-right: 1px solid#9ca3a8;
+    //border-right: 1px solid transparent;
+    border-right: 1px solid#d0d0d0
 }
 .detail-container-head{
-    border-top: 10px solid #e6e5e5; 
-
+ //   border-bottom: 10px solid #ddd; 
+ //border-bottom: 3px solid transparent ;
+ border-bottom: 1px solid#d0d0d0;
+ position: relative;
 }
 .to-icon-dotted{
     border-top:1px dotted #51585c;
@@ -398,10 +494,11 @@ background-position: -13px -1690px;
 
 }
 .flight-component-head{
-   // background:#666;
+   //background:#666;
     text-transform:uppercase;
-    color:#52585d78;
+    color:#0b1f66;
     font-weight:700;
+    background-color: transparent;
   
 
 }
@@ -479,18 +576,83 @@ padding-left: 2px;
 }
 .tripDate{
     display: inline-block;
-    color: #52585d;
-    font-size: 25px;
+   // color: #52585d;
+   // background-color: #1B2737;
+    font-size: 16px;
     text-align: center;
     font-weight: 700;
     line-height: 1.3;
     vertical-align: middle;
+ 
 }
 .tripDateParent{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #10172e;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Whitney-Semibold;
+    vertical-align: top;
+    //letter-spacing: .05rem;
+}
+.flight-no{
+    color: #4470c3!important;
+    font-size:11px !important;
 }
 .flight-section{
-    border-right: 1px solid #cacaca
+   // border-right: 1px solid #cacaca;
+   
+}
+.flight-section-details{
+    background-color:#f8f8f8;
+}
+.margin-top-5{
+    padding-top:2%
+}
+.payHeader{
+   // color:#0b1f66!important;
+   color:#52585d;
+    font-size:20px;
+    font-weight:500;
+    line-height:1.3;
+    display:inline-block;
+    
+}
+.flight-cost-head{
+    padding:5%;
+    
+}
+.payValue{
+    display: inline-block;
+    //color: #52585d;
+    color:#000;
+    font-size: 25px;
+    //font-weight: 700;
+    line-height: 1.3;
+}
+.flight-section-search-head{
+    padding-right: 20px;
+    //color: #0b1f66;
+    margin-top: 3%;
+}
+.flight-section-search-head h1{
+    font-family: Whitney-Light;
+    font-size: 30px !important;
+    line-height: 2.25rem;
+    float: left;
+  
+
+}
+.paynowBtn{
+    color: #ffffff;
+    background-color: #c10635!important;
+    padding:0!important;
+    width: 135px;
+    height: 30px;
+    letter-spacing: .1em;
+    border:0px !important;
+    font-weight:500 !important;
+    font-size:12px !important;
 }
