@@ -8,7 +8,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 library.add(fas, fab);
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {FormService} from './carousel.parent/services/form.shared.service';
+import { HttpModule } from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,10 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     CarouselParentModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule
 
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

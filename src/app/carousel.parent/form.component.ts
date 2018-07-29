@@ -3,15 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
+import {FormService} from './services/form.shared.service';
+import { NgbTypeaheadSelectItemEvent, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"}];
 
-const states = ['Alabama', 'Alaska', 'American Samoagggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'Arizona', 'Arkansas', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-  'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
-  'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
-  'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-  'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
-  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
-  'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 @Component({
   selector: 'basic-form',
   templateUrl: './form.component.html',
@@ -20,20 +15,43 @@ const states = ['Alabama', 'Alaska', 'American Samoagggggggggggggggggggggggggggg
 export class BasicFormComponent implements OnInit {
 
   myForm: FormGroup;
+  clickedItem:string;
+    public model: any;
 
-  constructor(private fb: FormBuilder,private router: Router) { }
-  public model: any;
+  constructor(private fb: FormBuilder,private router: Router,private _dataService: FormService, config: NgbDatepickerConfig) { 
+    config.minDate = {year: new Date().getFullYear(), month: new Date().getMonth(), day: new Date().getDay()};
+    config.markDisabled = (date: NgbDateStruct) => {
+      const today = new Date();
+      //console.log("dd"+date.month);
+      //console.log("dt"+today.getMonth());
+
+    // alert(  today.getMonth());
+      const d = new Date(date.year, date.month - 1, date.day);
+      return d.getMonth() < today.getMonth();
+    };
+  }
 
   search = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
       map(term => term.length < 2 ? []
-        : states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        : states.filter(v => v.value.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     );
+    formatter = (x: {value: string}) => x.value;
+
+    /*setModel(e: NgbTypeaheadSelectItemEvent, fubi: any) {
+      this.model = e.item.name;
+    }*/
+   /* selectedItem(item){
+      this.clickedItem=item.item;
+      console.log(item.id);
+    }*/
+   
   ngOnInit() {
+    
     this.myForm = this.fb.group({
-     triptype: 'one',
+      triptype: 'one',
       dest: '',
       origin: '',
       datefrom:'',
@@ -41,16 +59,22 @@ export class BasicFormComponent implements OnInit {
 	  adult:'',
 	  child:'',
 	  infant:''
-    })
+    });
 
     this.myForm.valueChanges.subscribe(console.log)
   }
   onSubmit() {
     if (this.myForm.valid) {
       console.log("Form Submitted!");
+     //tbd
     }
     console.log("Form entry!");
-    this.router.navigate(['search', { data: { type: this.myForm.value } } ]);
-  }
+    Object.keys(this.myForm.controls).forEach((key: string) => {
+      this._dataService.setOption(key,this.myForm.controls[key].value);
 
+    });
+   console.log(this._dataService.get());
+    this.router.navigate(['search']);
+  }
+  
 }

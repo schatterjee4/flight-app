@@ -14,11 +14,11 @@ h1 {
    font-size: 2em;
 }
 header{
-    background:black;
+    background:#11172b;
 }
 nav{
     z-index: 1000;
-    background:black;
+    background:#11172b;
 }
 .navbar-sm {min-height:10px;max-height: 34px;}
 .clear{
