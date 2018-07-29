@@ -37,11 +37,12 @@ export class FlightResultComponent implements OnInit {
            console.log(this._dataService.get()['origin']);
            this
            ._dataService
-           .getOutboundFlights()
+           .getOutboundFlights(this._dataService.get()['origin']['key'])
            .subscribe((data: Flight[]) => {
              this.outboundFlights = data;
-         }) .filter(item => item.source === this._dataService.get()['origin']['key']) ;
-           this.mydetailForm.valueChanges.subscribe(console.log)
+         });
+         console.log(this.outboundFlights);
+           this.mydetailForm.valueChanges.subscribe(console.log);
     }
     onSubmit() {
         if (this.mydetailForm.valid) {
