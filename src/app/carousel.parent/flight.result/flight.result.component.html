@@ -7,7 +7,7 @@
         </div>
         <form [formGroup]="mydetailForm" (ngSubmit)="onSubmit()">
             <div class="row row-table margin-top-5">
-
+               <!-- {{mydetailForm.value|json}}-->
                 <div class=" col-7">
                     <div class="row row-table">
                         <div class=" col-12 flight-out-component pl-0" *ngIf="outboundFlights?.length > 0">
@@ -102,20 +102,20 @@
                                             <div class="row row-table h-100">
                                                 <div class="col-12 flight-section-details">
     
-    
-                                                    <input type="radio" class="customfare" id="fare-route-one" value="" formControlName="fareRouteOne" />
-                                                    <label for="fare-route-one">
-    
-                                                        <a class="selectLinkFare tblHeadBigtext wrapWords" href="javascript:void(0);" role="button">
+                                                    <input type="hidden" #refinpuOne id="fare-route-one-rad-{{i}}" value={{flight.price}} />
+                                                    <input type="radio" class="customfare" id="fare-route-one-{{i}}" value="" formControlName="fareRouteOne" />
+                                                    <label for="fare-route-one-{{i}}">
+
+                                                        <a class="selectLinkFare tblHeadBigtext wrapWords" id="link-price-one-{{i}}"  (click)="updatePriceOne(refinpuOne)"    href="javascript:void(0);" role="button">
     
                                                             <div class="currencydiv flight-section-details">
                                                                 <span class="tblCntBigTxt">
     
                                                                     <span class="checkMark"></span>
                                                                     <sup class="currencyCode">$</sup>
-                                                                    <span class="priceBfrDec">{{flight.price}}</span>
+                                                                    <span class="priceBfrDec">{{flight.price.split('.')[0]}}</span>
                                                                     <!---->
-                                                                    <sup>.40</sup>
+                                                                    <sup>{{flight.price.split('.')[1]}}</sup>
                                                                 </span>
                                                             </div>
     
@@ -150,7 +150,7 @@
                                         <div class="col-9 detail-container detail-container-head">
                                             <div class="row row-table">
                                                 <div class="col-2 flight-section text-center tripDateParent">
-                                                    <span class="tripDate ">{{flightsearchdata.datefrom}} </span>
+                                                    <span class="tripDate ">{{flightsearchdata.dateto}} </span>
                                                 </div>
                                                 <div class="col-10 flight-section flight-section-details">
                                                     <div class="container ">
@@ -219,21 +219,20 @@
                                         <div class="col-3 detail-container  detail-container-head ">
                                                 <div class="row row-table h-100">
                                                     <div class="col-12 flight-section-details">
+                                                        <input type="hidden" #refinpuTwo id="fare-route-two-rad-{{i}}" value={{flight.price}} />
+                                                        <input type="radio" class="customfare" id="fare-route-two-{{i}}" value="{{i}}" formControlName="fareRouteTwo" />
+                                                        <label for="fare-route-two-{{i}}">
         
-        
-                                                        <input type="radio" class="customfare" id="fare-route-one" value="" formControlName="fareRouteOne" />
-                                                        <label for="fare-route-one">
-        
-                                                            <a class="selectLinkFare tblHeadBigtext wrapWords" href="javascript:void(0);" role="button">
+                                                            <a class="selectLinkFare tblHeadBigtext wrapWords" (click)="updatePriceTwo(refinpuTwo)" href="javascript:void(0);" role="button">
         
                                                                 <div class="currencydiv flight-section-details">
                                                                     <span class="tblCntBigTxt">
         
                                                                         <span class="checkMark"></span>
                                                                         <sup class="currencyCode">$</sup>
-                                                                        <span class="priceBfrDec">{{flight.price}}</span>
+                                                                        <span class="priceBfrDec">{{flight.price.split('.')[0]}}</span>
                                                                         <!---->
-                                                                        <sup>.40</sup>
+                                                                        <sup>{{flight.price.split('.')[1]}}</sup>
                                                                     </span>
                                                                 </div>
         
@@ -263,7 +262,7 @@
                                                 <span class="payHeader">You Pay </span>
                                             </div>
                                             <div class="col-7  text-left ">
-                                                <strong class="payValue">$360</strong>
+                                                <strong class="payValue">${{mydetailForm.value.fareRouteTwoVal*1 +mydetailForm.value.fareRouteOneVal*1}}</strong>
                                             </div>
                                         </div>
                                     </div>

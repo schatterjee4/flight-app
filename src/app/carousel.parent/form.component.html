@@ -27,14 +27,14 @@
             <div class="input-group">
 
                 <div class="col-6 pr-0">
-                    <input id="typeahead-basic"   [resultTemplate]="rt"  [inputFormatter]="formatter"  type="text" class="form-control no-border-rad ellip" formControlName="origin" [ngbTypeahead]="search"
+                    <input id="typeahead-basic" required  [resultTemplate]="rt"  [inputFormatter]="formatter"  type="text" class="form-control no-border-rad ellip" formControlName="origin" [ngbTypeahead]="search"
                     />
                 </div>
                 <div class="col-1 center">
                     <span class="connector"></span>
                 </div>
                 <div class="col-5 pl-0 pr-0">
-                    <input id="typeahead-basic"  [resultTemplate]="rt"   [inputFormatter]="formatter"  type="text" class="form-control no-border-rad ellip" formControlName="dest" [ngbTypeahead]="search"
+                    <input id="typeahead-basic" required [resultTemplate]="rt"   [inputFormatter]="formatter"  type="text" class="form-control no-border-rad ellip" formControlName="dest" [ngbTypeahead]="search"
                     />
                 </div>
             </div>
@@ -59,14 +59,14 @@
         <div class="row ">
             <div class="input-group">
                 <div class="col-6 pr-0" id="origDate">
-                    <input type="text"  [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="datefrom" ngbDatepicker #d1="ngbDatepicker">
+                    <input type="text" required [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="datefrom" ngbDatepicker #d1="ngbDatepicker">
                     <span class="calendarClickIcon right-0" (click)="d1.toggle()" id="origDateCalIcon"></span>
 
                 </div>
                 <div class="col-1 center">
                 </div>
                 <div class="col-5 pl-0 pr-0 invisible" id="destDate">
-                    <input type="text"  [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
+                    <input type="text" required [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
                     <span class="calendarClickIcon right-0" (click)="d2.toggle()" id="depDateCalIcon"></span>
 
                 </div>

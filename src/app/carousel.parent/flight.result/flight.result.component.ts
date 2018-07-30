@@ -32,8 +32,10 @@ export class FlightResultComponent implements OnInit {
         }
         console.log(this._dataService.get());
         this.mydetailForm = this.fb.group({
-            fareRouteTwo: '',
-            fareRouteOne: ''
+            fareRouteTwo: '0',
+            fareRouteOne: '0',
+            fareRouteTwoVal: '0',
+            fareRouteOneVal: '0'
         });
 
         this.flightsearchdata = this._dataService.get();
@@ -57,7 +59,7 @@ export class FlightResultComponent implements OnInit {
                 .subscribe((data: Flight[]) => {
                     this.inboundFlights = data;
                 });
-        }
+       }
 
         this.mydetailForm.valueChanges.subscribe(console.log);
     }
@@ -65,8 +67,17 @@ export class FlightResultComponent implements OnInit {
         if (this.mydetailForm.valid) {
             console.log("Form Submitted!");
         }
+        this._dataService.setOption('totalPrice',parseInt(this.mydetailForm.value.fareRouteOneVal)+parseInt(this.mydetailForm.value.fareRouteTwoVal));
+
         console.log("Form entry!");
         this.router.navigate(['payment']);
     }
+    updatePriceOne(val) {
+        this.mydetailForm.value.fareRouteOneVal=val.value;
 
+    }
+    updatePriceTwo(val) {
+        this.mydetailForm.value.fareRouteTwoVal=val.value;
+
+    }
 }
