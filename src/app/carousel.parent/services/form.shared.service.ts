@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {  Http, Response } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Flight } from '../models/flight.results.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -9,7 +9,7 @@ export class FormService {
     data: any;
     http: Http;
 
-    constructor(http: Http ) {
+    constructor(http: Http) {
         this.http = http;
         console.log('Inside service');
         //this.config = this.http.get('/config.json');
@@ -33,10 +33,19 @@ export class FormService {
     get() {
         return this.data;
     }
-    getOutboundFlights(key:String): Observable<Flight[]> {
-        return this.http.get('../../assets/flight-outbound-results.json')
-        .pipe(map(res => Array<Flight>).filter(<Flight>(x) => x.source==key)));
-   }
-   
-   
+ getOutboundFlights(orig:String, dest:String): Observable<Flight[]> {
+        return this.http.get<Flight[]>('../../assets/flight-outbound-results.json').pipe(
+            map((res:Response) => (
+               res.json().flightDetails.filter(items => items.source == orig && items.destination == dest )
+            ))
+          );
+    } 
+    getInboundFlights(orig:String, dest:String): Observable<Flight[]> {
+        return this.http.get<Flight[]>('../../assets/flight-inbound-results.json').pipe(
+            map((res:Response) => (
+               res.json().filter(items => items.source == orig && items.destination == dest )
+            ))
+          );
+    } 
+
 }
