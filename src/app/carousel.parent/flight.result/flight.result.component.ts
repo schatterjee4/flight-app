@@ -70,7 +70,7 @@ export class FlightResultComponent implements OnInit {
         this._dataService.setOption('totalPrice',parseInt(this.mydetailForm.value.fareRouteOneVal)+parseInt(this.mydetailForm.value.fareRouteTwoVal));
 
         console.log("Form entry!");
-        this.router.navigate(['payment']);
+        this.router.navigate(['passengerdetails']);
     }
     updatePriceOne(val) {
         this.mydetailForm.value.fareRouteOneVal=val.value;

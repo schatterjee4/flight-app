@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule,NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselParentComponent } from './carousel.parent.component';
 import { CarouselModule } from './carousel/carousel.module';
 import { BasicFormComponent } from "./form.component";
@@ -11,12 +11,13 @@ import {Routes, RouterModule} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import { CarouselSectionComponent } from './carousel.section.component';
 import { FlightPaymentComponent} from './flight.payment/flight.payment.component';
-
+import {PaxAccordionToggleComponent} from './flight.pax/flight.pax.component';
 //import { CarouselService } from './carousel.service';
 const routes: Routes = [
     { path: '', component: CarouselSectionComponent, pathMatch: 'full' },
     { path: 'search', component: FlightResultComponent },
-    { path: 'payment', component: FlightPaymentComponent }
+    { path: 'payment', component: FlightPaymentComponent },
+    { path : 'passengerdetails' ,component: PaxAccordionToggleComponent}
    ];
 
 @NgModule({
@@ -30,6 +31,7 @@ const routes: Routes = [
         MatSelectModule,
         MatCheckboxModule,
         ReactiveFormsModule,
+        NgbAccordionModule,
         RouterModule.forRoot(routes,{ useHash: false })
 
     ],
@@ -38,7 +40,8 @@ const routes: Routes = [
         BasicFormComponent,
         FlightResultComponent,
         CarouselSectionComponent,
-        FlightPaymentComponent
+        FlightPaymentComponent,
+        PaxAccordionToggleComponent
     ],
     providers: [
         // CarouselService,

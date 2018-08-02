@@ -1,0 +1,55 @@
+<div class="tabs-content clear flight-schedule container-fluid " data-trip-index="0" data-bundle-product="" data-bundle-amount="0">
+    <div class="container">
+        <div class="row m0-xs-down  ">
+
+            <div class=" p0-xs-down flight-section-search-head col-7">
+            </div>
+        </div>
+        <div class="row row-table margin-top-5">
+            <!-- {{mydetailForm.value|json}}-->
+            <div class=" col-8">
+                <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()">
+
+                    <ngb-accordion #acc="ngbAccordion">
+                        <!--adult rows-->
+                        <ng-container *ngFor="let adt  of adultNos">
+
+
+                            <ngb-panel id="pax-adt-{{adt}}" class="adt">
+                                <ng-template ngbPanelContent>
+                                    <span class="tab--icon picto picto-passenger-adult" aria-hidden="true"></span>
+                                </ng-template>
+                            </ngb-panel>
+
+                        </ng-container>
+                        <!--child rows-->
+                        <ng-container *ngFor="let chd  of childNos">
+
+
+                            <ngb-panel id="pax-chd-{{chd}}" class="chd">
+                                <ng-template ngbPanelContent>
+                                    <span class="tab--icon picto picto-passenger-adult" aria-hidden="true"></span>
+                                </ng-template>
+                            </ngb-panel>
+
+                        </ng-container>
+                        <!--infant rows-->
+                        <ng-container *ngFor="let inf  of infantNos" class="inf">
+
+
+                            <ngb-panel id="pax-inf-{{inf}}">
+                                <ng-template ngbPanelContent>
+                                    <span class="tab--icon picto picto-passenger-adult" aria-hidden="true"></span>
+                                </ng-template>
+                            </ngb-panel>
+
+                        </ng-container>
+                    </ngb-accordion>
+                </form>
+            </div>
+            <div class=" col-4">
+                <div class="row row-table"></div>
+            </div>
+        </div>
+    </div>
+</div>
