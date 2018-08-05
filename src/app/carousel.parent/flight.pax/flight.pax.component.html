@@ -8,7 +8,7 @@
         <div class="row row-table margin-top-5">
             <!-- {{mydetailForm.value|json}}-->
 
-            <div class=" col-8">
+            <div class="flight-pax-table col-8">
                 <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()">
                     <!--adult rows-->
                     <ng-container formArrayName="items" *ngFor="let item of myPaxForm.get('items').controls; let i = index;">
