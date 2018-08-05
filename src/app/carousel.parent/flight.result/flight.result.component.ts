@@ -61,7 +61,7 @@ export class FlightResultComponent implements OnInit {
                 });
        }
 
-        this.mydetailForm.valueChanges.subscribe(console.log);
+      //  this.mydetailForm.valueChanges.subscribe(console.log);
     }
     onSubmit() {
         if (this.mydetailForm.valid) {
