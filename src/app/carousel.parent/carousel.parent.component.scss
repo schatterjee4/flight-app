@@ -331,7 +331,7 @@ font-size: 11px;
 
 
    //background-image: url("../../assets/carousel/vg-4.jpeg");
-    background-color: #f2f2f2;
+    //background-color: #fff;
     //background-color: #f8f8f8;
       /* Center and scale the image nicely */
       background-position: center;
@@ -497,7 +497,7 @@ background-position: -13px -1690px;
     vertical-align: baseline;
 
 }
-.flight-component-head{
+.flight-component-head ,.flight-pax-table{
     background:#ffffff;
     font-size: 25px!important;
     font-weight: 500;
@@ -511,11 +511,11 @@ background-position: -13px -1690px;
     border-top-right-radius: 4px;
    
 }
-.flight-component-head  h2{
+.flight-component-head h2,.flight-pax-table h2{
     font-size: 25px!important;
     font-family: Whitney-Medium!important;
-    padding: 7px 0;
-    display: inline-block;
+   // padding: 7px 0;
+  //  display: inline-block;
 
 }
 .flight-component-head-icon{
@@ -548,6 +548,12 @@ min-height:20px;
 }
 .marginr-2{
 margin-right:2px;
+}
+.margint-2{
+margin-top:2px;
+}
+.marginb-2{
+    margin-bottom:2px;
 }
 .fareBasisHeader{
  //border-left:1px solid #e7e8e8;
@@ -691,21 +697,26 @@ padding-left: 2px;
 }
 .paynowBtn{
     color: #ffffff;
-    //background-color: #c10635!important;
-    background-color:#54C7C3 !important;
-    padding:0!important;
-    width: 135px;
-    height: 30px;
+    background-color:#d6083b!important;
+    //background-color:#54C7C3 !important;
+   // padding:0!important;
+   // width: 135px;
+   // height: 30px;
+   padding-left: 20px !important; 
+    padding-right: 50px !important;
+    padding:12px !important;
     letter-spacing: .1em;
-    border:0px !important;
+    border-radius:0px !important;
     font-weight:500 !important;
     font-size:12px !important;
     display: block;
     margin: auto;
     text-align: center;
+    height:unset !important;
 }
 .paynowBtn:hover{
-    background-color: #6DCECB !important;
+    //background-color: #6DCECB !important;
+    background-color: #51585c !important;
 }
 .padding-top-2{
     padding-top: 2px;
@@ -733,4 +744,8 @@ padding-left: 2px;
     height:auto;
     max-width: 100%;
 
+}
+.hide 
+{
+    display: none !important;
 }

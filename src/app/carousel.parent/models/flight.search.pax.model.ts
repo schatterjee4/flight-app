@@ -1,6 +1,7 @@
 export class PaxType {
-    paxtype: String,
-    firstName: String,
-    lastName: String
+    paxtype: String;
+    firstName: String;
+    lastName: String;
+    salutation:String
     
 }

@@ -21,10 +21,10 @@ export class PaxAccordionToggleComponent {
     private router: Router,
     private fb: FormBuilder,
     private _dataService: FormService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    
+
     this.adultNos = new Array<PaxType>(5 * 1).fill(new PaxType());
     /*for (let i = 0; i < this.myPaxForm.value.adult * 1; i++){
         let pax= new PaxType();
@@ -33,32 +33,32 @@ export class PaxAccordionToggleComponent {
     }*/
     this.adultNos.forEach(element => {
       console.log(element.paxtype);
-      element.paxtype ='adt';
-      element.firstName='';
+      element.paxtype = 'adt';
+      element.firstName = '';
     });
 
     this.childNos = Array(5 * 1).fill(new PaxType());;
-    this.childNos.forEach(person => { person.paxtype = 'chd' ; person.firstName=''});
+    this.childNos.forEach(person => { person.paxtype = 'chd'; person.firstName = '' });
     this.infantNos = Array(5 * 1).fill(new PaxType());;
-    this.infantNos.forEach(person => { person.paxtype="inf" });
+    this.infantNos.forEach(person => { person.paxtype = "inf" });
     this.paxArray = [
       ...this.adultNos,
       ...this.childNos,
       ...this.infantNos
     ];
     this.myPaxForm = this.fb.group({
-        adult: 5, //this._dataService.get()['adult'],
-        child: 5, //this._dataService.get()['child'],
-        infant: 5, //this._dataService.get()['infant'],
-       // paxArray: this.fb.array([this.initPax(this.paxArray)]),
-        items: this.fb.array([])
+      adult: 5, //this._dataService.get()['adult'],
+      child: 5, //this._dataService.get()['child'],
+      infant: 5, //this._dataService.get()['infant'],
+      // paxArray: this.fb.array([this.initPax(this.paxArray)]),
+      items: this.fb.array([])
 
-      });
-      this.addItem(this.paxArray);
-      console.log( this.myPaxForm.controls.items);
-      console.log( this.myPaxForm.value.items);
+    });
+    this.addItem(this.paxArray);
+    console.log(this.myPaxForm.controls.items);
+    console.log(this.myPaxForm.value.items);
 
-      this.myPaxForm.valueChanges.subscribe(console.log);    // alert(this._dataService.get()['totalPrice']);
+    this.myPaxForm.valueChanges.subscribe(console.log);    // alert(this._dataService.get()['totalPrice']);
     //  this.myPaymentForm.value.totalPrice = this._dataService.get()['totalPrice'];
     if (this.containername !== undefined) {
       console.log(this.containername);
@@ -67,11 +67,11 @@ export class PaxAccordionToggleComponent {
   addItem(arr: PaxType[]) {
     const control = <FormArray>this.myPaxForm.controls['items'];
     arr.forEach(element => {
-        control.push(this.createItem(element.paxtype));
+      control.push(this.createItem(element.paxtype));
 
-      });
+    });
   }
-  createItem(paxtype:String): FormGroup {
+  createItem(paxtype: String): FormGroup {
     return this.fb.group({
       firstName: '',
       lastName: '',
@@ -80,17 +80,26 @@ export class PaxAccordionToggleComponent {
   }
   initPax(arr: PaxType[]) {
     // initialize our address
-  //  console.log(arr);
+    //  console.log(arr);
     const newArr = arr.map(person => {
-       return  this.fb.group({
-            'paxtype':[person.paxtype],
-            'firstName':['']
-        });
+      return this.fb.group({
+        'paxtype': [person.paxtype],
+        'firstName': ['']
+      });
     });
-    console.log( newArr)
+    console.log(newArr)
 
     return newArr;
   }
+  onSubmit() {
+    if (this.myPaxForm.valid) {
+      console.log("Form Submitted!");
+    }
+    console.log(this._dataService.get());
+
+    console.log("Form entry!");
+    this.router.navigate(['payment']);
+  }
 }
 
-}
+

@@ -49,9 +49,9 @@
                     </div>
                 </div>
                 <div class="col-1 left"></div>
-                <div class="col-5 pl-0 pr-0 invisible">
+                <div class="col-5 pl-0 pr-0 ">
                     <div class="pd-top-10">
-                        <label for="destCity" class="requiredLabel">ARRIVAL DATE</label>
+                        <label for="destCity" [ngClass]="{ 'invisible': myForm.value.triptype=='one'}"  class="requiredLabel">ARRIVAL DATE</label>
                     </div>
                 </div>
             </div>
@@ -65,9 +65,9 @@
                 </div>
                 <div class="col-1 center">
                 </div>
-                <div class="col-5 pl-0 pr-0 invisible" id="destDate">
-                    <input type="text" required [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
-                    <span class="calendarClickIcon right-0" (click)="d2.toggle()" id="depDateCalIcon"></span>
+                <div class="col-5 pl-0 pr-0 " id="destDate">
+                    <input type="text" [ngClass]="{ 'invisible': myForm.value.triptype=='one'}" required [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
+                    <span class="calendarClickIcon right-0"  [ngClass]="{ 'invisible': myForm.value.triptype=='one'}" (click)="d2.toggle()" id="depDateCalIcon"></span>
 
                 </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="pull-right offset-md-4 col-8 right ">
                 <div class="pd-top-10">
 
-                    <input src="" class="submit" id="flights-submit" name="ap3-flights-submit" type="submit" value="FIND FLIGHTS">
+                    <input src="" class="paynowBtn submit" id="flights-submit" name="ap3-flights-submit" type="submit" value="FIND FLIGHTS">
                 </div>
 
             </div>

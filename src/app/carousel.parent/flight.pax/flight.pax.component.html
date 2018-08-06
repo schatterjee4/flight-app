@@ -9,28 +9,46 @@
             <!-- {{mydetailForm.value|json}}-->
 
             <div class="flight-pax-table col-8">
+                <div class="col-12">
+                    <h2>Personal Details</h2>
+                </div>
                 <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()">
                     <!--adult rows-->
-                    <ng-container formArrayName="items" *ngFor="let item of myPaxForm.get('items').controls; let i = index;">
-                        <div [formGroupName]="i">
-                            <ngb-accordion #acc="ngbAccordion">
+                    <div class="col-12 p-0">
+                        <ng-container formArrayName="items" *ngFor="let item of myPaxForm.get('items').controls; let i = index;">
+                            <div [formGroupName]="i">
+                                <ngb-accordion #acc="ngbAccordion">
 
-                                <ngb-panel id="pax-{{item.value.paxType}}-{{i}}" class="adt">
-                                    <ng-template ngbPanelContent>
-                                        <div class="container ">
-                                            <div class="row ml-0">
+                                    <ngb-panel id="pax-{{item.value.paxType}}-{{i}}" class="adt">
+                                        <ng-template ngbPanelContent>
+                                            <div class="container ">
+                                                <div class="row ml-0 pad-5 row-flex">
 
-                                                <label class="requiredLabel passDetailLbl">First Name</label>
-                                                <div class="col-5"> <input id="{{item.value.paxType}}-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="firstName" /></div>
+                                                    <label class="requiredLabel passDetailLbl">First Name</label>
+                                                    <div class="col-7">
+                                                        <input id="{{item.value.paxType}}-firstName-{{i}}" type="text" class=" row-detail form-control no-border-rad"
+                                                            formControlName="firstName" />
+                                                    </div>
+                                                </div>
+                                                <div class="row ml-0 pad-5 row-flex">
+
+                                                    <label class="requiredLabel passDetailLbl">Last Name</label>
+                                                    <div class="col-7">
+                                                        <input id="{{item.value.paxType}}-lastName-{{i}}" type="text" class=" row-detail form-control no-border-rad"
+                                                            formControlName="lastName" />
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </ng-template>
-                                </ngb-panel>
+                                        </ng-template>
+                                    </ngb-panel>
 
-                            </ngb-accordion>
-                        </div>
-                    </ng-container>
-
+                                </ngb-accordion>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="col-12 padding-bt-2 padding-top-2 row-pax-payment">
+                        <input src="" class="btn submit paynowBtn" id="pay-submit" name="ap3-flights-submit" type="submit" value="Proceed to Payment">
+                    </div>
                 </form>
 
             </div>
