@@ -10,9 +10,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormService} from './carousel.parent/services/form.shared.service';
 import { HttpModule } from '@angular/http';
+import { FlightNavComponent } from './carousel.parent/flight.navigation/flight.navigation';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FlightNavComponent
+
   ],
   imports: [
     BrowserModule,

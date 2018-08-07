@@ -1,0 +1,39 @@
+.l-horizontal-samewidth-list
+{
+    list-style: none;
+    margin-top: 36px;
+    margin-bottom: 1px;
+    display: flex;
+}
+.step-navigation-step{
+    display: inline-block;
+    position: relative;
+    border: solid #ddd;
+    border-width: 0 1px 0 0;
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    line-height: 1;
+    flex:1;
+    list-style: none;
+    font-size:14px;
+    width:10px;
+}
+.icon-step{
+    display: inline-block;
+    //vertical-align: middle;
+  //  display: inline-flex;
+  //  align-items: center;    
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 17px;
+    border: 2px solid #9e9890;
+    border-radius: 20px; 
+    background: #fff;
+     margin: -2px 2px 0 0;
+     
+}
