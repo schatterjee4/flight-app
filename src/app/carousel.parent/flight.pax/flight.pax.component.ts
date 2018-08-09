@@ -86,7 +86,7 @@ export class PaxAccordionToggleComponent {
         'firstName': ['']
       });
     });
-    console.log(newArr)
+    console.log(newArr);
 
     return newArr;
   }

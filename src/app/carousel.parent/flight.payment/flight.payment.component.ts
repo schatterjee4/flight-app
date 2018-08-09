@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class FlightPaymentComponent implements OnInit {
     myPaymentForm: FormGroup;
-
+    pnr:string;
     @Input() containername: string;
     //constructor(private carouselService: CarouselService) { }
     constructor(
@@ -33,7 +33,18 @@ export class FlightPaymentComponent implements OnInit {
 
     }
     onSubmit() {
+        pnr =  makeid();
      this.router.navigate(['bookingdetails']);
     }
+    makeid() {
+        let text = '';
+        const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      
+        for (let i = 0; i < 5; i++){
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+      
+        return text;
+      }
 
 }
