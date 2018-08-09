@@ -5,7 +5,7 @@
         </div>
 
         <div class="row row-table margin-top-5 flight-book-table">
-            <div class="flight-pax-table p-0 col-6 offset-2">
+            <div class="flight-pax-table p-0 col-8 offset-2">
                 <div class="col-12 p-2 m-0 flight-book-table-header">
                     <h2>Booking Created Successfully!</h2>
                 </div>
@@ -57,7 +57,7 @@
                                 Grand total ${{data.totalPrice}}
                             </div>
                         </div>
-                        <div class="row row-table">
+                        <!--<div class="row row-table">
                                 <div class="col-3 flight-section text-center tripDateParent">
                                     <span class="tripDate">{{data.datefrom}}</span>
                                 </div>
@@ -85,15 +85,24 @@
                                 <div class="col-3">
                                     Grand total ${{data.totalPrice}}
                                 </div>
-                            </div>
-                        <div class="row row-table pr-0">
+                            </div>-->
+                            <div class="row row-table pr-0 ">
+                                <div class="col-6  padding-bt-2 padding-top-2 "></div>
+                            <div class="col-4 pl-0 padding-bt-2 padding-top-2 row-pax-payment pull-right">
+                                <input src="" class="btn submit bookDtBtn paynowBtn pull-left " id="search-submit" name="ap3-flights-submit" (click)="redirectToRoute('/')" type="submit" value="Search Another Flight"/>
+                           </div>
+                           <div class="col-2 pr-0  padding-bt-2 padding-top-2  text-left"> <input src="" class="btn submit bookDtBtn paynowBtn pull-right" id="search-submit" name="ap3-flights-submit" (click)="redirectToRoute('cancel')" type="submit" value="Cancel Booking"/>
+                           </div>
+                          
+                        </div>
+                        <!--<div class="row row-table pr-0">
                             <div class="col-10 offset-2 padding-bt-2 padding-top-2 row-pax-payment">
                                     <span class="spacer"></span>
                                 <input src="" class="btn submit bookDtBtn paynowBtn" id="search-submit" name="ap3-flights-submit" (click)="redirectToRoute('/')" type="submit" value="Search Another Flight"/>
                                 <span class="spacer"></span>
                                 <input src="" class="btn submit bookDtBtn paynowBtn"  id="cancel-submit" name="ap3-flights-submit" (click)="redirectToRoute('cancel')" type="submit" value="Cancel Booking"/>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
 }
 .flight-book-table{
  background-color: #fff;
- justify-content: center;
+ //justify-content: center;
 }
 .p-2{
     padding:2px!important;
@@ -27,4 +27,7 @@
 }
 .row-bottm-border{
     border-bottom: 1px solid #b4b7bd; 
+}
+.pull-left{
+    float: left !important;
 }
