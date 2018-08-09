@@ -28,10 +28,21 @@ export class FormService {
         console.log(this.data['adult']);
     }
     setOption(option, value) {
+        this.data =  this.get();
         this.data[option] = value;
+        this.saveData(this.data);
     }
     get() {
+        if(localStorage.getItem('currentUserData'))
+        {
+            this.data = JSON.parse(localStorage.getItem('currentUserData'));
+        }
+      
         return this.data;
+    }
+    saveData(data: Object){
+        localStorage.setItem('currentUserData', JSON.stringify(data));
+
     }
  getOutboundFlights(orig:String, dest:String): Observable<Flight[]> {
         return this.http.get('../../assets/flight-outbound-results.json').pipe(

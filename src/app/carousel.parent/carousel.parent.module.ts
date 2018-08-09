@@ -12,12 +12,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CarouselSectionComponent } from './carousel.section.component';
 import { FlightPaymentComponent} from './flight.payment/flight.payment.component';
 import {PaxAccordionToggleComponent} from './flight.pax/flight.pax.component';
+import { FlightBookingComponent } from './flight.booking/flight.booking';
+import { FlightBookingCancelComponent } from './flight.booking.cancel/flight.booking.cancel';
+
 //import { CarouselService } from './carousel.service';
 const routes: Routes = [
     { path: '', component: CarouselSectionComponent, pathMatch: 'full' },
     { path: 'search', component: FlightResultComponent },
     { path: 'payment', component: FlightPaymentComponent },
-    { path : 'passengerdetails' ,component: PaxAccordionToggleComponent}
+    { path : 'passengerdetails' ,component: PaxAccordionToggleComponent},
+    {path : 'bookingdetails', component:FlightBookingComponent},
+    {path: 'cancel', component:FlightBookingCancelComponent}
    ];
 
 @NgModule({
@@ -41,7 +46,9 @@ const routes: Routes = [
         FlightResultComponent,
         CarouselSectionComponent,
         FlightPaymentComponent,
-        PaxAccordionToggleComponent
+        PaxAccordionToggleComponent,
+        FlightBookingComponent,
+        FlightBookingCancelComponent
     ],
     providers: [
         // CarouselService,

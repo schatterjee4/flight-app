@@ -30,7 +30,10 @@ export class FlightPaymentComponent implements OnInit {
         if (this.containername !== undefined) {
             console.log(this.containername);
         }
-        console.log(this.route.snapshot.data['type']);
 
     }
+    onSubmit() {
+     this.router.navigate(['bookingdetails']);
+    }
+
 }

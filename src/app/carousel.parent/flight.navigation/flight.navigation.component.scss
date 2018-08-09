@@ -4,6 +4,7 @@
     margin-top: 36px;
     margin-bottom: 1px;
     display: flex;
+    border-bottom: 1px solid #DEDEDE;
 }
 .step-navigation-step{
     display: inline-block;
@@ -19,6 +20,11 @@
     list-style: none;
     font-size:14px;
     width:10px;
+    
+}
+.icon-step:not(:last-child){
+    border: 2px solid #9e9890;
+    border-radius: 20px; 
 }
 .icon-step{
     display: inline-block;
@@ -31,9 +37,13 @@
     width: 20px;
     height: 20px;
     line-height: 17px;
-    border: 2px solid #9e9890;
-    border-radius: 20px; 
     background: #fff;
      margin: -2px 2px 0 0;
      
+}
+.step-title{
+    padding: 2px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #40403f;
 }

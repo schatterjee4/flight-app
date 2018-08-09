@@ -103,10 +103,13 @@
                                                 <div class="col-12 flight-section-details">
     
                                                     <input type="hidden" #refinpuOne id="fare-route-one-rad-{{i}}" value={{flight.price}} />
+                                                    <input type="hidden" #refinputOtOne id="fare-route-ot-one-rad-{{i}}" value={{flight.startTime}} />
+                                                    <input type="hidden" #refinpuDtOne id="fare-route-dt-one-rad-{{i}}" value={{flight.endTime}} />
+
                                                     <input type="radio" class="customfare" id="fare-route-one-{{i}}" value="" formControlName="fareRouteOne" />
                                                     <label for="fare-route-one-{{i}}">
 
-                                                        <a class="selectLinkFare tblHeadBigtext wrapWords" id="link-price-one-{{i}}"  (click)="updatePriceOne(refinpuOne)"    href="javascript:void(0);" role="button">
+                                                        <a class="selectLinkFare tblHeadBigtext wrapWords" id="link-price-one-{{i}}"  (click)="updatePriceOne(refinpuOne, refinputOtOne,refinpuDtOne )"    href="javascript:void(0);" role="button">
     
                                                             <div class="currencydiv flight-section-details">
                                                                 <span class="tblCntBigTxt">

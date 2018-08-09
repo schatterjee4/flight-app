@@ -35,13 +35,21 @@ export class FlightResultComponent implements OnInit {
             fareRouteTwo: '0',
             fareRouteOne: '0',
             fareRouteTwoVal: '0',
-            fareRouteOneVal: '0'
+            fareRouteOneVal: '0',
+            otTimeOne: '',
+            dtTimeOne: '',
+            otTimeTwo: '',
+            dtTimeTwo: ''
         });
 
         this.flightsearchdata = this._dataService.get();
         if(this.flightsearchdata.datefrom!=null)
         {
             this.flightsearchdata.datefrom = this.flightsearchdata.datefrom['day']+' '+months[this.flightsearchdata.datefrom['month']]+' '+this.flightsearchdata.datefrom['year'];
+        }
+        if(this.flightsearchdata.dateto!=null && this._dataService.get()['triptype'] == 'two')
+        {
+            this.flightsearchdata.dateto = this.flightsearchdata.dateto['day']+' '+months[this.flightsearchdata.dateto['month']]+' '+this.flightsearchdata.dateto['year'];
         }
         console.log(this.flightsearchdata.datefrom);
         this
@@ -68,13 +76,16 @@ export class FlightResultComponent implements OnInit {
             console.log("Form Submitted!");
         }
         this._dataService.setOption('totalPrice',parseInt(this.mydetailForm.value.fareRouteOneVal)+parseInt(this.mydetailForm.value.fareRouteTwoVal));
+        this._dataService.setOption('otTimeOne', this.mydetailForm.value.otTimeOne);
+        this._dataService.setOption('dtTimeOne', this.mydetailForm.value.dtTimeOne);
 
         console.log("Form entry!");
         this.router.navigate(['passengerdetails']);
     }
-    updatePriceOne(val) {
+    updatePriceOne(val,otTime,dtTime) {
         this.mydetailForm.value.fareRouteOneVal=val.value;
-
+        this.mydetailForm.value.otTimeOne=otTime.value;
+        this.mydetailForm.value.dtTimeOne=dtTime.value;
     }
     updatePriceTwo(val) {
         this.mydetailForm.value.fareRouteTwoVal=val.value;

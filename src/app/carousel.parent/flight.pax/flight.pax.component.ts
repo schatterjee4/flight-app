@@ -25,7 +25,7 @@ export class PaxAccordionToggleComponent {
 
   ngOnInit() {
 
-    this.adultNos = new Array<PaxType>(5 * 1).fill(new PaxType());
+    this.adultNos = new Array<PaxType>(this._dataService.get()['adult'] * 1).fill(new PaxType());
     /*for (let i = 0; i < this.myPaxForm.value.adult * 1; i++){
         let pax= new PaxType();
         pax.paxtype='adt';
@@ -34,12 +34,11 @@ export class PaxAccordionToggleComponent {
     this.adultNos.forEach(element => {
       console.log(element.paxtype);
       element.paxtype = 'adt';
-      element.firstName = '';
     });
 
-    this.childNos = Array(5 * 1).fill(new PaxType());;
-    this.childNos.forEach(person => { person.paxtype = 'chd'; person.firstName = '' });
-    this.infantNos = Array(5 * 1).fill(new PaxType());;
+    this.childNos = Array(this._dataService.get()['child'] * 1).fill(new PaxType());
+    this.childNos.forEach(person => { person.paxtype = 'chd'});
+    this.infantNos = Array(this._dataService.get()['infant'] * 1).fill(new PaxType());
     this.infantNos.forEach(person => { person.paxtype = "inf" });
     this.paxArray = [
       ...this.adultNos,
@@ -47,9 +46,9 @@ export class PaxAccordionToggleComponent {
       ...this.infantNos
     ];
     this.myPaxForm = this.fb.group({
-      adult: 5, //this._dataService.get()['adult'],
-      child: 5, //this._dataService.get()['child'],
-      infant: 5, //this._dataService.get()['infant'],
+      adult: this._dataService.get()['adult'],
+      child: this._dataService.get()['child'],
+      infant: this._dataService.get()['infant'],
       // paxArray: this.fb.array([this.initPax(this.paxArray)]),
       items: this.fb.array([])
 
