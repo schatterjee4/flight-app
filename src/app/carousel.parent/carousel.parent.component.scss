@@ -749,3 +749,27 @@ padding-left: 2px;
 {
     display: none !important;
 }
+.refNo{
+    text-transform: uppercase;
+    font-weight:600;
+
+}
+.flight-book-table h2,.flight-book-table h3{
+    display:inline-block;
+}
+.flight-book-table h2{
+    font-size:25px!important;
+flex:1;
+padding-right:10px;
+}
+.flight-book-table h3{
+    font-size:15px!important;
+flex:1;
+padding-right:10px;
+
+}
+
+.flight-book-table{
+ background-color: #fff;
+ //justify-content: center;
+}

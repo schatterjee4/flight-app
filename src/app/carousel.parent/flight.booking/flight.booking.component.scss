@@ -1,6 +1,6 @@
 @import url('../carousel.parent.component.scss');
 
-.flight-book-table-header h2::before {
+.flight-book-table-header h3::before {
     font-family: "FontAwesome";
     font-style: normal;
     width: 10px;
@@ -8,13 +8,7 @@
     content: '\f058';
     color:rgb(9, 194, 92);
 }
-.flight-book-table-header h2{
-    font-size:14px!important;
-}
-.flight-book-table{
- background-color: #fff;
- //justify-content: center;
-}
+
 .p-2{
     padding:2px!important;
 }

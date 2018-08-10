@@ -61,7 +61,7 @@ export class BasicFormComponent implements OnInit {
 	  infant:''
     });
 
-    this.myForm.valueChanges.subscribe(console.log)
+    this.myForm.valueChanges.subscribe(console.log);
   }
   onSubmit() {
     if (this.myForm.valid) {

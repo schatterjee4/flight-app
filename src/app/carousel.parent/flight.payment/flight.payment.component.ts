@@ -33,7 +33,9 @@ export class FlightPaymentComponent implements OnInit {
 
     }
     onSubmit() {
-        pnr =  makeid();
+        this.pnr =  this.makeid();
+        this._dataService.setOption("bookingRef", this.pnr);
+
      this.router.navigate(['bookingdetails']);
     }
     makeid() {
