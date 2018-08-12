@@ -64,7 +64,7 @@
                 <div class="col-1 center">
                 </div>
                 <div class="col-5 pl-0 pr-0 " id="destDate">
-                    <input type="text" [ngClass]="{ 'invisible': myForm.value.triptype=='one'}" required [markDisabled]="isDisabled" class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
+                    <input type="text" [ngClass]="{ 'invisible': myForm.value.triptype=='one'}" required class="form-control no-border-rad custom-date" name="dp" formControlName="dateto" ngbDatepicker #d2="ngbDatepicker">
                     <span class="calendarClickIcon right-0" [ngClass]="{ 'invisible': myForm.value.triptype=='one'}" (click)="d2.toggle()" id="depDateCalIcon"></span>
 
                 </div>
