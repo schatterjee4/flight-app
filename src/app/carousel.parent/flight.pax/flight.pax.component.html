@@ -15,7 +15,7 @@
                 <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()">
                     <!--adult rows-->
                     <div class="col-12 p-0">
-                        <ng-container formArrayName="items" *ngFor="let item of myPaxForm.get('items').controls; let i = index;">
+                        <ng-container formArrayName="items" *ngFor="let item of formData.controls; let i = index;">
                             <div [formGroupName]="i">
                                 <ngb-accordion #acc="ngbAccordion">
 

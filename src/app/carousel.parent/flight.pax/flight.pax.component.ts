@@ -99,6 +99,8 @@ export class PaxAccordionToggleComponent {
     console.log("Form entry!");
     this.router.navigate(['payment']);
   }
+  get formData() { return <FormArray>this.myPaxForm.get('items'); }
+
 }
 
 
