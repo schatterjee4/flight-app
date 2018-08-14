@@ -15,7 +15,7 @@
                 <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()">
                     <!--adult rows-->
                     <div class="col-12 p-0">
-                        <ng-container formArrayName="items" *ngFor="let item of myPaxForm.get('items').controls; let i = index;">
+                        <ng-container formArrayName="items" *ngFor="let item of myPaxForm.get('items'); let i = index;">
                             <div [formGroupName]="i">
                                 <ngb-accordion #acc="ngbAccordion">
 
@@ -26,16 +26,14 @@
 
                                                     <label class="requiredLabel passDetailLbl">First Name</label>
                                                     <div class="col-7">
-                                                        <input id="{{item.value.paxType}}-firstName-{{i}}" type="text" class=" row-detail form-control no-border-rad"
-                                                            formControlName="firstName" />
+                                                        <input id="{{item.value.paxType}}-firstName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="firstName" />
                                                     </div>
                                                 </div>
                                                 <div class="row ml-0 pad-5 row-flex">
 
                                                     <label class="requiredLabel passDetailLbl">Last Name</label>
                                                     <div class="col-7">
-                                                        <input id="{{item.value.paxType}}-lastName-{{i}}" type="text" class=" row-detail form-control no-border-rad"
-                                                            formControlName="lastName" />
+                                                        <input id="{{item.value.paxType}}-lastName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="lastName" />
                                                     </div>
                                                 </div>
                                             </div>
