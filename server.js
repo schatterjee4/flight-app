@@ -12,7 +12,7 @@ var auth = express.basicAuth(function(user, pass) {
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/flight-app'));
 
-app.get('/*', auth, function(req, res) {
+app.get('/*', function(req, res) {
 
     res.sendFile(path.join(__dirname + '/dist/flight-app/index.html'));
 });
