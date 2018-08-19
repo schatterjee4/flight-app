@@ -55,8 +55,13 @@ export class FlightResultComponent implements OnInit {
         this
             ._dataService
             .getOutboundFlights(this._dataService.get()['origin']['key'], this._dataService.get()['dest']['key'])
-            .subscribe((data: Flight[]) => {
-                this.outboundFlights = data;
+            .subscribe((data: Object[]) => {
+                if(data!=null)
+                {
+                    this.outboundFlights = data.map((flight: Object) => {
+                        return {carrier :flight.basicFlightInfo.marketingCompany.identifier, startTime:flight.basicFlightInfo.flightDetails.departureTime, endTime:flight.basicFlightInfo.flightDetails.arrivalTime,carrierName :flight.basicFlightInfo.marketingCompany.identifier};
+                    });
+                }
                 console.log(this.outboundFlights);
 
             });
