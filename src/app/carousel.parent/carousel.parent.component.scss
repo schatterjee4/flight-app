@@ -118,7 +118,7 @@ input[type='radio'].custom+label span {
   white-space: nowrap;
   overflow: hidden;
 }
-section.widget,.flight-out-component,.flight-in-component,.flight-cost-component {
+section.widget,.widget,.flight-out-component,.flight-in-component,.flight-cost-component {
     position: absolute;
     top: 2%;
     left: 10%;
@@ -131,6 +131,22 @@ section.widget,.flight-out-component,.flight-in-component,.flight-cost-component
     font-size: 12px;
     color: #FFF;
    // background-color: #F2F2F2;
+}
+li.widget-option
+{
+    list-style:none;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.widget-head{
+    float:left;
+    width:100%;
+    background:#fff;
+    border-bottom:4px solid #000;
+    overflow:hidden;
+    position:relative;
 }
 .flight-out-component,.flight-in-component,.flight-cost-component{
     position: relative !important;
@@ -159,7 +175,7 @@ section.widget,.flight-out-component,.flight-in-component,.flight-cost-component
     clear: both;
     //overflow: hidden;
 }
-section.widget .widget-option .top-title {
+.widget .widget-option .top-title {
     position: absolute;
     top: 10px;
     left: 0;
@@ -181,7 +197,7 @@ section.widget .widget-option .top-title {
 }
 
 
-section.widget .widget-option {
+.widget .widget-option {
 display: flex;
 background-color: #fff;
 color: #40403f;
@@ -194,7 +210,7 @@ border-radius: 4px;
 
 }
 
-section.widget .widget-option,label {
+.widget .widget-option,label {
     margin-left: 0;
     font-weight: normal;
     line-height: 115%;
@@ -773,3 +789,63 @@ padding-right:10px;
  background-color: #fff;
  //justify-content: center;
 }
+.bookdiv{
+    float:left;
+    width:100%;
+}
+.state {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .tabs label{
+    cursor: pointer;
+    margin:0;
+   
+  }
+  .tabs{
+    border-radius: 4px;
+    width:100%;
+  }
+  .label-cont{
+    display: flex;
+    flex-direction: row;
+    text-align: center;/* To align the content horizontally center*/
+    align-items:center;/* To align the content vertically center*/
+  }
+  .top-tab-title{
+    display: block;
+    height: 21px;
+    
+    font-family: Montserrat-Regular,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 21px;
+    color: #40403f;
+    text-transform: uppercase;
+    letter-spacing: .001em;
+    margin-bottom:0px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .panel{
+      padding-left:15px;
+      padding-right:15px;
+      display: none;
+  }
+  input[type='radio'].state ~ .tabs label {
+    padding-top:5px;
+
+      padding-bottom: 10px;
+    
+    background:#ccc;
+    flex:1;
+  }
+  input[id='tab-one'].state:checked ~ .tabs label[id='tab-one-label'],input[id='tab-two'].state:checked ~ .tabs label[id='tab-two-label'] {
+    background:#FFF;
+    //border-bottom: 1px solid #e7e8e8;
+
+  }
+  input[id='tab-one'].state:checked ~ .tabs div[id='tab-one-panel'],input[id='tab-two'].state:checked ~ .tabs div[id='tab-two-panel']{
+      display:block;
+  }

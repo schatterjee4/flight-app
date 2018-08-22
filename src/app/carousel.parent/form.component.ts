@@ -5,7 +5,7 @@ import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 import {FormService} from './services/form.shared.service';
 import { NgbTypeaheadSelectItemEvent, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
-const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"}];
+const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"},{"key":"DXB","value":"Dubai"}];
 
 @Component({
   selector: 'basic-form',

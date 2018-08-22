@@ -14,6 +14,7 @@ export class PaxAccordionToggleComponent {
   childNos: PaxType[] = [];
   infantNos: PaxType[] = [];
   paxArray: PaxType[] = [];
+  flightdata: any;
   @Input() containername: string;
   //constructor(private carouselService: CarouselService) { }
   constructor(
@@ -24,7 +25,8 @@ export class PaxAccordionToggleComponent {
   ) { }
 
   ngOnInit() {
-
+    this.flightdata = this._dataService.get();
+    console.log(this.flightdata);
     this.adultNos = new Array<PaxType>(this._dataService.get()['adult'] * 1).fill(new PaxType());
     /*for (let i = 0; i < this.myPaxForm.value.adult * 1; i++){
         let pax= new PaxType();
@@ -86,7 +88,7 @@ export class PaxAccordionToggleComponent {
         'firstName': ['']
       });
     });
-    console.log(newArr);
+   // console.log(newArr);
 
     return newArr;
   }
@@ -94,12 +96,12 @@ export class PaxAccordionToggleComponent {
     if (this.myPaxForm.valid) {
       console.log("Form Submitted!");
     }
-    console.log(this._dataService.get());
 
     console.log("Form entry!");
     this.router.navigate(['payment']);
   }
   get formData() { return <FormArray>this.myPaxForm.get('items'); }
+  get flightData() { console.log(this.flightdata);return this.flightdata; }
 
 }
 

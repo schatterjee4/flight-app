@@ -14,6 +14,7 @@ import { FlightPaymentComponent} from './flight.payment/flight.payment.component
 import {PaxAccordionToggleComponent} from './flight.pax/flight.pax.component';
 import { FlightBookingComponent } from './flight.booking/flight.booking';
 import { FlightBookingCancelComponent } from './flight.booking.cancel/flight.booking.cancel';
+import { BasicViewFormComponent } from './form.view/form.view.component';
 
 //import { CarouselService } from './carousel.service';
 const routes: Routes = [
@@ -48,7 +49,8 @@ const routes: Routes = [
         FlightPaymentComponent,
         PaxAccordionToggleComponent,
         FlightBookingComponent,
-        FlightBookingCancelComponent
+        FlightBookingCancelComponent,
+        BasicViewFormComponent
     ],
     providers: [
         // CarouselService,

@@ -73,8 +73,45 @@
                         </ng-container>-->
 
 
-            <div class=" col-4">
-                <div class="row row-table"></div>
+            <div class=" col-3 offset-1">
+                <div class="row row-table">
+                    <div class="col-12 pb-0 booking-cart-section booking-cart-section-heading">
+                    <h2 class="booking-cart-section-title">
+                        Flights
+                    </h2>
+                </div>
+                 </div>
+                <div class="row row-table booking-cart-section-detail">
+                        <div class="col-5 booking-cart-section text-right">
+                            {{flightData.origin.value}}
+                        </div>
+                        <div class="col-2 booking-cart-section ">
+                             <span class="small-to-icon">
+                            </span>
+                        </div>
+                        <div class="col-5 booking-cart-section">
+                                {{flightData.dest.value}}
+                        </div>
+                </div>
+                <div class="row row-table">
+                        <div class="col-12 pb-0 booking-cart-section booking-cart-section-pas-heading">
+                        <h2 class="booking-cart-section-title">
+                            Passenger details
+                        </h2>
+                    </div>
+                     </div>
+                <div class="row row-table booking-cart-section-detail">
+                        <div class="col-12 booking-cart-section text-right" *ngIf="flightData.adult>0">
+                           Adult: {{flightData.adult}}
+                        </div>
+                        <div class="col-12 booking-cart-section" *ngIf="flightData.child>0">
+                                Child: {{flightData.child}}
+                        </div>
+                        <div class="col-12 booking-cart-section" *ngIf="flightData.infant>0">
+                                Infant: {{flightData.infant}}
+                        </div>
+                </div>
+                
             </div>
         </div>
     </div>

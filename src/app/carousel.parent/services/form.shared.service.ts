@@ -44,9 +44,10 @@ export class FormService {
         localStorage.setItem('currentUserData', JSON.stringify(data));
 
     }
- getOutboundFlights(orig:String, dest:String): Observable<Object[]> {
+ getOutboundFlights(orig:String, dest:String): Observable<any[]> {
          //this.http.get('../../assets/flight-outbound-results.json')
         const responseOutbound = this.http.get('../../assets/airmultiavailability.json').pipe(
+        //const responseOutbound = this.http.get('http://104.42.45.156:3000/api/v1.0/airmultiavailability?type=1').pipe(
             map((res:Response) => (
                 console.log( res.json()),
                // tslint:disable-next-line:max-line-length

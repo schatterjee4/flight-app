@@ -161,6 +161,7 @@
 
 .flight-pax-table {
     border-bottom: 1px solid #f2f2f2;
+    border:1px solid #ccc !important;
     background-color: #f2f2f2;
    // padding-left:5px !important;
     //padding-right: 5px !important;
@@ -180,4 +181,61 @@ margin-top:2px!important;
     background-color: #e1e1e1;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     min-height:50px;
+}
+.booking-cart-section-heading h2,.booking-cart-section-pas-heading h2{
+   
+    font-size: 16px !important;
+    flex:1;
+}
+.booking-cart-section-pas-heading h2{
+    color:#666;
+}
+.booking-cart-section-heading h2::after{
+   
+    font-family: "FontAwesome";
+    font-style: normal;
+    width: 40px;
+    height: 40px;
+    content: "\f072";    
+}
+.booking-cart-section-pas-heading h2::after{
+   
+    font-family: "FontAwesome";
+    font-style: normal;
+    width: 40px;
+    height: 40px;
+    content: "\f0c0";    
+    color:#666;
+}
+.booking-cart-section-heading{
+    position: relative;
+    padding: 12px;
+    background: #666;
+    color: #fff;
+}
+.booking-cart-section-pas-heading{
+    position: relative;
+    padding: 12px;
+    background: #f2f2f2;
+    color: #fff;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+.booking-cart-section{
+    position: relative;
+    padding: 12px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.booking-cart-section-detail{
+    border:1px solid #ccc;
+}
+.small-to-icon::before {
+    
+    font-family: "FontAwesome";
+    font-style: normal;
+    width: 10px;
+    height: 10px;
+    content: "\f178 ";  
 }
