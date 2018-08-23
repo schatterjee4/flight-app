@@ -23,6 +23,7 @@ input[type='radio'].custom,input[type='radio'].customfare{
      position: absolute;
     opacity: 0;
     cursor: pointer;
+    top:-12px;
 
 }
 
@@ -41,7 +42,6 @@ input[type='radio'].custom+label span {
    
 }
 .selectLinkFare{
-   background-color: transparent;
     position: absolute;
     top: 0px;
     left: 0;
@@ -58,15 +58,40 @@ input[type='radio'].custom+label span {
     text-decoration: none !important;
 
 }
-.currencydiv:hover {
-   background-color:#04365E;
-   color:#fff;
-}
-.selectLinkFare:hover,.currencydiv:hover .checkMark{
-  // display:inline-block;
-   //background-image: url("../../assets/green_check.jpg");
+ 
+.currencydiv{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    flex-wrap: wrap;
+    background-color:#fff;
+    color:#52585d;
 
 }
+input[type="radio"].customfare+label{
+    width:100%;
+    height:100%;
+    cursor: pointer;
+}
+input[type="radio"].customfare:checked+label  span.checkMark::after{
+    width: 6px;
+    height: 6px;
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    left: 50%;
+    margin-left: -3px;
+    background-color: #000;
+    border-radius: 3px;
+}
+input[type="radio"].customfare:checked+label .currencydiv,.currencydiv:hover{
+    background-color:#04365E!important;
+    color:#fff;
+ }
+
 .tblCntBigTxt{
     width:100%;
     text-align: center;
@@ -77,12 +102,11 @@ input[type='radio'].custom+label span {
 }
 .checkMark{
     display:inline-block;
-    text-align: center;
+    text-align: left;
    // background-size: cover;
  //  background-image: url("../../assets/black_check_small.jpg");
     background-repeat: no-repeat;
-    height: max-content;
-    width:  30px;
+    //height: max-content;
     //font-size: 0;
     line-height: 0;
     //height: 0;
@@ -93,26 +117,27 @@ input[type='radio'].custom+label span {
     /* margin-left: 15px; */
     /* margin-right: 15px; */
     /* margin-top: 20px; */
+    height: 20px;
+    width: 20px;
+    line-height: 0;
+    border-radius: 20px;
+    background-color:#ccc;
+    margin-right:10px;
+    border:1px solid #9e9890;
+    position: relative;
 }
 .checkMark::before{   
-    content: "\f00c";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    //content: "\f00c";  /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     color:rgb(11, 192, 11);
 }
 .priceBfrDec{
     display: inline-block;
-    font-size:25px;
-  
+    font-size:30px;
+    font-weight:600;
 
 }
-.currencydiv{
-    position: relative;
-    color:#52585d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height:100%;
-}
+
 .form-control.ellip{
     text-overflow: ellipsis;
   white-space: nowrap;
@@ -840,12 +865,71 @@ padding-right:10px;
     
     background:#ccc;
     flex:1;
+    border-bottom: 1px solid #ababb5;
   }
   input[id='tab-one'].state:checked ~ .tabs label[id='tab-one-label'],input[id='tab-two'].state:checked ~ .tabs label[id='tab-two-label'] {
     background:#FFF;
     //border-bottom: 1px solid #e7e8e8;
-
+   
+  }
+  input[id='tab-one'].state:checked ~ .tabs label[id='tab-one-label']{
+    border-right: 1px solid #ababb5;
+    border-bottom:none
+  }
+  input[id='tab-two'].state:checked ~ .tabs label[id='tab-two-label']{
+    border-left: 1px solid #ababb5;
+    border-bottom:none
   }
   input[id='tab-one'].state:checked ~ .tabs div[id='tab-one-panel'],input[id='tab-two'].state:checked ~ .tabs div[id='tab-two-panel']{
       display:block;
   }
+  .selectflightlink{
+    text-decoration:underline;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity:0;
+  }
+  .selectLinkFare:hover ~ .currencydiv .selectflightlink, .selectLinkFare:active ~ .currencydiv .selectflightlink{
+      opacity:1;
+  }
+  .plus::before{
+    content:  "\f055";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color:  #28a745;
+    font-size: 18px;
+   
+
+    position: absolute;
+    top: 5px;
+    left: 0;
+  }
+  .minus::before{
+    content: "\f056";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #d6083b;
+    font-size: 18px;
+    position: absolute;
+    top: 5px;
+    left: 0; 
+}
+.plus,.minus{
+    display: inline-block;
+    position: relative;
+    width:10px;
+    height:10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}

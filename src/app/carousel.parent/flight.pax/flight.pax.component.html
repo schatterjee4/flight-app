@@ -24,15 +24,23 @@
                                             <div class="container ">
                                                 <div class="row ml-0 pad-5 row-flex">
 
-                                                    <label class="requiredLabel passDetailLbl">First Name</label>
-                                                    <div class="col-7">
+                                                    <label class="requiredLabel passDetailLbl">First Name<abbr class="required" title="Mandatory field">*</abbr></label>
+                                                    <div class="col-4">
                                                         <input id="{{item.value.paxType}}-firstName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="firstName" />
+                                                    </div>
+                                                    <label class="requiredLabel passDetailLbl">Email<abbr class="required" title="Mandatory field">*</abbr></label>
+                                                    <div class="col-4">
+                                                        <input id="{{item.value.paxType}}-email-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="email" />
                                                     </div>
                                                 </div>
                                                 <div class="row ml-0 pad-5 row-flex">
 
-                                                    <label class="requiredLabel passDetailLbl">Last Name</label>
-                                                    <div class="col-7">
+                                                    <label class="requiredLabel passDetailLbl">Last Name<abbr class="required" title="Mandatory field">*</abbr></label>
+                                                    <div class="col-4">
+                                                        <input id="{{item.value.paxType}}-lastName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="lastName" />
+                                                    </div>
+                                                    <label class="requiredLabel passDetailLbl">Last Name<abbr class="required" title="Mandatory field">*</abbr></label>
+                                                    <div class="col-4">
                                                         <input id="{{item.value.paxType}}-lastName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="lastName" />
                                                     </div>
                                                 </div>

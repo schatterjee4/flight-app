@@ -85,8 +85,12 @@
             </div>
         </div>
         <div class="row ">
-            <div class="col-8 ">
-                <input id="adult" type="text" class="form-control no-border-rad" formControlName="adult" />
+            <div class="col-8 pr-0">
+                <input id="adult" #adt type="text" class="form-control no-border-rad" formControlName="adult" />
+            </div>
+            <div class="col-4">
+                <span id="plus-adult" class="plus-adult plus" (click)="add(adt)"></span>
+                <span id="minus-adult" class="minus-adult minus" (click)="remove(adt)" [ngStyle]="{'opacity':myForm.value.adult>0?1:0,'cursor':myForm.value.adult>0?pointer:none}" ></span>
 
             </div>
         </div>
@@ -98,8 +102,13 @@
             </div>
         </div>
         <div class="row ">
-            <div class="col-8 ">
-                <input id="child" type="text" class="form-control no-border-rad" formControlName="child" />
+            <div class="col-8 pr-0">
+                <input id="child" #chd type="text" class="form-control no-border-rad" formControlName="child" />
+
+            </div>
+            <div class="col-4 ">
+                <span id="plus-child" class="plus-child plus" (click)="add(chd)"></span>
+                <span id="minus-child" class="minus-child minus" (click)="remove(chd)" [ngStyle]="{'opacity':myForm.value.child>0?1:0,'cursor':myForm.value.child>0?pointer:none}"></span>
 
             </div>
         </div>
@@ -112,8 +121,13 @@
             </div>
         </div>
         <div class="row ">
-            <div class="col-8 ">
-                <input id="infant" type="text" class="form-control no-border-rad" formControlName="infant" />
+            <div class="col-8 pr-0">
+                <input id="infant" type="text" #inf class="form-control no-border-rad" formControlName="infant" />
+
+            </div>
+            <div class="col-4 ">
+                <span id="plus-inf" class="plus-inf plus" (click)="add(inf)"></span>
+                <span id="minus-inf" class="minus-inf minus" (click)="remove(inf)" [ngStyle]="{'opacity':myForm.value.infant>0?1:0,'cursor':myForm.value.infant>0?pointer:none}"></span>
 
             </div>
         </div>

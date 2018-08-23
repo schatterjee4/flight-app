@@ -76,7 +76,8 @@ export class PaxAccordionToggleComponent {
     return this.fb.group({
       firstName: '',
       lastName: '',
-      paxType: paxtype
+      paxType: paxtype,
+      email: ''
     });
   }
   initPax(arr: PaxType[]) {

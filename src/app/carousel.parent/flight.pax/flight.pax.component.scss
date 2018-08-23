@@ -169,7 +169,13 @@
 }
 .flight-pax-table-header {
 border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-margin-top:2px!important;
+padding-top:5px!important;
+//background: #666;
+background: transparent;
+color: #333;
+font-size:20px;
+font-weight: 700;
+font-family: Whitney-Medium;
 }
 .row-flex{
     display: flex;
@@ -212,6 +218,7 @@ margin-top:2px!important;
     padding: 12px;
     background: #666;
     color: #fff;
+    font-family: Whitney-Medium;
 }
 .booking-cart-section-pas-heading{
     position: relative;
@@ -220,6 +227,7 @@ margin-top:2px!important;
     color: #fff;
     border-left:1px solid #ccc;
     border-right:1px solid #ccc;
+    font-family: Whitney-Medium;
 }
 .booking-cart-section{
     position: relative;
@@ -238,4 +246,9 @@ margin-top:2px!important;
     width: 10px;
     height: 10px;
     content: "\f178 ";  
+}
+.required {
+    color: #c00;
+    border: none;
+    text-decoration: none;
 }

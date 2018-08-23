@@ -61,7 +61,7 @@ export class BasicFormComponent implements OnInit {
 	  infant:''
     });
 
-    this.myForm.valueChanges.subscribe(console.log);
+   // this.myForm.valueChanges.subscribe(console.log);
   }
   onSubmit() {
     if (this.myForm.valid) {
@@ -70,11 +70,20 @@ export class BasicFormComponent implements OnInit {
     }
     console.log("Form entry!");
     Object.keys(this.myForm.controls).forEach((key: string) => {
+      console.log(this.myForm.controls[key].value);
       this._dataService.setOption(key,this.myForm.controls[key].value);
 
     });
-   console.log(this._dataService.get());
     this.router.navigate(['search']);
   }
-  
+  add(refinput)
+  {
+    refinput.value=refinput.value!="" && refinput.value!=null? refinput.value*1+1:1;
+    this.myForm.controls[refinput.id].setValue(refinput.value);
+  }
+  remove(refinput){
+    refinput.value=refinput.value!="" && refinput.value!=null && refinput.value!=0 ? refinput.value*1-1:0;
+    this.myForm.controls[refinput.id].setValue(refinput.value);
+
+  }
 }
