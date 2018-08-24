@@ -15,6 +15,8 @@ import {PaxAccordionToggleComponent} from './flight.pax/flight.pax.component';
 import { FlightBookingComponent } from './flight.booking/flight.booking';
 import { FlightBookingCancelComponent } from './flight.booking.cancel/flight.booking.cancel';
 import { BasicViewFormComponent } from './form.view/form.view.component';
+import { SharedModule } from './flight.booking.popup/flight.booking.popup.module';
+import { NgbdModalOptions } from './flight.booking.popup/flight.booking.pop.component';
 
 //import { CarouselService } from './carousel.service';
 const routes: Routes = [
@@ -50,10 +52,11 @@ const routes: Routes = [
         PaxAccordionToggleComponent,
         FlightBookingComponent,
         FlightBookingCancelComponent,
-        BasicViewFormComponent
+        BasicViewFormComponent,
+        NgbdModalOptions
     ],
     providers: [
-        // CarouselService,
+        NgbdModalOptions
     ],
 
 
