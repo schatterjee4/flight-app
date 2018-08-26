@@ -56,8 +56,8 @@ export class PaxAccordionToggleComponent {
 
     });
     this.addItem(this.paxArray);
-    console.log(this.myPaxForm.controls.items);
-    console.log(this.myPaxForm.value.items);
+    //console.log(this.myPaxForm.controls.items);
+    //console.log(this.myPaxForm.value.items);
 
     this.myPaxForm.valueChanges.subscribe(console.log);    // alert(this._dataService.get()['totalPrice']);
     //  this.myPaymentForm.value.totalPrice = this._dataService.get()['totalPrice'];
@@ -77,7 +77,8 @@ export class PaxAccordionToggleComponent {
       firstName: '',
       lastName: '',
       paxType: paxtype,
-      email: ''
+      email: '',
+      phnNo:''
     });
   }
   initPax(arr: PaxType[]) {
@@ -97,8 +98,12 @@ export class PaxAccordionToggleComponent {
     if (this.myPaxForm.valid) {
       console.log("Form Submitted!");
     }
+    Object.keys(this.myPaxForm.controls).forEach((key: string) => {
+      console.log(this.myPaxForm.controls[key].value);
+      this._dataService.setOption(key,this.myPaxForm.controls[key].value);
 
-    console.log("Form entry!");
+    });
+    console.log( this._dataService.get());
     this.router.navigate(['payment']);
   }
   get formData() { return <FormArray>this.myPaxForm.get('items'); }

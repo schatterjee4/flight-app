@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'ngbd-modal-options',
@@ -10,10 +10,23 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class NgbdModalOptions {
   closeResult: string;
 
+  constructor(public activeModal: NgbActiveModal) {}
+
+  
+}
+@Component({
+  selector: 'ngbd-modal-component',
+  templateUrl: './modal-component.html'
+})
+export class NgbdModalComponent {
   constructor(private modalService: NgbModal) {}
 
-  openVerticallyCentered(content) {
-    this.modalService.open(content, { size: 'lg', centered: true });
+  openVerticallyCentered() {
+    const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'lg' });
+    //modalRef.componentInstance.name = 'World';
+   /* modalRef.componentInstance.data = {
+      foo: 'bar',
+      name: 'World'
+    }*/
   }
-
 }

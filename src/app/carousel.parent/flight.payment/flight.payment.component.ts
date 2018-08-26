@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params, Data } from '@angular/router';
 import { FormService } from '../services/form.shared.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { NgbdModalOptions } from '../flight.booking.popup/flight.booking.pop.component';
+import { NgbdModalOptions, NgbdModalComponent } from '../flight.booking.popup/flight.booking.pop.component';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class FlightPaymentComponent implements OnInit {
         private router: Router,
         private fb: FormBuilder,
         private _dataService: FormService,
-        private  modal: NgbdModalOptions 
+        private  modal: NgbdModalComponent 
     ) { }
 
     ngOnInit() {
@@ -35,8 +35,8 @@ export class FlightPaymentComponent implements OnInit {
         }
 
     }
-    onSubmit(content) {
-        this.modal.openVerticallyCentered(content);
+    onSubmit() {
+        this.modal.openVerticallyCentered();
         this.pnr =  this.makeid();
         this._dataService.setOption("bookingRef", this.pnr);
 

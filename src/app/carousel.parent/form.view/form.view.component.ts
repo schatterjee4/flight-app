@@ -52,7 +52,7 @@ export class BasicViewFormComponent implements OnInit {
 
     });
    console.log(this._dataService.get());
-    this.router.navigate(['search']);
+    this.router.navigate(['view']);
   }
   
 }
