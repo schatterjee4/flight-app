@@ -3,9 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
-import {FormService} from './services/form.shared.service';
+import {FormService,states} from './services/form.shared.service';
 import { NgbTypeaheadSelectItemEvent, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
-const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"},{"key":"DXB","value":"Dubai"}];
 
 @Component({
   selector: 'basic-form',
@@ -56,9 +55,9 @@ export class BasicFormComponent implements OnInit {
       origin: '',
       datefrom:'',
       dateto:'',
-	  adult:'',
-	  child:'',
-	  infant:''
+	  adult:'0',
+	  child:'0',
+	  infant:'0'
     });
 
    // this.myForm.valueChanges.subscribe(console.log);

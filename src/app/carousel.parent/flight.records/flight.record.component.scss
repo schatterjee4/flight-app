@@ -1,1 +1,97 @@
 @import url('../carousel.parent.component.scss');
+.outbound-record{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.outbound-header
+{
+    font-family: Whitney-Medium!important;
+    color: #333;
+}
+.outbound-record-details{
+    border:1px solid #ccc;
+    background-color: #fff;
+    margin:20px;
+    font-weight: 600;
+    color: #6f6660;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.pax-record-details{
+    border:1px solid #ccc;
+    background-color: #fff;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:10px;
+
+    font-weight: 600;
+    color: #6f6660;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.outbound-record-details span{
+    display: inline-block;
+    position: relative;
+}
+.view-table{
+   background-color:  #e1e1e1;
+}
+.view-detail-row{
+    color: #A29993;
+}
+.flight-icon::before{
+content:  "\f072";
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+text-decoration: inherit;
+/*--adjust as necessary--*/
+font-size: 15px;
+transform: rotate(45deg);
+position: absolute;
+top: -4px;
+    left: 3px;
+}
+.flight-icon{
+width:10px;
+height:10px;
+
+}
+.flight-view-icon{
+    width:20px;
+    height:20px;
+}
+.flight-view-icon::before{
+    content:  "\f072";
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+text-decoration: inherit;
+/*--adjust as necessary--*/
+font-size: 25px;
+position: absolute;
+top: 8px;
+left: 3px;
+color:#fff;
+}
+.connector-block{
+    width:10px;
+height:10px;
+}
+.pax-record-header
+{
+    margin-left:20px;
+    margin-right:20px;
+    
+}
+.pax-record-header h5::before{
+    font-family: "FontAwesome";
+    font-style: normal;
+    width: 40px;
+    height: 40px;
+    content: "\f0c0";    
+   // color:#666;
+    padding-right:5px;
+    color:#6f6660;
+
+}

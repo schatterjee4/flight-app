@@ -34,8 +34,8 @@ export class BasicViewFormComponent implements OnInit {
   ngOnInit() {
     
     this.myviewForm = this.fb.group({
-      pnr: '',
-      lname: ''
+      pnrSrch: '',
+      lnameSrch: ''
      
     });
 
@@ -51,7 +51,6 @@ export class BasicViewFormComponent implements OnInit {
       this._dataService.setOption(key,this.myviewForm.controls[key].value);
 
     });
-   console.log(this._dataService.get());
     this.router.navigate(['view']);
   }
   

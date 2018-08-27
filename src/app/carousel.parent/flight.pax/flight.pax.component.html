@@ -17,7 +17,7 @@
                     <div class="col-12 p-0">
                         <ng-container formArrayName="items" *ngFor="let item of formData.controls; let i = index;">
                             <div [formGroupName]="i">
-                                <ngb-accordion #acc="ngbAccordion">
+                                <ngb-accordion #acc="ngbAccordion"  activeIds="pax-{{item.value.paxType}}-0">
 
                                     <ngb-panel id="pax-{{item.value.paxType}}-{{i}}" class="adt">
                                         <ng-template ngbPanelContent>

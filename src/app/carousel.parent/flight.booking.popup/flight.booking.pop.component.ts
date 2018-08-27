@@ -5,7 +5,8 @@ import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bo
 @Component({
   selector: 'ngbd-modal-options',
   templateUrl: './flight.booking.popup.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./flight.booking.popup.scss']
 })
 export class NgbdModalOptions {
   closeResult: string;
@@ -22,7 +23,7 @@ export class NgbdModalComponent {
   constructor(private modalService: NgbModal) {}
 
   openVerticallyCentered() {
-    const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'lg' });
+    const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'md' });
     //modalRef.componentInstance.name = 'World';
    /* modalRef.componentInstance.data = {
       foo: 'bar',

@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Flight } from '../models/flight.results.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+export const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"},{"key":"DXB","value":"Dubai"}];
 
 @Injectable()
 export class FormService {
@@ -64,5 +65,13 @@ export class FormService {
             ))
           );
     } 
+    fetchView(pnr, lname): Observable<any> {
+        return this.http.get('http://localhost:3000/fetchDetails?lname='+lname+'&pnr='+pnr).pipe(
+            map((res:Response) => (
+                res.json()
+            ))
+          );
+    } 
 
+    
 }

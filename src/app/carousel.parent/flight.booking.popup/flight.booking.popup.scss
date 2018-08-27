@@ -1,0 +1,15 @@
+.flight-book-table-header h3::before {
+    font-family: "FontAwesome";
+    font-style: normal;
+    width: 40px;
+    height: 40px;
+    content: '\f058';
+    color:rgb(9, 194, 92);
+}
+@media (min-width: 992px)
+{
+.modal-md {
+    max-width: 500px;
+    top:5px;
+}}
+

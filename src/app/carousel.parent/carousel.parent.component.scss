@@ -570,7 +570,7 @@ background-color: #e01933;
    height: 80%;
    /* background-size: cover; */
    z-index: 999;
-   margin-top: 4px;
+  // margin-top: 4px;
 
 }
 .flight-component-icon-return{
@@ -932,4 +932,10 @@ padding-right:10px;
     padding-right: 10px;
     padding-left: 10px;
     cursor: pointer;
+}
+.margin-l-10{
+    margin-left: 10px;
+}
+.margin-r-10{
+    margin-right: 10px;
 }
