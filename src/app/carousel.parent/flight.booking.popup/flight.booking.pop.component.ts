@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Optional} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -9,9 +9,11 @@ import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bo
   styleUrls: ['./flight.booking.popup.scss']
 })
 export class NgbdModalOptions {
-  closeResult: string;
-
-  constructor(public activeModal: NgbActiveModal) {}
+  closeResult: String;
+  modaltype:String;
+  constructor(public activeModal: NgbActiveModal,@Optional()modaltype: String) {
+    this.modaltype= modaltype;
+  }
 
   
 }
@@ -22,8 +24,8 @@ export class NgbdModalOptions {
 export class NgbdModalComponent {
   constructor(private modalService: NgbModal) {}
 
-  openVerticallyCentered() {
-    const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'md' });
+  openVerticallyCentered(type:any) {
+    const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'lg', modaltype: type});
     //modalRef.componentInstance.name = 'World';
    /* modalRef.componentInstance.data = {
       foo: 'bar',

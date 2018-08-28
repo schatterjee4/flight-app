@@ -6,12 +6,12 @@
 >
     <div class="container">
         <div class="row m0-xs-down">
-            <div class="p0-xs-down flight-section-search-head col-7"></div>
+            <div class="p0-xs-down flight-section-search-head col-8"></div>
         </div>
 
         <div class="row row-table margin-top-5">
-            <div class="flight-pax-table view-table p-0 col-7">
-                <div class="col-12 m-0 outbound-header flight-pax-table-header">
+            <div class="flight-pax-table view-table p-0 offset-1 col-7">
+                <div class="col-12 m-0 outbound-header  flight-pax-table-header">
                     <h2>Flight Details</h2>
                 </div>
 
@@ -31,85 +31,96 @@
                                 <div class="col-12 flight-view-icon"></div>
                             </div>
 
-                            <div class="col-11">
-                                <h2>Outbound Flights</h2>
+                            <div class="col-11 ">
+                                <h4>Outbound Flights</h4>
                             </div>
                         </div>
 
                         <div class="row row-table outbound-record-details">
-                            <div class="col-2">
-                                <span class="margin-r-10">
-                                    {{myrecordForm.value.data.originDescr}}({{myrecordForm.value.data.source}})
-                                </span>
+                                <div class="col-12">
+                                        <div class="row row-table view-detail-row">
+                                            <div class="col-7">Depart On</div>
+        
+                                            <div class="col-5 text-right">DURATION</div>
+                                        </div>
+        
+                                        <div class="row row-table">
+                                            <div class="col-7 recordTripTime">
+                                                {{myrecordForm.value.data.traveldate}}
+                                            </div>
+        
+                                            <div class="col-5 text-right ">
+                                                {{myrecordForm.value.data.duration}}
+                                            </div>
+                                        </div>
+                                    </div>
+                            <div class="col-12 ">
+                                <div class="row row-table p-0 flight-record-detail">
+                                    <div class="col-2">
+                                        <span class="margin-r-10">
+                                            {{myrecordForm.value.data.originDescr}}({{myrecordForm.value.data.source}})
+                                        </span>
 
-                                <span class="margin-r-10">
-                                    {{myrecordForm.value.data.startTime}}
-                                </span>
-                            </div>
-
-                            <div class="col-1">
-                                <span class="flight-icon"></span>
-                            </div>
-
-                            <div class="col-2 ml-0 pl-0">
-                                <span class="">
-                                    {{myrecordForm.value.data.destDescr}}({{myrecordForm.value.data.destination}})
-                                </span>
-
-                                <span class="">
-                                    {{myrecordForm.value.data.endTime}}
-                                </span>
-                            </div>
-
-                            <div class="col-7 text-right">
-                                <span>
-                                    {{myrecordForm.value.data.carrierName}}
-                                </span>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="row row-table view-detail-row">
-                                    <div class="col-7">Depart On</div>
-
-                                    <div class="col-5 text-right">DURATION</div>
-                                </div>
-
-                                <div class="row row-table">
-                                    <div class="col-7">
-                                        {{myrecordForm.value.data.traveldate}}
+                                        <span class="margin-r-10 recordTripTime">
+                                            {{myrecordForm.value.data.startTime}}
+                                        </span>
                                     </div>
 
-                                    <div class="col-5 text-right">
-                                        {{myrecordForm.value.data.duration}}
+                                    <div class="col-1">
+                                        <span class="flight-icon"></span>
+                                    </div>
+
+                                    <div class="col-2 ml-0 pl-0">
+                                        <span class="">
+                                            {{myrecordForm.value.data.destDescr}}({{myrecordForm.value.data.destination}})
+                                        </span>
+
+                                        <span class="recordTripTime">
+                                            {{myrecordForm.value.data.endTime}}
+                                        </span>
+                                    </div>
+
+                                    <div class="col-7 text-right">
+                                        <span>
+                                            {{myrecordForm.value.data.carrierName}}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div>
+
                         <div class="col-12 p-0 outbound-header flight-pax-table-header pax-record-header">
-                                <h5>Passengers</h5>
-                                </div>
-                        <div class="row row-table pax-record-details">
-                                <div class="col-12 ">
-                                        <div class="row row-table ">
-                            <div class="col-3 view-detail-row">fIRST NAME</div>
-                            <div class="col-3 view-detail-row">LAST NAME</div>
-                            <div class="col-6 padding-right-2 pr-0 view-detail-row text-right">ETICKET</div>
+                            <h5 class="m-0">Passengers</h5>
                         </div>
-                        <div *ngFor="let user of myrecordForm.value.data.users; index as i" class="row row-table">
-                                <div class="col-3 ">{{user.fname}}</div>
-                                <div class="col-3 ">{{user.lname}}</div>
-                                <div class="col-6 padding-right-2 pr-0 text-right">{{user.ticketNumber}}</div>
-                        </div>
-                       
 
-                    </div>
-                    </div>
+                        <div class="row row-table pax-record-details">
+                            <div class="col-12 pax-rows">
+                                <div
+                                    *ngFor="let user of myrecordForm.value.data.users; index as i"
+                                    class="row row-table pax-record-detail" >                                    
+                                    <div class="col-3 view-detail-row">fIRST NAME</div>
+
+                                    <div class="col-5 view-detail-row">LAST NAME</div>
+
+                                    <div class="col-4 last-col text-left">ETICKET</div>
+
+                                
+                                    <div class="col-3 pax-record-val">{{user.fname}}</div>
+
+                                    <div class="col-5 pax-record-val">{{user.lname}}</div>
+
+                                    <div class="col-4  text-left">{{user.ticketNumber}}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
 
-            <div class="col-2"></div>
-            <div class="col-3"></div>
+            <div class="col-1"></div>
+            <div class="col-3 flight-pax-table"></div>
         </div>
     </div>
 </div>

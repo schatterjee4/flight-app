@@ -6,22 +6,25 @@
 .outbound-header
 {
     font-family: Whitney-Medium!important;
-    color: #333;
+    //color: #333;
+    color:#40403f;
 }
 .outbound-record-details{
     border:1px solid #ccc;
     background-color: #fff;
-    margin:20px;
+    margin:10px;
     font-weight: 600;
     color: #6f6660;
     font-size: 13px;
     text-transform: uppercase;
 }
 .pax-record-details{
-    border:1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     background-color: #fff;
-    margin-left:20px;
-    margin-right:20px;
+    margin-left:10px;
+    margin-right:10px;
     margin-bottom:10px;
 
     font-weight: 600;
@@ -29,15 +32,37 @@
     font-size: 13px;
     text-transform: uppercase;
 }
+.pax-record-detail{
+    border-bottom:1px solid #ccc;
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+.flight-record-detail{
+    border-top:1px solid #ccc;
+}
 .outbound-record-details span{
     display: inline-block;
     position: relative;
 }
 .view-table{
-   background-color:  #e1e1e1;
+   background-color:  #F6F6F6;
+  //background-color: #FBFBFB;
+  border:1px solid #ccc;
+}
+
+.outbound-header h5{
+   // color: #A29993;
+    font-family:Whitney-Medium !important;
+    color:#40403f;
+    font-size:20px;
 }
 .view-detail-row{
     color: #A29993;
+}
+.outbound-record h4{
+    font-size:20px;
+    font-family:Whitney-Medium !important;
+    color:#40403f;
 }
 .flight-icon::before{
 content:  "\f072";
@@ -80,9 +105,10 @@ height:10px;
 }
 .pax-record-header
 {
-    margin-left:20px;
+    margin-left:10px;
     margin-right:20px;
-    
+    margin-bottom: 15px;
+    color:#40403f;
 }
 .pax-record-header h5::before{
     font-family: "FontAwesome";
@@ -94,4 +120,22 @@ height:10px;
     padding-right:5px;
     color:#6f6660;
 
+}
+.pax-rows .pax-record-detail:nth-of-type(even) {
+    background-color:#F6F6F6;
+}
+.last-col
+{
+ color:#A29993;
+}
+.recordTripTime{
+    display: inline-block;
+    color:#40403f;
+    font-size:20px;
+    font-weight:500;
+    //font-size: .875rem;
+    line-height: 1.3;
+}
+.pax-record-val{
+    font-weight: 600;
 }
