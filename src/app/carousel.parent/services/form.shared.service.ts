@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Flight } from '../models/flight.results.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -52,7 +52,7 @@ export class FormService {
             map((res:Response) => (
                 console.log( res.json()),
                // tslint:disable-next-line:max-line-length
-               res.json().flightInfo.filter(items => items.basicFlightInfo.departureLocation.cityAirport == orig && items.basicFlightInfo.arrivalLocation.cityAirport == dest )
+               res.json().flightInfo.filter(items => items.basicFlightInfo.departureLocation.cityAirport === orig && items.basicFlightInfo.arrivalLocation.cityAirport == dest )
             ))
           );
          // console.log(this.http.get('http://104.42.45.156:3000/api/v1.0/airmultiavailability?type=1'));
@@ -72,6 +72,35 @@ export class FormService {
             ))
           );
     } 
+    savePnr(): Observable<any>
+    {
+        const data = this.get();
+        let objectArr = {};
+        objectArr['paxArray']= data['items'];
+        objectArr['source']= data['fareRouteOne']['source'];
+        objectArr['destination']= data['items']['destination'];
+        objectArr['category']= data['fareRouteOne']['category'];
+        objectArr['carrierName']= data['fareRouteOne']['carrierName'];
+        objectArr['duration']= data['fareRouteOne']['duration'];
+        objectArr['endTime']= data['fareRouteOne']['endTime'];
+        objectArr['startTime']= data['fareRouteOne']['startTime'];
+        objectArr['carrier']= data['fareRouteOne']['carrier'];
+        objectArr['totalPrice']= data['totalPrice'];
 
+        objectArr['taxFuel']= data['taxFuel'];
+        objectArr['taxAirport']= data['taxAirport'];
+        objectArr['taxFuel']= data['taxFuel'];
+        objectArr['chargeService']= data['chargeService'];
+        objectArr['feesDevelopment']= data['feesDevelopment'];
+         
+        let requestObj = JSON.stringify(objectArr);
+        let resp;
+         // tslint:disable-next-line:max-line-length
+         return this.http.post('http://localhost:3000/addName', requestObj, { headers: new Headers({ 'Content-Type': 'application/json' }) }).pipe(
+            map((res:Response) => (
+                res.json()
+            ))
+          );
+    }
     
 }

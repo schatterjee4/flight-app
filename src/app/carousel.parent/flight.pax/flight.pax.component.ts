@@ -105,13 +105,13 @@ export class PaxAccordionToggleComponent {
       this._dataService.setOption(key,this.myPaxForm.controls[key].value);
 
     });
-    console.log( this._dataService.get());
+   
     this.router.navigate(['payment']);
+    
    }
   }
   get formData() { return <FormArray>this.myPaxForm.get('items'); }
   get flightData() { console.log(this.flightdata);return this.flightdata; }
-  get email() { return this.rForm.get('email'); }
 
   
 }

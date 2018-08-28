@@ -24,7 +24,7 @@ export class NgbdModalOptions {
 export class NgbdModalComponent {
   constructor(private modalService: NgbModal) {}
 
-  openVerticallyCentered(type:any) {
+  openVerticallyCentered(@Optional() type:any) {
     const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'lg', modaltype: type});
     //modalRef.componentInstance.name = 'World';
    /* modalRef.componentInstance.data = {

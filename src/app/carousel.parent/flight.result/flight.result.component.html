@@ -20,8 +20,8 @@
                                                 <div class="col-2 flight-component-head-icon">
                                                     <div class=" col-12 flight-component-icon"></div>
                                                 </div>
-                                                <div class="col-10 ">
-                                                    <h2>Outbound Flights</h2>
+                                                <div class="col-10">
+                                                    <h2 class="m-0 p-2">Outbound Flights</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,9 +103,9 @@
                                                 <input type="hidden" #refinpuOne id="fare-route-one-rad-{{i}}" value={{flight.price}} />
                                                 <input type="hidden" #refinputOtOne id="fare-route-ot-one-rad-{{i}}" value={{flight.startTime}} />
                                                 <input type="hidden" #refinpuDtOne id="fare-route-dt-one-rad-{{i}}" value={{flight.endTime}} />
-
-                                                <input type="radio" class="customfare" id="fare-route-one-{{i}}" value="" formControlName="fareRouteOne" />
-                                                <label for="fare-route-one-{{i}}" (click)="updatePriceOne(refinpuOne, refinputOtOne,refinpuDtOne )">
+                                                <input type="hidden" #refinputIndex value="{{i}}" />
+                                                <input type="radio"    class="customfare" id="fare-route-one-{{i}}" value="" formControlName="fareRouteOne" />
+                                                <label for="fare-route-one-{{i}}" (click)="updatePriceOne(refinpuOne, refinputOtOne,refinpuDtOne, refinputIndex)">
 
     
                                                             <div class="currencydiv flight-section-details">
@@ -157,7 +157,7 @@
                                                 <div class="container ">
                                                     <div class="row row-table padding-top-2">
                                                         <div class="col-8 flight-schedule-item text-left  flight-schedule__selected-date">
-                                                            <span class="trip-head flight-no">DL_899{{i}}</span>
+                                                            <span class="trip-head flight-no">{{flight.carrierName}}</span>
                                                         </div>
 
                                                         <div class="col-4 flight-schedule-item text-right  pl-0 flight-schedule__selected-currency bookingcurrencycode">
@@ -221,8 +221,9 @@
                                         <div class="row row-table h-100">
                                             <div class="col-12 flight-section-details p-0">
                                                 <input type="hidden" #refinpuTwo id="fare-route-two-rad-{{i}}" value={{flight.price}} />
-                                                <input type="radio" class="customfare" id="fare-route-two-{{i}}" value="{{i}}" formControlName="fareRouteTwo" />
-                                                <label for="fare-route-two-{{i}}" (click)="updatePriceTwo(refinpuTwo)">
+                                                <input type="hidden" #refinputIndex value="{{i}}" />
+                                                <input type="radio" class="customfare" id="fare-route-two-{{i}}" value="" formControlName="fareRouteTwo" />
+                                                <label for="fare-route-two-{{i}}" (click)="updatePriceTwo(refinpuTwo,refinputIndex)">
         
         
                                                                 <div class="currencydiv flight-section-details">
@@ -254,21 +255,41 @@
                     </div>
                 </div>
                 <div class="col-4 offset-1 p-0" *ngIf="outboundFlights?.length > 0 || inboundFlights?.length > 0 ">
-                    <div class="container-fluid  flight-cost-component flight-section-details">
-                        <div class="flight-section-details flight-cost-head container ">
-                            <div class="row row-table ">
-                                <div class="col-12 ">
-                                    <div class="row row-table padding-top-2">
-                                        <div class="col-5 padding-right-2 text-right">
+                        <div class="container-fluid  flight-cost-component flight-section-details">
+                                <div class="flight-section-details flight-cost-head container ">
+                                    <div class="row row-table ">
+                                        <div class="col-12 ">
+                                            <div class="row row-table padding-top-2">
+                                                <div class="col-11 padding-right-2 ">
+        
+                                                    <span class="payHeaderTotal">Grand total : </span>
+                                                     <span class="payValueTotal">${{mydetailForm.value.totalPrice}}</span>
+                                                </div>
+                                                <div class="col-11 padding-right-2 ">
 
-                                            <span class="payHeader">Grand total </span>
-                                        </div>
-                                        <div class="col-7  text-left ">
-                                            <strong class="payValue">${{mydetailForm.value.fareRouteTwoVal*1 +mydetailForm.value.fareRouteOneVal*1}}</strong>
+                                                    <span class="payHeader">Base Fare : </span><span class="payValue">${{mydetailForm.value.fareRouteOneVal*1}}</span>
+                                                    </div> 
+                                                 <div class="col-11 padding-right-2 ">
+
+                                                    <span class="payHeader">Airport Tax : </span> <span class="payValue">${{mydetailForm.value.taxAirport*1}}</span>
+                                                    </div> 
+                                                <div class="col-11 padding-right-2 ">
+
+                                                     <span class="payHeader">Fuel Tax : </span><span class="payValue">${{mydetailForm.value.taxFuel*1}}</span>
+                                                    </div>
+                                                 <div class="col-11 padding-right-2 ">
+
+                                                     <span class="payHeader">Service Charge : </span> <span class="payValue">${{mydetailForm.value.chargeService*1}}</span>
+                                                    </div>
+                                                 <div class="col-11 padding-right-2 ">
+
+                                                     <span class="payHeader">Development fees : </span><span class="payValue">${{mydetailForm.value.feesDevelopment*1}}</span>
+
+                                                </div>
+                                               
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                             <div class="row row-table ">
                                 <div class="col-12 text-center paynowBtnDiv ">
                                     <input src="" class="btn submit paynowBtn" id="pay-submit" name="ap3-flights-submit" type="submit" value="Continue">
