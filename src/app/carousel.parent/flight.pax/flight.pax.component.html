@@ -12,7 +12,7 @@
                 <div class="col-12 m-0 flight-pax-table-header">
                     <h2>Personal Details</h2>
                 </div>
-                <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="myPaxForm" (ngSubmit)="onSubmit()" #formDir="ngForm">
                     <!--adult rows-->
                     <div class="col-12 p-0">
                         <ng-container formArrayName="items" *ngFor="let item of formData.controls; let i = index;">
@@ -28,6 +28,12 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <input id="{{item.value.paxType}}-firstName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="firstName" />
+                                                        <div *ngIf="item.controls.firstName.errors && formDir.submitted"> 
+                                                                <div *ngIf="item.controls.firstName.errors.required">
+                                                                       First Name required.
+                                                                </div> 		   
+                                                             
+                                                             </div> 
                                                     </div>
 
                                                 </div>
@@ -38,6 +44,12 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <input id="{{item.value.paxType}}-lastName-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="lastName" />
+                                                        <div *ngIf="item.controls.lastName.errors && formDir.submitted"> 
+                                                                <div *ngIf="item.controls.lastName.errors.required">
+                                                                        Last Name required.
+                                                                </div> 		   
+                                                             
+                                                             </div> 
                                                     </div>
                                                 </div>
                                                 <div class="row ml-0 pad-5 row-flex">
@@ -47,6 +59,14 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <input id="{{item.value.paxType}}-email-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="email" />
+                                                        <div *ngIf="item.controls.email.errors && formDir.submitted"> 
+                                                                <div *ngIf="item.controls.email.errors.required">
+                                                                     Email required.
+                                                                </div> 		   
+                                                                <div *ngIf="item.controls.email.errors.pattern">
+                                                                     Email not valid.
+                                                                </div> 
+                                                             </div> 
                                                     </div>
                                                 </div>
 
@@ -57,7 +77,14 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <input id="{{item.value.paxType}}-phnNo-{{i}}" type="text" class=" row-detail form-control no-border-rad" formControlName="phnNo" />
+                                                        <div *ngIf="item.controls.phnNo.errors && formDir.submitted"> 
+                                                                <div *ngIf="item.controls.phnNo.errors.required">
+                                                                       Phone Number required.
+                                                                </div> 		   
+                                                             
+                                                             </div> 
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </ng-template>

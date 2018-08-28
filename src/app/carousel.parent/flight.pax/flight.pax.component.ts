@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { FormBuilder, FormGroup, FormArray } from "@angular/forms";
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from "@angular/forms";
 import { FormService } from "../services/form.shared.service";
 import { PaxType } from "../models/flight.search.pax.model";
 @Component({
@@ -74,10 +74,12 @@ export class PaxAccordionToggleComponent {
   }
   createItem(paxtype: String): FormGroup {
     return this.fb.group({
-      firstName: '',
-      lastName: '',
+      firstName:  new FormControl('', Validators.required),
+      lastName:  new FormControl('', Validators.required),
       paxType: paxtype,
-      email: '',
+      email: new FormControl('', Validators.compose([Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
       phnNo:''
     });
   }
@@ -97,7 +99,7 @@ export class PaxAccordionToggleComponent {
   onSubmit() {
     if (this.myPaxForm.valid) {
       console.log("Form Submitted!");
-    }
+    
     Object.keys(this.myPaxForm.controls).forEach((key: string) => {
       console.log(this.myPaxForm.controls[key].value);
       this._dataService.setOption(key,this.myPaxForm.controls[key].value);
@@ -105,10 +107,13 @@ export class PaxAccordionToggleComponent {
     });
     console.log( this._dataService.get());
     this.router.navigate(['payment']);
+   }
   }
   get formData() { return <FormArray>this.myPaxForm.get('items'); }
   get flightData() { console.log(this.flightdata);return this.flightdata; }
+  get email() { return this.rForm.get('email'); }
 
+  
 }
 
 
