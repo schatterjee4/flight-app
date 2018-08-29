@@ -4,6 +4,7 @@ import { Flight } from '../models/flight.results.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 export const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"},{"key":"DXB","value":"Dubai"}];
+export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 @Injectable()
 export class FormService {
@@ -66,7 +67,7 @@ export class FormService {
           );
     } 
     fetchView(pnr, lname): Observable<any> {
-        return this.http.get('http://localhost:3000/fetchDetails?lname='+lname+'&pnr='+pnr).pipe(
+        return this.http.get('http://localhost:3000/fetchDetails?lastName='+lname+'&pnr='+pnr.toUpperCase()).pipe(
             map((res:Response) => (
                 res.json()
             ))
@@ -78,13 +79,14 @@ export class FormService {
         let objectArr = {};
         objectArr['paxArray']= data['items'];
         objectArr['source']= data['fareRouteOne']['source'];
-        objectArr['destination']= data['items']['destination'];
+        objectArr['destination']= data['fareRouteOne']['destination'];
         objectArr['category']= data['fareRouteOne']['category'];
         objectArr['carrierName']= data['fareRouteOne']['carrierName'];
         objectArr['duration']= data['fareRouteOne']['duration'];
         objectArr['endTime']= data['fareRouteOne']['endTime'];
         objectArr['startTime']= data['fareRouteOne']['startTime'];
         objectArr['carrier']= data['fareRouteOne']['carrier'];
+        objectArr['traveldate']=  data['datefrom']['month']+"/"+data['datefrom']['day']+"/"+data['datefrom']['year'];
         objectArr['totalPrice']= data['totalPrice'];
 
         objectArr['taxFuel']= data['taxFuel'];
@@ -96,7 +98,7 @@ export class FormService {
         let requestObj = JSON.stringify(objectArr);
         let resp;
          // tslint:disable-next-line:max-line-length
-         return this.http.post('http://localhost:3000/addName', requestObj, { headers: new Headers({ 'Content-Type': 'application/json' }) }).pipe(
+         return this.http.post('http://localhost:3000/storeData', requestObj, { headers: new Headers({ 'Content-Type': 'application/json' }) }).pipe(
             map((res:Response) => (
                 res.json()
             ))

@@ -3,10 +3,9 @@ import { Router, ActivatedRoute, Params, Data } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { FormService } from '../services/form.shared.service';
+import { FormService,months } from '../services/form.shared.service';
 import { Flight } from '../models/flight.results.model';
 import { FlightSearch } from '../models/flight.search.model';
-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 @Component({
     selector: "flight-results",

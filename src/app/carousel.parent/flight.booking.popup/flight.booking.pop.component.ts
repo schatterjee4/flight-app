@@ -1,6 +1,6 @@
-import {Component, ViewEncapsulation, Optional} from '@angular/core';
+import {Component, ViewEncapsulation, Optional, Input} from '@angular/core';
 
-import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbActiveModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'ngbd-modal-options',
@@ -10,9 +10,11 @@ import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bo
 })
 export class NgbdModalOptions {
   closeResult: String;
-  modaltype:String;
-  constructor(public activeModal: NgbActiveModal,@Optional()modaltype: String) {
-    this.modaltype= modaltype;
+  @Input() modaltype;
+  @Input() size;
+ 
+ 
+  constructor(public activeModal: NgbActiveModal) {
   }
 
   
@@ -22,14 +24,21 @@ export class NgbdModalOptions {
   templateUrl: './modal-component.html'
 })
 export class NgbdModalComponent {
+  modalRef :NgbModalRef;
   constructor(private modalService: NgbModal) {}
 
-  openVerticallyCentered(@Optional() type:any) {
-    const modalRef = this.modalService.open(NgbdModalOptions,{ size: 'lg', modaltype: type});
+  openVerticallyCentered( type?:any, size?:any) {
+    this.modalRef = this.modalService.open(NgbdModalOptions, { backdrop : 'static',
+    keyboard : false, centered: true});
+    this.modalRef.componentInstance.modaltype = type;
+    this.modalRef.componentInstance.size = size;
     //modalRef.componentInstance.name = 'World';
    /* modalRef.componentInstance.data = {
       foo: 'bar',
       name: 'World'
     }*/
+  }
+  closeActive(){
+    this.modalRef.close();
   }
 }

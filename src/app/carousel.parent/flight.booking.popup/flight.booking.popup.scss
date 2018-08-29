@@ -8,13 +8,40 @@
 }
 @media (min-width: 992px)
 {
-.modal-lg {
-    max-width: 400px;
+.modal-md {
+   // max-width: 600px;
     top:20%;
 }}
-
+@media (min-width: 992px)
+{
+.modal-lg {
+    top:20%;
+}}
 .flight-book-table-header h3{
     font-family: Whitney Semibold!important;
     font-size:25px;
     font-weight: 500;
 }
+
+.flight-book-table-header .fa-spinner::before{
+    
+    content: '\f021';
+   font-size: 30px;
+   color: #40403f;
+ //transition: 0.9s;
+ //transform: rotateY(360deg);
+}
+.flight-book-table-header p{
+    display: inline-flex;
+    padding-left:5px;
+    font-size: 25px;
+}
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+

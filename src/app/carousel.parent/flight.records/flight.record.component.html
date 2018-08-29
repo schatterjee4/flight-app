@@ -110,10 +110,21 @@
 
                                             <div class="col-3 pax-record-val">{{user.firstName}}</div>
 
-                                            <div class="col-5 pax-record-val">{{user.lastname}}</div>
+                                            <div class="col-5 pax-record-val">{{user.lastName}}</div>
 
                                             <div class="col-4  text-left">{{user.ticketNumber}}</div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 m-0 outbound-header flight-pax-table-header">
+                                <div class="row row-table pr-0 cancelConfirm">
+                                    <div class="col-11  padding-bt-2 padding-top-2 cancelQstn"></div>
+
+                                    <div class="col-1   padding-bt-2 padding-top-2 pull-left text-left">
+                                            <input src="" class="btn submit paynowBtn" id="pay-submit" name="ap3-flights-submit" type="submit" value="Cancel Booking">
+
                                     </div>
                                 </div>
                             </div>
@@ -122,8 +133,49 @@
                 </div>
             </div>
 
-            <div class="col-4"></div>
-            <div class="col-2 flight-pax-table"></div>
+            <div class="col-3 offset-2 ">
+                <div class="row row-table margin-top-5">
+                  
+                        <div class="row row-table margin-top-5">
+                                <div class="col-12 m-0 outbound-header  flight-pax-table-header">
+                                    <h2>Payment Information</h2>
+                                </div>
+                    <div class="flight-pax-table view-table p-0 col-12">
+                            <div class="col-12 m-0 outbound-header flight-pax-table-header">
+                                    <h5>
+                                       Summary
+                                    </h5>
+                                </div>
+                                <div class="col-12 detail-container-head">
+                                        <div class="row row-table flight-record-detail">
+                                         
+        
+                                            <div class="col-5 payHeader view-detail-row">
+                                                    Tax
+                                            </div>
+                                            <div class="col-6 payValue view-detail-row">
+                                                    {{myrecordForm.value.data.taxAirport*1
+                                                    +myrecordForm.value.data.taxFuel*1
+                                                    +myrecordForm.value.data.chargeService*1
+                                                    +myrecordForm.value.data.feesDevelopment*1}}
+                                            </div>
+                                        </div>
+                                        <div class="row row-table flight-record-detail">
+                                         
+        
+                                                <div class="col-5 payHeader view-detail-row">
+                                                        Total Price
+                                                </div>
+                                                <div class="col-6 payValueTotal view-detail-row">
+                                                        {{myrecordForm.value.data.price*1
+                                                       }}
+                                                </div>
+                                            </div>
+                                </div>        
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>

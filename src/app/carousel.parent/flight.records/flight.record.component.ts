@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 import {FormService, states} from '../services/form.shared.service';
+import { NgbdModalComponent } from '../flight.booking.popup/flight.booking.pop.component';
 
 @Component({
   selector: 'app-flight-record-component',
@@ -17,7 +18,7 @@ export class FlightRecordComponent  implements OnInit {
     public model: any;
     public records: any;
 
-  constructor(private fb: FormBuilder,private router: Router,private _dataService: FormService) { }
+  constructor(private fb: FormBuilder,private router: Router,private _dataService: FormService,  private  modal: NgbdModalComponent ) { }
   ngOnInit() {
     
     this.myrecordForm = this.fb.group({
@@ -37,5 +38,19 @@ export class FlightRecordComponent  implements OnInit {
   });
 
     this.myrecordForm.valueChanges.subscribe(console.log);
+  }
+  onSubmit() {
+    this.modal.openVerticallyCentered('precancelcheck','md');
+   
+    if(this.myrecordForm.value.data.fop=="cc")
+    {
+      setTimeout(()=>{ this.closeAndOpenModal(); }, 4000);
+     
+
+    }
+
+  }
+  closeAndOpenModal(){
+    this.modal.closeActive(); this.modal.openVerticallyCentered('precancel','md');
   }
 }

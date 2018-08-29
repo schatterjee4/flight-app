@@ -105,7 +105,7 @@
                                                 <input type="hidden" #refinpuDtOne id="fare-route-dt-one-rad-{{i}}" value={{flight.endTime}} />
                                                 <input type="hidden" #refinputIndex value="{{i}}" />
                                                 <input type="radio"    class="customfare" id="fare-route-one-{{i}}" value="" formControlName="fareRouteOne" />
-                                                <label for="fare-route-one-{{i}}" (click)="updatePriceOne(refinpuOne, refinputOtOne,refinpuDtOne, refinputIndex)">
+                                                <label for="fare-route-one-{{i}}"  [ngClass]="{'checked':flight.price == mydetailForm.value.fareRouteOneVal}" (click)="updatePriceOne(refinpuOne, refinputOtOne,refinpuDtOne, refinputIndex)">
 
     
                                                             <div class="currencydiv flight-section-details">

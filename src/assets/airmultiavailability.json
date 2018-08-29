@@ -17,6 +17,9 @@
           "marketingCompany": {
             "identifier": "LX"
           },
+          "operatingCompany": {
+            "identifier": "2L"
+          },
           "flightIdentification": {
             "number": "146"
           },
@@ -229,7 +232,7 @@
             "cityAirport": "ZRH"
           },
           "arrivalLocation": {
-            "cityAirport": "MUC"
+            "cityAirport": "DEL"
           },
           "marketingCompany": {
             "identifier": "LX"
@@ -413,13 +416,16 @@
             "arrivalTime": "0015"
           },
           "departureLocation": {
-            "cityAirport": "MUC"
+            "cityAirport": "ZRH"
           },
           "arrivalLocation": {
             "cityAirport": "DEL"
           },
           "marketingCompany": {
             "identifier": "LH"
+          },
+          "operatingCompany": {
+            "identifier": "LX"
           },
           "flightIdentification": {
             "number": "4287"
@@ -648,6 +654,9 @@
           },
           "marketingCompany": {
             "identifier": "LX"
+          },
+          "operatingCompany": {
+            "identifier": "2L"
           },
           "flightIdentification": {
             "number": "242"

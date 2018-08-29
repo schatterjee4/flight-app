@@ -76,7 +76,7 @@ body,html,main{
 .threePointHighlight {
     background-color: #fff;
     color: #333333;
-    font-size: 16px;
+    font-size: 14px;
     padding: 25px 0px;
 }
 .threePointHighlight .highlightLogo::before {

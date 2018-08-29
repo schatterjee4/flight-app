@@ -1,5 +1,6 @@
 <div class="modal-header">
         <h4 class="modal-title"></h4>
+        <ng-container *ngIf="modaltype==null||modaltype=='precancel'">
 
         <button
                 type="button"
@@ -8,14 +9,26 @@
                 (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">&times;</span>
         </button>
+        </ng-container>
 </div>
 
-<div class="modal-body">
+<div class="modal-body modal-{{size}}">
         <ng-container *ngIf="modaltype==null">
                 <div class="col-12 p-2 m-0 flight-book-table-header">
                         <h3>Booking Created Successfully!</h3>
                 </div>
         </ng-container>
+        <ng-container *ngIf="modaltype=='precancelcheck'">
+                        <div class="col-12 p-2 m-0 flight-book-table-header ">
+                                <i class="fa fa-spinner fa-spin"></i><p>We are checking your Booking</p>
+                        </div>
+         </ng-container>
+         <ng-container *ngIf="modaltype=='precancel'">
+                <div class="col-12 p-2 m-0 flight-book-table-header ">
+                       <p>We are sorry! your Booking is not eligible for cancellation</p>
+                </div>
+ </ng-container>
+        
 </div>
 
 <div class="modal-footer"></div>
