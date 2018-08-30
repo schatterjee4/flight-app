@@ -1,4 +1,4 @@
-.flight-book-table-header h3::before {
+.flight-pop-table-header h3::before {
     font-family: "FontAwesome";
     font-style: normal;
     width: 40px;
@@ -10,20 +10,21 @@
 {
 .modal-md {
    // max-width: 600px;
-    top:20%;
+    top:10%;
 }}
 @media (min-width: 992px)
 {
 .modal-lg {
-    top:20%;
+    top:10%;
 }}
-.flight-book-table-header h3{
-    font-family: Whitney Semibold!important;
+.flight-pop-table-header h3{
     font-size:25px;
-    font-weight: 500;
+    font-weight: 400;
 }
-
-.flight-book-table-header .fa-spinner::before{
+.flight-pop-table-header .fa-spinner{
+    padding-right:5px;
+}
+.flight-pop-table-header .fa-spinner::before{
     
     content: '\f021';
    font-size: 30px;
@@ -31,10 +32,18 @@
  //transition: 0.9s;
  //transform: rotateY(360deg);
 }
-.flight-book-table-header p{
+.flight-pop-table-header span.mainTxt{
     display: inline-flex;
-    padding-left:5px;
-    font-size: 25px;
+   // padding-left:5px;
+    font-size: 20px;
+     font-weight: 400;
+}
+.flight-pop-table-header span.mainTxt p{
+
+ display: inline-flex;
+    //padding-left:5px;
+    font-size: 15px;
+     font-weight: 400;
 }
 @keyframes spin {
     from {

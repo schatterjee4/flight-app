@@ -4,8 +4,20 @@
 
         <div class="row row-table ">
             <div class="container">
-                <div id="Checkout" class="inline">
+                <div id="Checkout" class="inline row row-table">
                     <h1>Pay Invoice</h1>
+                     <div class="col-6 pr-0">
+                     <input type="radio" class="custom" id="flights-pay" value="cc" formControlName="fop">
+                        <label for="flights-pay" class="radiolabel">
+                            <span></span>Card
+                        </label>
+                     </div>
+                     <div class="col-6 pr-0">
+                     <input type="radio" class="custom" id="flights-pay" value="pp" formControlName="fop">
+                        <label for="flights-pay" class="radiolabel">
+                            <span></span>Points Pay
+                        </label>
+                    </div>
                     <div class="card-row">
                         <span class="visa"></span>
                         <span class="mastercard"></span>

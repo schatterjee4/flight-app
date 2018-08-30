@@ -42,7 +42,7 @@ export class FlightRecordComponent  implements OnInit {
   onSubmit() {
     this.modal.openVerticallyCentered('precancelcheck','md');
    
-    if(this.myrecordForm.value.data.fop=="cc")
+    if(this.myrecordForm.value.data.fop=="pp"||this.myrecordForm.value.data.carrier=="EY")
     {
       setTimeout(()=>{ this.closeAndOpenModal(); }, 4000);
      

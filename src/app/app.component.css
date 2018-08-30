@@ -77,7 +77,8 @@ body,html,main{
     background-color: #fff;
     color: #333333;
     font-size: 14px;
-    padding: 25px 0px;
+    padding: 5px 0px;
+    border-top:1px solid #E1E1E1;
 }
 .threePointHighlight .highlightLogo::before {
     content: "\f0a3";  /* this is your text. You can also use UTF-8 character codes as I do here */
