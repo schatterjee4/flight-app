@@ -45,6 +45,7 @@
 }
 .flight-record-detail{
     border-top:1px solid #ccc;
+    padding: 5px;
 }
 .outbound-record-details span{
     display: inline-block;
@@ -70,6 +71,7 @@
     font-size:20px;
     font-family:Whitney-Medium !important;
     color:#40403f;
+    display:inline-block;
 }
 .flight-icon::before{
 content:  "\f072";
@@ -154,7 +156,23 @@ height:10px;
 .pax-record-val{
     font-weight: 600;
 }
-.flight-record-header{
-    padding:unset;
-    padding-left:2px;
+.flight-record-header span.flight-record-head-icon::before{
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-size: 20px;
+    content: "\f0c0";    
+   // color:#666;
+    padding-right:5px;
+    color:#fff;
+   
+ 
+}
+.flight-record-header span.flight-record-head-icon{
+   display: inline-block; 
+   background-color: #e01933;
+   width:30px;
+   height:30px;
+   text-align: center;
+   
+  margin-left: 10px; 
 }

@@ -1,22 +1,21 @@
+
 <div
     class="tabs-content clear flight-schedule container-fluid"
     data-trip-index="0"
     data-bundle-product=""
-    data-bundle-amount="0"
->
-    <div class="container">
+    data-bundle-amount="0">
+    <div class="container" *ngIf="!(_isLoading$ | async)">
         <div class="row m0-xs-down">
             <div class="p0-xs-down flight-section-search-head col-8"></div>
         </div>
 
-        <div class="row row-table margin-top-5">
+        <div class="row row-table margin-top-5" >
             <div class="col-6">
                 <div class="row row-table margin-top-5">
                     <div class="col-12 m-0 outbound-header  flight-pax-table-header">
                         <h2>Flight Information</h2>
                     </div>
-
-                    <div class="flight-pax-table view-table p-0 col-12">
+                    <div class="flight-pax-table view-table p-0 col-12"  >
                         <form
                             [formGroup]="myrecordForm"
                             (ngSubmit)="onSubmit()"
@@ -29,13 +28,14 @@
 
                             <div class="col-12 detail-container-head">
                                 <div class="row row-table outbound-record">
-                                    <div class="col-1 flight-component-head-icon">
-                                        <div class="col-12 flight-view-icon"></div>
-                                    </div>
+                                    
+                                        <div class="col-12 flight-record-header">
+                                                <span class=" flight-record-head-icon"></span>
+                                            <h4>Outbound Flights</h4>
+                                        </div>
+                                   
 
-                                    <div class="col-11 flight-record-header">
-                                        <h4>Outbound Flights</h4>
-                                    </div>
+                                    
                                 </div>
 
                                 <div class="row row-table outbound-record-details">

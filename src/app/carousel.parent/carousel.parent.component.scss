@@ -605,7 +605,7 @@ margin-top:2px;
 }
 .paxTypeInfo{
     font-size: 9px;
-color:red;
+color:#e01933;
 display:inline-block;
 padding-left: 2px;
 }
@@ -970,4 +970,8 @@ padding-right:10px;
     margin-bottom:50%;
     margin-left:5%;
     
+}
+.loader  .modal-dialog > .modal-content{
+    border: unset;
+    background-color: red;
 }

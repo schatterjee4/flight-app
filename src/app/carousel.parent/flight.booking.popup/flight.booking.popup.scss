@@ -1,3 +1,4 @@
+
 .flight-pop-table-header h3::before {
     font-family: "FontAwesome";
     font-style: normal;
@@ -44,6 +45,19 @@
     //padding-left:5px;
     font-size: 15px;
      font-weight: 400;
+}
+.loader  .modal-dialog > .modal-content{
+    border: unset;
+    background-color: transparent;
+    text-align:center;
+}
+.loader   .modal-header{
+    border: unset;
+    background-color: transparent;
+}
+.loader  .modal-footer{
+    border: unset;
+    background-color: transparent;
 }
 @keyframes spin {
     from {

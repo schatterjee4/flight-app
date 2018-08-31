@@ -27,9 +27,9 @@ export class NgbdModalComponent {
   modalRef :NgbModalRef;
   constructor(private modalService: NgbModal) {}
 
-  openVerticallyCentered( type?:any, size?:any) {
+  openVerticallyCentered( type?:any, size?:any, cssclass?:any) {
     this.modalRef = this.modalService.open(NgbdModalOptions, { backdrop : 'static',
-    keyboard : false, centered: true});
+    keyboard : false, windowClass: 'loader'});
     this.modalRef.componentInstance.modaltype = type;
     this.modalRef.componentInstance.size = size;
     //modalRef.componentInstance.name = 'World';
