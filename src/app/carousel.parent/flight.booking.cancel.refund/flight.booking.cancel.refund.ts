@@ -25,7 +25,7 @@ export class FlightCancelRefComponent {
     ngOnInit() {
     
     this.mycancelForm = this.fb.group({
-      data:{};
+      data:{}
      
     });
     setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
