@@ -73,6 +73,13 @@ export class FormService {
             ))
           );
     } 
+    fetchRefund(pnr, lname): Observable<any> {
+        return this.http.get('http://localhost:3000/fetchRefundAmount?lastName='+lname+'&pnr='+pnr.toUpperCase()).pipe(
+            map((res:Response) => (
+                res.json()
+            ))
+          );
+    } 
     savePnr(): Observable<any>
     {
         const data = this.get();

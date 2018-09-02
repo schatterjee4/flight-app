@@ -12,7 +12,7 @@
         <div class="row row-table refund-record ">
 
 
-            <div class="bg-color-1 text-1 refund-record-header col-12 ">Flight EY Philipines (MNL) > Abu Dhabi Airport, UAE (AUH)</div>
+            <div class="bg-color-1 text-1 refund-record-header col-12 ">Flight {{mycancelForm.value.data.carrier}} {{mycancelForm.value.data.originDescr[0]}} ({{mycancelForm.value.data.source}}) > {{mycancelForm.value.data.destDescr[0]}} ({{mycancelForm.value.data.destination}})</div>
         </div>
         <div class="row row-table refund-details ">
 
@@ -33,9 +33,9 @@
 
 
         <div class="row row-table refund-details ">
-            <div class="col-md-2 cell ">From To</div>
-            <div class="col-md-2 cell ">1 hr 5 min</div>
-            <div class="col-md-2 cell ">EY 421</div>
+            <div class="col-md-2 cell ">{{mycancelForm.value.data.source}} > {{mycancelForm.value.data.destination}}</div>
+            <div class="col-md-2 cell ">{{mycancelForm.value.data.duration}} </div>
+            <div class="col-md-2 cell ">{{mycancelForm.value.data.carrierName}}</div>
             <div class="col-md-2 cell ">Etihad Airways</div>
             <div class="col-md-2 cell ">77W</div>
             <div class="col-md-2 cell last-col ">Economy</div>
@@ -56,46 +56,46 @@
 
                     <div class="row row-table text-bold-2 ">
                         <div class="col-6 ">Total Amount Paid</div>
-                        <div class="col-4 offset-2 ">XXXX</div>
+                        <div class="col-4 offset-2 ">${{mycancelForm.value.data.price}}</div>
                     </div>
 
                     <div class="row row-table ">
                         <div class="col-6 ">Base Fare(per pax)</div>
-                        <div class="col-4 offset-2 ">XXX</div>
+                        <div class="col-4 offset-2 ">$price</div>
                     </div>
 
                     <div class="row row-table ">
                         <div class="col-6 ">Airport Tax(per pax)</div>
-                        <div class=" col-4 offset-2">XXX</div>
+                        <div class=" col-4 offset-2">${{mycancelForm.value.data.price}}</div>
                     </div>
 
                     <div class="row row-table ">
                         <div class="col-6 ">Fuel Tax(per pax) </div>
-                        <div class=" col-4 offset-2">XXX </div>
+                        <div class=" col-4 offset-2">${{mycancelForm.value.data.price}} </div>
                     </div>
 
                     <div class="row row-table ">
 
                         <div class="col-6 ">Service Charge(per pax)</div>
-                        <div class=" col-4 offset-2 ">XXX</div>
+                        <div class=" col-4 offset-2 ">${{mycancelForm.value.data.chargeService}}</div>
                     </div>
 
                     <div class="row row-table ">
 
                         <div class="col-6 ">Development Fees</div>
-                        <div class=" col-4 offset-2 ">XXX</div>
+                        <div class=" col-4 offset-2 ">${{mycancelForm.value.data.feesDevelopment}}</div>
                     </div>
 
                     <div class="row row-table ">
 
                         <div class="col-6 ">Cancellation Fee</div>
-                        <div class=" col-4 offset-2">XXX</div>
+                        <div class=" col-4 offset-2">${{mycancelForm.value.data.cancellationCharge}}</div>
                     </div>
 
                     <div class="row row-table ">
 
                         <div class="col-6 ">Amount Refundable</div>
-                        <div class=" col-4 offset-2 ">XXX</div>
+                        <div class=" col-4 offset-2 ">${{mycancelForm.value.data.refundAmount}}</div>
                     </div>
                     <div class="row row-table cancel-confirm">
 

@@ -17,6 +17,7 @@ export class FlightCancelRefComponent {
   clickedItem:string;
     public model: any;
     _isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    
 
   constructor(private fb: FormBuilder,private router: Router,private _dataService: FormService,  private  modal: NgbdModalComponent ) { 
   
@@ -24,17 +25,32 @@ export class FlightCancelRefComponent {
     ngOnInit() {
     
     this.mycancelForm = this.fb.group({
-      pnrSrch: '',
-      lnameSrch: ''
+      data:{};
      
     });
     setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
-
-    //this.isLoading$.next(true);
     this._isLoading$.next(true);
+
+    let pnrSrch = this._dataService.get()['pnrSrch'];
+    let lnameSrch = this._dataService.get()['lnameSrch'];
+    this._dataService.fetchRefund(pnrSrch, lnameSrch).subscribe((data: any) => {
+      let formdata =this._dataService.get()['viewRecord'];
+      formdata = Object.assign(formdata,{'cancellationCharge':data.cancellationCharge});
+      formdata = Object.assign(formdata,{'refundAmount':data.refundAmount});
+      this.mycancelForm.setValue({'data':formdata});
+      console.log(formdata);
+      setTimeout(() => {this.modal.closeActive(); this._isLoading$.next(false);
+      },2000);
+    },
+    complete => {
+      console.log('done');
+      this.modal.closeActive();
+      this._isLoading$.next(false);
+     
+    });
+   
     this.mycancelForm.valueChanges.subscribe(console.log);
-    setTimeout(() => {this.modal.closeActive(); this._isLoading$.next(false);
-    },2000);
+   
 
     
   }

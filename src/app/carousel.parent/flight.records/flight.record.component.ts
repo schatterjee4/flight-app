@@ -68,7 +68,7 @@ export class FlightRecordComponent  implements OnInit   {
      
 
     }else{
-      this._dataService.setOption('viewRecord', this.myrecordForm.get('data'));
+      this._dataService.setOption('viewRecord', this.myrecordForm.value.data);
 
       setTimeout(()=>{this.modal.closeActive(); this.router.navigate(['cancel'])}, 2000);
     }
