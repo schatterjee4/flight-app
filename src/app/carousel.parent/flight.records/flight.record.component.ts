@@ -11,7 +11,7 @@ import { NgbdModalComponent } from '../flight.booking.popup/flight.booking.pop.c
   templateUrl: './flight.record.component.html',
   styleUrls: ['./flight.record.component.scss']
 })
-export class FlightRecordComponent  implements OnInit,AfterViewInit    {
+export class FlightRecordComponent  implements OnInit   {
   title = 'app';
   myrecordForm: FormGroup;
   clickedItem:string;
@@ -29,7 +29,7 @@ export class FlightRecordComponent  implements OnInit,AfterViewInit    {
     this.myrecordForm = this.fb.group({
      data: {}
     });
-    setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')};
+    setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
 
     //this.isLoading$.next(true);
     this._isLoading$.next(true);
@@ -67,8 +67,11 @@ export class FlightRecordComponent  implements OnInit,AfterViewInit    {
       setTimeout(()=>{ this.closeAndOpenModal(); }, 4000);
      
 
-    }
+    }else{
+      this._dataService.setOption('viewRecord', this.myrecordForm.get('data'));
+
       setTimeout(()=>{this.modal.closeActive(); this.router.navigate(['cancel'])}, 2000);
+    }
    
 
   }

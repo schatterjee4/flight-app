@@ -41,7 +41,7 @@ export class FlightPaymentComponent implements OnInit {
             if(data!=null)
             {
                 this._dataService.setOption("bookingRef", data.pnr);
-                this.modal.openVerticallyCentered(null,'lg');
+                this.modal.openVerticallyCentered(null,'lg','');
 
                     this.router.navigate(['bookingdetails']);
                

@@ -29,7 +29,7 @@ export class NgbdModalComponent {
 
   openVerticallyCentered( type?:any, size?:any, cssclass?:any) {
     this.modalRef = this.modalService.open(NgbdModalOptions, { backdrop : 'static',
-    keyboard : false, windowClass: 'loader'});
+    keyboard : false, windowClass: cssclass});
     this.modalRef.componentInstance.modaltype = type;
     this.modalRef.componentInstance.size = size;
     //modalRef.componentInstance.name = 'World';

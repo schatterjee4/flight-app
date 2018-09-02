@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {Observable} from 'rxjs';
+import {Observable, BehaviorSubject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 import {FormService} from '../services/form.shared.service';
+import { NgbdModalComponent } from '../flight.booking.popup/flight.booking.pop.component';
 
 @Component({
   selector: 'app-flight-booking-cancel-refund',
@@ -15,8 +16,9 @@ export class FlightCancelRefComponent {
   mycancelForm: FormGroup;
   clickedItem:string;
     public model: any;
+    _isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  constructor(private fb: FormBuilder,private router: Router,private _dataService: FormService) { 
+  constructor(private fb: FormBuilder,private router: Router,private _dataService: FormService,  private  modal: NgbdModalComponent ) { 
   
   }
     ngOnInit() {
@@ -26,8 +28,15 @@ export class FlightCancelRefComponent {
       lnameSrch: ''
      
     });
+    setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
 
+    //this.isLoading$.next(true);
+    this._isLoading$.next(true);
     this.mycancelForm.valueChanges.subscribe(console.log);
+    setTimeout(() => {this.modal.closeActive(); this._isLoading$.next(false);
+    },2000);
+
+    
   }
   onSubmit() {
     if (this.mycancelForm.valid) {
