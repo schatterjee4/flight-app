@@ -1,37 +1,34 @@
 <div class="modal-header">
-        <h4 class="modal-title"></h4>
-        <ng-container *ngIf="modaltype==null||modaltype=='precancel'">
+    <h4 class="modal-title"></h4>
+    <ng-container *ngIf="modaltype==null||modaltype=='precancel'">
 
-        <button
-                type="button"
-                class="close"
-                aria-label="Close"
-                (click)="activeModal.dismiss('Cross click')">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">&times;</span>
         </button>
-        </ng-container>
+    </ng-container>
 </div>
 
 <div class="modal-body modal-{{size}}">
-        <ng-container *ngIf="modaltype==null">
-                <div class="col-12 p-2 m-0 flight-pop-table-header">
-                        <h3>Booking Created Successfully!</h3>
-                </div>
-        </ng-container>
-        <ng-container *ngIf="modaltype=='precancelcheck'">
-                        <div class="col-12 p-2 m-0 flight-pop-table-header ">
-                                <i class="fa fa-spinner fa-spin"></i> <span class="mainTxt">We are checking your Booking...</span>
-                        </div>
-         </ng-container>
-         <ng-container *ngIf="modaltype=='precancel'">
-                <div class="col-12 p-2 m-0 flight-pop-table-header ">
-                       <span class="mainTxt">We are Sorry!</span><p>Your Booking is not eligible for cancellation.Please contact our helpline</p>
-                </div>
- </ng-container>
-  <ng-container *ngIf="modaltype=='loader'">
-                <img src="../../../assets/flight-loading.gif" class="loader" width="80%" height="auto"/>
- </ng-container>
-        
+    <ng-container *ngIf="modaltype==null">
+        <div class="col-12 p-2 m-0 flight-pop-table-header">
+            <h3>Booking Created Successfully!</h3>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="modaltype=='precancelcheck'">
+        <div class="col-12 p-2 m-0 flight-pop-table-header ">
+            <i class="fa fa-spinner fa-spin"></i> <span class="mainTxt">We are checking your Booking...</span>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="modaltype=='precancel'">
+        <div class="col-12 p-2 m-0 flight-pop-table-header ">
+            <span class="mainTxt">We are Sorry!</span>
+            <p>Your Booking is not eligible for cancellation.Please contact our helpline</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="modaltype=='loader'">
+        <img src="../../../assets/loading-flight.gif" class="loader" width="80%" height="auto" />
+    </ng-container>
+
 </div>
 
 <div class="modal-footer"></div>

@@ -3,14 +3,13 @@
     margin-top: 36px;
     margin-bottom: 1px;
     display: flex;
-    border-bottom: 1px solid #DEDEDE;
-    padding: 5px;
+    border-bottom: 1px solid #9e9890;
 }
 
 .step-navigation-step {
     display: inline-block;
     position: relative;
-    border: solid #ddd;
+    border: 1px solid #ddd;
     border-width: 0 1px 0 0;
     border-top-width: 0px;
     border-right-width: 1px;
@@ -21,6 +20,7 @@
     list-style: none;
     font-size: 14px;
     width: 10px;
+    padding: 10px;
 }
 
 .icon-step:not(:last-child) {
@@ -43,10 +43,40 @@
     margin: -2px 2px 0 0;
 }
 
-.icon-step.active {
-    background: #6f6660;
+.step-navigation-step.active .icon-step {
     color: #fff;
-    font-weight: 600;
+    background: #6f6660;
+    border-color: #6f6660;
+}
+
+.step-navigation-step.active>span::after,
+.step-navigation-step.active>a>span::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    border-top: none;
+    clear: both;
+    margin-left: -10px;
+}
+
+.step-navigation-step.active>span::before,
+.step-navigation-step.active>a>span::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #6f6660;
+    border-top: none;
+    clear: both;
+    margin-left: -10px;
 }
 
 .step-title {
@@ -55,3 +85,5 @@
     font-size: 15px;
     color: #6f6660; //#40403f;
 }
+
+.step-caption {}
