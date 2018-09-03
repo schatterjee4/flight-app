@@ -1,114 +1,92 @@
-<div class="tabs-content  clear flight-schedule container-fluid">
-    <div class="container">
-        <div class="row row-table m0-xs-down">
-            <div class="p0-xs-down flight-section-search-head flight-section-cancel-header col-8 offset-2">
-                <div class="container p-0">
-                    <div class="row row-table">
-                        <div class="col-12  row-exclaim ">Free Cancellation policy</div>
-                        <div class="col-12 "><p class="row-cancel-detail">If you book your flights today and your plans fall through,you will be able to cancel your flight by confirming.However,don't forget when you select this option all flights for every passenger on this reservation will be cancelled </p></div>
-                    </div>
+<div class="tabs-content  clear flight-schedule container">
+    <div class="row row-table m0-xs-down ">
+        <div class="col-12">
+            <div class="container-fluid">
+                <div class="row row-table m0-xs-down ">
+                    <article class="flight-section-cancel">
+                        <div class="col-12  flight-section-cancel-header ">Confirmation</div>
+                        <div class="col-12  flight-section-cancel-header-dtl ">Your booking has been sucessfully cancelled and applicable account has been credited.</div>
+                    </article>
                 </div>
-            </div><div class="col-2"></div>
-        </div>
+                <div class="row row-table m0-xs-down ">
+                    <div class="col-12 container flight-section-cancel-dtl">
+                        <div class="container-fluid">
+                            <div class="row row-table m0-xs-down flight-section-cancel-sum-dtl ">
+                                <div class="col-2 flight-section-cancel-ref">
+                                    <div class="booking-ref">Booking Reference:</div>
+                                    <div class="booking-ref-no"> {{data.pnr}}</div>
+                                </div>
+                                <div class="col-8 text-left flight-section-cancel-sum-trip">
+                                    <div>Trip Summary</div>
+                                    <span class="flight-detail pl-0  ">
+                                            {{data.originDescr}}({{data.source}}) {{data.startTime}}
+                                        </span>
+                                    <span class="cancel-flight-icon"></span>
 
-        <div class="row row-table margin-top-5 flight-book-table">
-            
-            <div class="flight-pax-table p-0 col-8 offset-2">
-                
-                <div class="col-12 m-0">
-                    <h2>Booking Details</h2><h3>Booking Reference <span class="refNo">{{data.bookingRef}}</span></h3>
-                </div>
+                                    <span class="flight-detail ">
+                                                {{data.destDescr}}({{data.destination}})  {{data.endTime}}
+                                            </span>
+                                </div>
+                                <div class="col-2 flight-section-cancel-sum-trip">
+                                    <div>Travel Dates</div>
+                                    <div class=""> {{data.traveldate}}</div>
 
-                <div class="col-12 pad-left-12 m-0">
-                    <div class="container">
-                        <div class="row row-table  row-bottm-border ">
-                            <div class="col-3 pl-0">Travel date</div>
+                                </div>
+                            </div>
 
-                            <div class="col-5">Flight Details</div>
+                            <div class="row row-table cancel-record-header ">
 
-                            <div class="col-2">Price</div>
-                            <div class="col-2">Refund *</div>
+
+                                <div class="bg-color-1 text-1 refund-record-header col-12 ">Flight {{data.carrierName}} </div>
+                            </div>
+                            <div class="row row-table cancel-details ">
+
+                                <div class="col-md-2 hdr-cell pax-record-val ">
+                                    <span class="flight-detail pl-0 ">From
+                                                        </span>
+                                    <span class="flight-icon "></span>
+
+                                    <span class="flight-detail ">To
+                                                            </span>
+                                </div>
+                                <div class="col-md-2 hdr-cell ">Trip duration</div>
+                                <div class="col-md-2 hdr-cell ">Flight number</div>
+                                <div class="col-md-2 hdr-cell ">Operated by</div>
+                                <div class="col-md-2 hdr-cell ">Aircraft</div>
+                                <div class="col-md-2 hdr-cell last-col ">Class</div>
+                            </div>
+
+
+                            <div class="row row-table  cancel-details ">
+                                <div class="col-md-2 cell ">{{data.source}} > {{data.destination}}</div>
+                                <div class="col-md-2 cell ">{{data.duration}} </div>
+                                <div class="col-md-2 cell ">{{data.carrierName}}</div>
+                                <div class="col-md-2 cell ">Etihad Airways</div>
+                                <div class="col-md-2 cell ">77W</div>
+                                <div class="col-md-2 cell last-col ">Economy</div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
+                <div class="refund-record  row row-table">
+                    <div class="col-6  offset-3 refund-rows">
+                        <div class="container refund-row-detail">
 
-                <div class="col-12 pad-left-12 m-0">
-                    <div class="container">
-                        <div class="row row-table row-bottm-border">
-                            <div class="col-3 flight-section text-center tripDateParent">
-                                <span class="tripDate">{{data.datefrom}}</span>
-                            </div>
-
-                            <div class="col-5">
-                                <div class="row  row-table padding-bt-2">
-                                    <div class="col-6  text-left">{{data.otTimeOne}}</div>
-
-                                    <div class="col-6 p-0 text-left">
-                                        Depart from {{data.origin.value}} on
-                                    </div>
-                                </div>
-
-                                <div class="row  row-table padding-bt-2">
-                                    <div class="col-6 p-0 offset-6  text-left">DL_8999</div>
-                                </div>
-
-                                <div class="row  row-table padding-bt-2">
-                                    <div class="col-6  text-left">{{data.dtTimeOne}}</div>
-
-                                    <div class="col-6 p-0 text-left">Arrive in {{data.dest.value}}</div>
+                            <div class="row row-table  margin-top-5">
+                                <div class="col-12 refund-header">
+                                    <h4>Refund Details</h4>
                                 </div>
                             </div>
-
-                            <div class="col-2">
-                                ${{data.totalPrice}}
+                            <div class="row row-table  ">
+                                <div class="col-6 ">Total Amount Refunded</div>
+                                <div class="col-4 offset-2 text-bold-2">${{data.refundamount}}</div>
                             </div>
-                            <div class="col-2">
-                               ${{data.totalPrice}}
-                            </div>
-                        </div>
-                      <!--  <div class="row row-table">
-                                <div class="col-3 flight-section text-center tripDateParent">
-                                    <span class="tripDate">{{data.datefrom}}</span>
-                                </div>
-    
-                                <div class="col-6">
-                                    <div class="row  row-table padding-bt-2">
-                                        <div class="col-6  text-left">{{data.otTimeOne}}</div>
-    
-                                        <div class="col-6  text-left">
-                                            Depart from {{data.origin.value}} on
-                                        </div>
-                                    </div>
-    
-                                    <div class="row  row-table padding-bt-2">
-                                        <div class="col-6 offset-6  text-left">DL_8999</div>
-                                    </div>
-    
-                                    <div class="row  row-table padding-bt-2">
-                                        <div class="col-6  text-left">{{data.dtTimeOne}}</div>
-    
-                                        <div class="col-6  text-left">Arrive in {{data.dest.value}}</div>
-                                    </div>
-                                </div>
-    
-                                <div class="col-3">
-                                    Grand total ${{data.totalPrice}}
-                                </div>
-                            </div>-->
-                        <div class="row row-table pr-0 cancelConfirm">
-                                <div class="col-10  padding-bt-2 padding-top-2 cancelQstn">Cancel Reservation?</div>
-                            <div class="col-1 pr-0 padding-bt-2 padding-top-2 row-pax-payment pull-right">
-                                <input src="" class="btn submit bookDtBtn paynowBtn " id="search-submit" name="ap3-flights-submit" (click)="redirectToRoute('/')" type="submit" value="No"/>
-                           </div>
-                           <div class="col-1 pr-0  padding-bt-2 padding-top-2 pull-left text-left"> <input src="" class="btn submit bookDtBtn paynowBtn " id="search-submit" name="ap3-flights-submit" (click)="redirectToRoute('/')" type="submit" value="Yes"/>
-                           </div>
-                          
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-2"></div>
         </div>
+
     </div>
 </div>

@@ -50,7 +50,7 @@ export class FlightRecordComponent  implements OnInit   {
       duration = duration.replace("mins","");
       var min = duration*1 % 60;
       var hours = Math.floor(duration*1 / 60);
-      formdata = Object.assign(formdata,{'duration':hours+"hrs\n"+min+'mins'});
+      formdata = Object.assign(formdata,{'duration':hours+"h\n"+min+'m'});
 
     }
      this.myrecordForm.setValue({'data':formdata});

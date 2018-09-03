@@ -80,6 +80,19 @@ export class FormService {
             ))
           );
     } 
+    confirmCancel(pnr, refundAmount): Observable<any> {
+        let objectArr = {};
+        objectArr['pnr']= pnr;
+        objectArr['refundAmount']= refundAmount;
+        let requestObj = JSON.stringify(objectArr);
+
+        // tslint:disable-next-line:max-line-length
+        return this.http.post('http://localhost:3000/updateCancelStatus', requestObj, { headers: new Headers({ 'Content-Type': 'application/json' }) }).pipe(
+            map((res:Response) => (
+                res.json()
+            ))
+          );
+    } 
     savePnr(): Observable<any>
     {
         const data = this.get();

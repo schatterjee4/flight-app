@@ -18,6 +18,7 @@ import { SharedModule } from './flight.booking.popup/flight.booking.popup.module
 import { NgbdModalComponent, NgbdModalOptions } from './flight.booking.popup/flight.booking.pop.component';
 import { FlightRecordComponent } from './flight.records/flight.record.component';
 import {FlightCancelRefComponent} from './flight.booking.cancel.refund/flight.booking.cancel.refund';
+import { FlightCancelledComponent } from './flight.booking.cancel/flight.booking.cancel';
 
 //import { CarouselService } from './carousel.service';
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
     { path : 'passengerdetails' ,component: PaxAccordionToggleComponent},
     {path : 'bookingdetails', component:FlightBookingComponent},
     {path: 'cancel', component:FlightCancelRefComponent},
-    {path: 'view', component:FlightRecordComponent}
+    {path: 'view', component:FlightRecordComponent},
+    {path:'refund', component:FlightCancelledComponent}
    ];
 
 @NgModule({
@@ -55,7 +57,8 @@ const routes: Routes = [
         FlightBookingComponent,
         FlightCancelRefComponent,
         BasicViewFormComponent,
-        FlightRecordComponent
+        FlightRecordComponent,
+        FlightCancelledComponent
 
     ],
   

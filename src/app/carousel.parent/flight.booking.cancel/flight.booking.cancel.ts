@@ -8,7 +8,7 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept'
   styleUrls: ['./flight.booking.cancel.component.scss']
 })
 
-export class FlightBookingCancelComponent {
+export class FlightCancelledComponent {
   data: any;
   origin:String;
   dest:String;
@@ -19,18 +19,7 @@ export class FlightBookingCancelComponent {
   ) { }
 
   ngOnInit() {
-    this.data = this._dataService.get();
-    console.log(this.data);
-    this.origin = this.data['origin'];
-    console.log(this.origin);
-    if(this.data.datefrom!=null)
-    {
-        this.data.datefrom = this.data.datefrom['day']+' '+months[this.data.datefrom['month']]+' '+this.data.datefrom['year'];
-    }
-    if(this.data.dateto!=null)
-    {
-        this.data.dateto = this.data.dateto['day']+' '+months[this.data.dateto['month']]+' '+this.data.dateto['year'];
-    }
+    this.data = this._dataService.get()['viewRecord'];
   }
   redirectToRoute(route) {
     this.router.navigate([route]);

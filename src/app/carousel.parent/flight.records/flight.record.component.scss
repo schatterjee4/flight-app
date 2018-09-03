@@ -172,7 +172,7 @@
 .recordTripDt,
 .recordTripDuration {
     display: inline-block;
-    color: #40403f;
+    color: #6f6660;
     font-size: 15px;
     font-weight: 600;
     //font-size: .875rem;
@@ -181,7 +181,13 @@
 
 .recordTripDuration {
     text-transform: none!important;
-    font-weight: 400;
+    font-weight: 500;
+    padding-left: 0;
+    font-size: 12px;
+    padding-right: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
 }
 
 .pax-record-val {

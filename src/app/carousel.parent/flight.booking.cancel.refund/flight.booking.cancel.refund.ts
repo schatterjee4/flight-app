@@ -59,11 +59,22 @@ export class FlightCancelRefComponent {
       console.log("Form Submitted!");
      //tbd
     }
-    console.log("Form entry!");
-    Object.keys(this.mycancelForm.controls).forEach((key: string) => {
-      this._dataService.setOption(key,this.mycancelForm.controls[key].value);
+    let pnrSrch = this._dataService.get()['pnrSrch'];
+    let refundAmount = this.mycancelForm.value.data.refundAmount;
 
+    this._dataService.confirmCancel(pnrSrch, refundAmount).subscribe((data: any) => {
+      if(data!=null)
+      {
+        if(data.Status=="Success"){
+
+        this._dataService.get()['viewRecord']['refundAmount']=refundAmount;
+        this.router.navigate(['refund']);
+        }
+      }
     });
-    this.router.navigate(['view']);
+  }
+  redirectToRoute(route) {
+    this.router.navigate([route]);
+
   }
 }
