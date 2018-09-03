@@ -3,7 +3,7 @@
     margin-top: 36px;
     margin-bottom: 1px;
     display: flex;
-    border-bottom: 1px solid #9e9890;
+    border-bottom: 1px solid #dedede;
 }
 
 .step-navigation-step {
@@ -54,7 +54,7 @@
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -1px;
+    bottom: -3px;
     width: 0;
     height: 0;
     border: 10px solid transparent;
@@ -73,7 +73,7 @@
     width: 0;
     height: 0;
     border: 10px solid transparent;
-    border-bottom-color: #6f6660;
+    border-bottom-color: #dedede;
     border-top: none;
     clear: both;
     margin-left: -10px;
