@@ -21,6 +21,8 @@
 }
 
 .flight-pop-table-header h3 {
+    font-family: Whitney-Bold !important;
+    color: #40403f;
     font-size: 25px;
     font-weight: 400;
 }
@@ -75,4 +77,9 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.modal-footer,
+.modal-header {
+    border-color: transparent;
 }

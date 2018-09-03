@@ -169,13 +169,19 @@
     line-height: 1.3;
 }
 
-.recordTripDt {
+.recordTripDt,
+.recordTripDuration {
     display: inline-block;
     color: #40403f;
     font-size: 15px;
     font-weight: 600;
     //font-size: .875rem;
     line-height: 1.3;
+}
+
+.recordTripDuration {
+    text-transform: none!important;
+    font-weight: 400;
 }
 
 .pax-record-val {

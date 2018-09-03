@@ -44,7 +44,15 @@ export class FlightRecordComponent  implements OnInit   {
      let destDescr = states.filter(v => v.key.toLowerCase().indexOf(dest.toLowerCase()) > -1).map((state) => state.value );
      formdata = Object.assign(formdata,{'originDescr':originDescr});
      formdata = Object.assign(formdata,{'destDescr':destDescr});
+     let duration = formdata['duration'];
+    if(duration!=null && duration!="")
+    {
+      duration = duration.replace("mins","");
+      var min = duration*1 % 60;
+      var hours = Math.floor(duration*1 / 60);
+      formdata = Object.assign(formdata,{'duration':hours+"hrs\n"+min+'mins'});
 
+    }
      this.myrecordForm.setValue({'data':formdata});
     this.modal.closeActive();
     this._isLoading$.next(false);
