@@ -95,6 +95,12 @@ export class FormService {
         objectArr['carrier']= data['fareRouteOne']['carrier'];
         objectArr['traveldate']=  data['datefrom']['month']+"/"+data['datefrom']['day']+"/"+data['datefrom']['year'];
         objectArr['price']= data['totalPrice'];
+        objectArr['baseFare']= data['fareRouteOneVal']*1;
+        if( data['fareRouteTwoVal'])
+        {
+            objectArr['baseFare']= objectArr['baseFare']*1 + data['fareRouteTwoVal']*1;
+
+        }
 
         objectArr['taxFuel']= data['taxFuel'];
         objectArr['taxAirport']= data['taxAirport'];
