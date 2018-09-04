@@ -6,6 +6,7 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FormService,months } from '../services/form.shared.service';
 import { Flight } from '../models/flight.results.model';
 import { FlightSearch } from '../models/flight.search.model';
+import { NgbdModalComponent } from '../flight.booking.popup/flight.booking.pop.component';
 
 @Component({
     selector: "flight-results",
@@ -23,7 +24,8 @@ export class FlightResultComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private fb: FormBuilder,
-        private _dataService: FormService
+        private _dataService: FormService,
+        private  modal: NgbdModalComponent 
     ) { }
     ngOnInit() {
         if (this.containername !== undefined) {
@@ -45,6 +47,8 @@ export class FlightResultComponent implements OnInit {
             dtTimeTwo: '',
             totalPrice:'0'
         });
+            setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
+
         this.mydetailForm.controls['totalPrice'].setValue(parseInt(this.mydetailForm.value.fareRouteOneVal)+parseInt(this.mydetailForm.value.fareRouteTwoVal)
         +parseInt(this.mydetailForm.value.taxAirport)
         +parseInt(this.mydetailForm.value.taxFuel)
@@ -74,7 +78,8 @@ export class FlightResultComponent implements OnInit {
                     });
                 }
               //  console.log(this.outboundFlights);
-
+            setTimeout(() => {this.modal.closeActive();
+                },2000);
             });
         if (this._dataService.get()['triptype'] == 'two') {
             this
@@ -136,4 +141,8 @@ export class FlightResultComponent implements OnInit {
 
 
     }
+     redirectToRoute(route) {
+    this.router.navigate([route]);
+
+  }
 }

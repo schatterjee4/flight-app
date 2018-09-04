@@ -250,7 +250,8 @@
                         <!--end-->
 
                         <div *ngIf="outboundFlights?.length <= 0 &&  inboundFlights?.length <= 0">
-                            No results found!
+                            No results found!<div class="back-arrow" (click)="redirectToRoute('/')">  <span> Go Back</span>
+</div>
                         </div>
                     </div>
                 </div>

@@ -1080,3 +1080,29 @@ input[id='tab-two'].state:checked~.tabs div[id='tab-two-panel'] {
     border: unset;
     background-color: red;
 }
+.back-arrow{
+    background-color: #ccc;
+    border-radius: 15px;
+    position: relative;
+    font-size: 13px;
+    padding: 10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+}
+.back-arrow span::after {
+    font-family: FontAwesome;
+     content: '\f054';
+        color: #ababb5;
+    font-size: 14px;
+    position:absolute;
+    padding-left:2px;
+    
+ 
+}  
+.back-arrow span{
+    display: inline-block;
+    padding-left: 5px;
+    position: relative;
+
+}
