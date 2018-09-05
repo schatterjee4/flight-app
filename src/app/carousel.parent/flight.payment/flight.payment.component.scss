@@ -74,7 +74,7 @@
   }
   
   .container {
-    margin-top: 50px;
+    margin-top: 10px;
   }
   
   #Checkout {
@@ -224,3 +224,17 @@
     border-color: #b0e5e3!important;
     background-color: #EEF9F9!important;
   }
+  .card-row label{
+    margin-left: 0;
+    font-weight: normal;
+     line-height: 115%; 
+    font-family: Montserrat-UltraLight, Helvetica, Arial, Sans-Serif !important;
+    -webkit-font-smoothing: antialiased;
+
+  }
+.fop-active{
+  opacity:1!important;
+}
+.fop-inactive{
+  opacity:0;
+}

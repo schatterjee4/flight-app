@@ -26,7 +26,8 @@ export class FlightPaymentComponent implements OnInit {
 
     ngOnInit() {
         this.myPaymentForm = this.fb.group({
-            totalPrice: this._dataService.get()['totalPrice']
+            totalPrice: this._dataService.get()['totalPrice'];
+            fop:'cc'
         })
        // alert(this._dataService.get()['totalPrice']);
       //  this.myPaymentForm.value.totalPrice = this._dataService.get()['totalPrice'];

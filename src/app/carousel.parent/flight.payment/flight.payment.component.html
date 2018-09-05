@@ -6,14 +6,27 @@
             <div class="container">
                 <div id="Checkout" class="inline row row-table">
                     <h1>Pay Invoice</h1>
-                    
-                    <div class="card-row">
+                    <form [formGroup]="myPaymentForm" (ngSubmit)="onSubmit()">
+
+                    <div class="row row-table card-row">
+
+                    <input type="radio" class="custom" id="fop-cc" value="cc" formControlName="fop">
+                    <label for="fop-cc" class="radiolabel">
+                        <span></span>Card Payment
+                    </label>
+                    <input type="radio" class="custom" id="fop-pp" value="pp" formControlName="fop">
+                    <label for="fop-pp" class="radiolabel">
+                        <span></span>Points Pay
+                    </label>
+                  </div>
+                <div class=" row row-table fop-cc-div fop-inactive" [ngClass]="{'fop-active':myPaymentForm.value.fop == 'cc'}">
+                    <div class="card-row col-12">
                         <span class="visa"></span>
                         <span class="mastercard"></span>
                         <span class="amex"></span>
                         <span class="discover"></span>
                     </div>
-                    <form [formGroup]="myPaymentForm" (ngSubmit)="onSubmit()">
+                    <div class="col-12">
 
                         <div class="form-group">
                             <label for="PaymentAmount">Payment amount</label>
@@ -52,6 +65,13 @@
                                 <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="left" data-content="Enter the ZIP/Postal code for your credit card billing address."><i class="fa fa-question-circle"></i></a>
                             </div>
                         </div>
+                    </div>
+                    </div>
+                    <div class=" row row-table fop-pp-div fop-inactive" [ngClass]="{'fop-active':myPaymentForm.value.fop == 'pp'}">
+                        <div class="col-12">
+                            kk
+                        </div>
+                    </div>
                         <button id="PayButton" class="btn btn-block btn-success submit-button paynowBtn" type="submit">
                                     <span class="submit-button-lock"></span>
                                     <span class="align-middle">Pay ${{myPaymentForm.value.totalPrice}}</span>
