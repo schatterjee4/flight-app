@@ -110,6 +110,7 @@ export class FormService {
         objectArr['traveldate']=  data['datefrom']['month']+"/"+data['datefrom']['day']+"/"+data['datefrom']['year'];
         objectArr['price']= data['totalPrice'];
         objectArr['baseFare']= data['fareRouteOneVal']*1;
+        objectArr['fop']= data['fop'];
 
         if( data['fareRouteTwoVal'])
         {

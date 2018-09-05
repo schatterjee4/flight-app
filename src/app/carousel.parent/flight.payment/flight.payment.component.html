@@ -14,7 +14,7 @@
                     <label for="fop-cc" class="radiolabel">
                         <span></span>Card Payment
                     </label>
-                    <input type="radio" class="custom" id="fop-pp" value="pp" formControlName="fop">
+                    <input type="radio" class="custom" id="fop-pp" value="pp" formControlName="fop" (click)="generatePoints(myPaymentForm.value.totalPrice)">
                     <label for="fop-pp" class="radiolabel">
                         <span></span>Points Pay
                     </label>
@@ -50,7 +50,7 @@
                         <div class="security-code-group form-group">
                             <label for="SecurityCode">Security code</label>
                             <div class="input-container">
-                                <input id="SecurityCode" class="form-control" type="text">
+                                <input id="SecurityCode" class="form-control" type="password">
                                 <i id="cvc" class="fa fa-question-circle"></i>
                             </div>
                             <div class="cvc-preview-container two-card hide">
@@ -68,11 +68,34 @@
                     </div>
                     </div>
                     <div class=" row row-table fop-pp-div fop-inactive" [ngClass]="{'fop-active':myPaymentForm.value.fop == 'pp'}">
+                        <div class="container-fluid">
+                            <div class=" row row-table">
                         <div class="col-12">
-                            kk
+                             <div class="form-group">
+                            <label for="PaymentAmount">Payment amount</label>
+                            <div class="amount-placeholder">
+                                <span>$</span>
+                                <span>{{myPaymentForm.value.totalPrice}}</span>
+                            </div>
                         </div>
-                    </div>
-                        <button id="PayButton" class="btn btn-block btn-success submit-button paynowBtn" type="submit">
+                        </div>
+                        </div>
+                        <div class=" row row-table" *ngIf="points>0">
+                                <div class="col-6" >
+                           <label for="pointsAvailable">Points available: <span class="amount-placeholder">{{points}}</span></label>
+                           </div>
+                           <div class="col-6 amount-placeholder" *ngIf="points>0">
+                                <div class="form-group text-left">
+
+  
+                               <span class="ico-check-span"><input type="checkbox"  [checked]="check" id="usePoints" (change)="updatePoints(myPaymentForm.value.totalPrice,$event)" >
+                                <label for="usePoints" ><span class="ico-tick-checkbox"></span>Use</label></span>
+                           </div>
+                           </div>
+                           </div>
+                        </div>
+                        </div>
+                        <button id="PayButton" class="btn btn-block btn-success submit-button paynowBtn" type="submit" [disabled]="check==false && myPaymentForm.value.fop == 'pp'">
                                     <span class="submit-button-lock"></span>
                                     <span class="align-middle">Pay ${{myPaymentForm.value.totalPrice}}</span>
                                 </button>

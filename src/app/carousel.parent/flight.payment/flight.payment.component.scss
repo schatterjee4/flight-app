@@ -233,8 +233,56 @@
 
   }
 .fop-active{
-  opacity:1!important;
+  display:block!important;
 }
 .fop-inactive{
-  opacity:0;
+ display:none;
+}
+.ico-tick-checkbox{
+  //background-image:url("../../../assets/inputs_light.png");
+  //background-position: -20px -68px; 
+  //background-size: 60px 90px;
+  width:17px;
+  height:17px;
+  margin-left:5px;
+  margin-right:5px;
+border:1px solid #BFBFBF;
+ display: inline-block;
+ position: relative;
+}
+#usePoints{
+  position:absolute;
+  top:-12px;
+  opacity: 0;
+}
+#usePoints+label{
+cursor: pointer;
+color: #40403f;
+font-size: 14px;
+}
+.ico-check-span{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 10px;
+}
+#usePoints:checked+label span::before{
+  content: "\f00c";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: #28a745;
+    font-size: 20px;
+    position: absolute;
+    top: -3px;
+    left: 0;
+}
+.card-row-header{
+  margin: auto;
+  width:100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
 }
