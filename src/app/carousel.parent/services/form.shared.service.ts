@@ -102,6 +102,7 @@ export class FormService {
         objectArr['destination']= data['fareRouteOne']['destination'];
         objectArr['category']= data['fareRouteOne']['category'];
         objectArr['carrierName']= data['fareRouteOne']['carrierName'];
+        objectArr['aircraftType']= data['fareRouteOne']['aircraftType'];
         objectArr['duration']= data['fareRouteOne']['duration'];
         objectArr['endTime']= data['fareRouteOne']['endTime'];
         objectArr['startTime']= data['fareRouteOne']['startTime'];
@@ -109,6 +110,7 @@ export class FormService {
         objectArr['traveldate']=  data['datefrom']['month']+"/"+data['datefrom']['day']+"/"+data['datefrom']['year'];
         objectArr['price']= data['totalPrice'];
         objectArr['baseFare']= data['fareRouteOneVal']*1;
+
         if( data['fareRouteTwoVal'])
         {
             objectArr['baseFare']= objectArr['baseFare']*1 + data['fareRouteTwoVal']*1;
