@@ -49,7 +49,7 @@
 
 .pax-record-detail {
     border-bottom: 1px solid #ccc;
-    padding-top: 5px;
+   // padding-top: 5px;
     padding-bottom: 5px;
 }
 
@@ -223,6 +223,12 @@
 
 .booking-ref {
     color: #A29993
+}
+.status-ref{
+    font-size:15px;
+    color: #6f6660;
+    display:block;
+    float:right; 
 }
 
 .cancelConfirm {

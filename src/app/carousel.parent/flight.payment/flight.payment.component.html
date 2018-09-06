@@ -41,11 +41,11 @@
                         </div>
                         <div class="form-group">
                             <label for="CreditCardNumber">Card number</label>
-                            <input id="CreditCardNumber" class="null card-image form-control" type="text">
+                            <input id="CreditCardNumber"  type="tel" pattern="\d*" class="cc-number null card-image form-control" >
                         </div>
                         <div class="expiry-date-group form-group">
                             <label for="ExpiryDate">Expiry date</label>
-                            <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="7">
+                            <input id="ExpiryDate" type="tel" pattern="\d*" class="cc-expires form-control" placeholder="MM / YY" maxlength="7">
                         </div>
                         <div class="security-code-group form-group">
                             <label for="SecurityCode">Security code</label>

@@ -1080,15 +1080,33 @@ input[id='tab-two'].state:checked~.tabs div[id='tab-two-panel'] {
     border: unset;
     background-color: red;
 }
+.no-results-found{
+    color: #52585d;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+    font-family: Whitney-Medium!important;
+    display:block;
+}
+.no-results-found-div{
+    color: #52585d;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    font-family: Whitney-Medium!important;
+    display:flex;
+    justify-content: center;
+}
 .back-arrow{
     background-color: #ccc;
-    border-radius: 15px;
+    border-radius: 5px;
     position: relative;
     font-size: 13px;
     padding: 10px;
     cursor:pointer;
     display:flex;
     align-items:center;
+    width:90px;
 }
 .back-arrow span::after {
     font-family: FontAwesome;

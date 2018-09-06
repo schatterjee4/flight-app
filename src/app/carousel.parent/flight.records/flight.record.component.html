@@ -3,8 +3,9 @@
         <div class="row m0-xs-down">
             <div class="p0-xs-down flight-section-search-head col-8"></div>
         </div>
+        <form [formGroup]="myrecordForm" (ngSubmit)="onSubmit()">
 
-        <div class="row row-table margin-top-5">
+        <div class="row row-table margin-top-5" *ngIf="myrecordForm.value.data?.length > 0">
             <div class="col-6">
                 <div class="row row-table margin-top-5">
                     <div class="col-12 m-0 outbound-header  flight-pax-table-header">
@@ -13,10 +14,10 @@
                     <div class="col-12 m-0 outbound-header flight-pax-table-header ">
                         <h5>
                             <span class="booking-ref">Booking Reference:</span> {{myrecordForm.value.data.pnr}}
+                            <span class="status-ref">STATUS:  {{myrecordForm.value.data.statusDescr}}</span>
                         </h5>
                     </div>
                     <div class="flight-pax-table p-0 col-12">
-                        <form [formGroup]="myrecordForm" (ngSubmit)="onSubmit()">
 
 
                             <div class="col-12 detail-container-head">
@@ -103,13 +104,13 @@
                                     <div class="col-8  padding-bt-2 padding-top-2 cancelQstn"></div>
 
                                     <div class="col-4 pr-0 ">
-                                        <input src="" class="btn submit paynowBtn" id="pay-submit" name="ap3-flights-submit" type="submit" value="Cancel Booking">
+                                        <input src="" class="btn submit paynowBtn" id="pay-submit" name="ap3-flights-submit" type="submit" value="Cancel Booking" [disabled]=" myrecordForm.value.data.status=='C'">
 
                                     </div>
                                 </div>
                             </div>
 
-                        </form>
+                       
                     </div>
                 </div>
             </div>
@@ -155,5 +156,20 @@
 
             </div>
         </div>
+        <div class="row row-table margin-top-5" *ngIf="myrecordForm.value.data?.length <= 0">
+                <div class="col-12">
+                <div class="container">
+                        <div class="row row-table ">
+            <div class="col-12 no-results-found">
+                No results found!
+            </div>
+            <div class="col-12">
+                    <span class="back-arrow" (click)="redirectToRoute('/')">  <span> Go Back</span></span>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </form>
     </div>
 </div>

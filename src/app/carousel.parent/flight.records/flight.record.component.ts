@@ -36,7 +36,9 @@ export class FlightRecordComponent  implements OnInit   {
    let pnrSrch = this._dataService.get()['pnrSrch'];
    let lnameSrch = this._dataService.get()['lnameSrch'];
    this._dataService.fetchView(pnrSrch, lnameSrch).subscribe((data: any) => {
-     let formdata = data;
+    let formdata = [];
+     if(data!=null && data!="" && Object.keys(data).length !=0){
+      formdata = data;
 
      let origin = formdata['source'];
      let originDescr = states.filter(v => v.key.toLowerCase().indexOf(origin.toLowerCase()) > -1).map((state) => state.value );
@@ -44,6 +46,10 @@ export class FlightRecordComponent  implements OnInit   {
      let destDescr = states.filter(v => v.key.toLowerCase().indexOf(dest.toLowerCase()) > -1).map((state) => state.value );
      formdata = Object.assign(formdata,{'originDescr':originDescr});
      formdata = Object.assign(formdata,{'destDescr':destDescr});
+     let status = this._dataService.getStatusDescr(formdata['status']);
+     status = status!=null || status.length== 0 ? status[0].value:"";
+     formdata = Object.assign(formdata,{'statusDescr':status});
+
      let duration = formdata['duration'];
     if(duration!=null && duration!="")
     {
@@ -53,6 +59,7 @@ export class FlightRecordComponent  implements OnInit   {
       formdata = Object.assign(formdata,{'duration':hours+"h\n"+min+'m'});
 
     }
+  }
      this.myrecordForm.setValue({'data':formdata});
     this.modal.closeActive();
     this._isLoading$.next(false);
@@ -85,5 +92,9 @@ export class FlightRecordComponent  implements OnInit   {
   }
   closeAndOpenModal(){
     this.modal.closeActive(); this.modal.openVerticallyCentered('precancel','md','');
+  }
+  redirectToRoute(route) {
+    this.router.navigate([route]);
+
   }
 }

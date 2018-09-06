@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 export const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"},{"key":"DXB","value":"Dubai"}];
 export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-
+export const status = [{"key":"C","value":"Cancelled"},{"key":"OK","value":"Confirmed"}];
 @Injectable()
 export class FormService {
     data: any;
@@ -132,6 +132,12 @@ export class FormService {
                 res.json()
             ))
           );
+    }
+
+    getStatusDescr(statusCode: String)
+    {
+        return status.filter(item => statusCode == item.key);
+
     }
     
 }
