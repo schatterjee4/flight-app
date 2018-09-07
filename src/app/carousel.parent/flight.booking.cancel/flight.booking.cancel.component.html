@@ -61,8 +61,8 @@
                                 <div class="col-md-2 cell ">{{data.source}} > {{data.destination}}</div>
                                 <div class="col-md-2 cell ">{{data.duration}} </div>
                                 <div class="col-md-2 cell ">{{data.carrierName}}</div>
-                                <div class="col-md-2 cell ">Etihad Airways</div>
-                                <div class="col-md-2 cell ">77W</div>
+                                <div class="col-md-2 cell ">{{data.airlineDescr}}</div>
+                                <div class="col-md-2 cell ">{{data.aircraftType}}</div>
                                 <div class="col-md-2 cell last-col ">Economy</div>
                             </div>
                         </div>
@@ -82,6 +82,10 @@
                                 <div class="col-6 ">Total Amount Refunded</div>
                                 <div class="col-4 offset-2 text-bold-2">${{data.refundAmount}}</div>
                             </div>
+                            <div class="row row-table  margin-top-5 ">
+                                    <div class="col-4 offset-8 ">
+                            <span><input src="" class="btn  paynowBtn pull-left" id="pay-submit" name="ap3-flights-submit" type="button" value="Go to Home" (click)="redirectToRoute('/')"></span>
+                                    </div>
                         </div>
                     </div>
                 </div>

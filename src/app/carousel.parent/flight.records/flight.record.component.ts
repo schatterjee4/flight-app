@@ -51,6 +51,10 @@ export class FlightRecordComponent  implements OnInit   {
      let statusDescr ="";
      statusDescr = status!=null || status.length!= 0 ? status[0].value : "";
      formdata = Object.assign(formdata,{'statusDescr':statusDescr});
+     let airline = this._dataService.getAirlineDescr(formdata['carrier']);
+     let airlineDescr = airline!=null || airline.length!= 0 ? airline[0].value : "";
+
+     formdata = Object.assign(formdata,{'airlineDescr':airlineDescr});
 
      let duration = formdata['duration'];
     if(duration!=null && duration!="")

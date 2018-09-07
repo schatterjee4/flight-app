@@ -1129,3 +1129,6 @@ input[id='tab-two'].state:checked~.tabs div[id='tab-two-panel'] {
     position: relative;
 
 }
+.btn:disabled{
+    cursor:none;
+}

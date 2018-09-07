@@ -6,6 +6,9 @@ import { map } from 'rxjs/operators';
 export const states = [{"key":"JFK","value":"New York"},{"key":"CCU","value":"Kolkata"},{"key":"DEL","value":"Delhi"},{"key":"ZRH","value":"Zurich"},{"key":"DXB","value":"Dubai"}];
 export const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 export const status = [{"key":"C","value":"Cancelled"},{"key":"OK","value":"Confirmed"}];
+// tslint:disable-next-line:max-line-length
+export const airlines = [{"key":"KLM","value":"Royal Dutch Airlines"},{"key":"EY","value":"Etihad Airways"},{"key":"LH","value":"Lufthansa"},{"key":"LX","value":"Swiss Airline"},{"key":"AF","value":"Air France"}];
+
 @Injectable()
 export class FormService {
     data: any;
@@ -137,6 +140,11 @@ export class FormService {
     getStatusDescr(statusCode: String)
     {
         return status.filter(item => statusCode == item.key);
+
+    }
+    getAirlineDescr(code: String)
+    {
+        return airlines.filter(item => code == item.key);
 
     }
     

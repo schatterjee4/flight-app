@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormService } from "../services/form.shared.service";
 import { NgbdModalComponent } from "../flight.booking.popup/flight.booking.pop.component";
@@ -24,7 +24,7 @@ export class FlightCancelledComponent implements OnInit {
     setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
 
     this.data = this._dataService.get()['viewRecord'];
-    setTimeout(()=> {this.modal.closeActive();}, 1000);
+    setTimeout(()=> {this.modal.closeActive();}, 2000);
 
   }
   redirectToRoute(route) {
