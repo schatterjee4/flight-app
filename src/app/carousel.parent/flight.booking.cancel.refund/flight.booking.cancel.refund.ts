@@ -11,7 +11,7 @@ import { NgbdModalComponent } from '../flight.booking.popup/flight.booking.pop.c
   templateUrl: './flight.booking.cancel.refund.html',
   styleUrls: ['./flight.booking.cancel.refund.scss']
 })
-export class FlightCancelRefComponent {
+export class FlightCancelRefComponent implements OnInit {
   
   mycancelForm: FormGroup;
   clickedItem:string;
@@ -65,10 +65,11 @@ export class FlightCancelRefComponent {
     this._dataService.confirmCancel(pnrSrch, refundAmount).subscribe((data: any) => {
       if(data!=null)
       {
-        if(data.Status=="Success"){
-
-        this._dataService.get()['viewRecord']['refundAmount']=refundAmount;
-        this.router.navigate(['refund']);
+        if(data.status=="Success"){
+          let viewRecord=this._dataService.get()['viewRecord'];
+          viewRecord = Object.assign(viewRecord,{'refundAmount':refundAmount});
+          this._dataService.setOption('viewRecord',viewRecord);
+          this.router.navigate(['refund']);
         }
       }
     });

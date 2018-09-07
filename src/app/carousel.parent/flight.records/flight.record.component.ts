@@ -49,7 +49,7 @@ export class FlightRecordComponent  implements OnInit   {
      formdata = Object.assign(formdata,{'destDescr':destDescr});
      let status = this._dataService.getStatusDescr(formdata['status']);
      let statusDescr ="";
-     statusDescr = status!=null || status.length== 0 ? status[0].value : "";
+     statusDescr = status!=null || status.length!= 0 ? status[0].value : "";
      formdata = Object.assign(formdata,{'statusDescr':statusDescr});
 
      let duration = formdata['duration'];

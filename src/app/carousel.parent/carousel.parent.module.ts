@@ -27,8 +27,8 @@ const routes: Routes = [
     { path: 'payment', component: FlightPaymentComponent },
     { path : 'passengerdetails' ,component: PaxAccordionToggleComponent},
     {path : 'bookingdetails', component:FlightBookingComponent},
-    {path: 'cancel', component:FlightCancelRefComponent},
     {path: 'view', component:FlightRecordComponent},
+    {path: 'cancel', component:FlightCancelRefComponent},
     {path:'refund', component:FlightCancelledComponent}
    ];
 
