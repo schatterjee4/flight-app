@@ -124,6 +124,8 @@
         }
       }
     }
+    
   },
-  "defaultProject": "flight-app"
+  "defaultProject": "flight-app",
+
 }

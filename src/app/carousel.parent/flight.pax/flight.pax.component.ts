@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from "@angular/forms";
 import { FormService } from "../services/form.shared.service";
 import { PaxType } from "../models/flight.search.pax.model";
+import { NgbdModalComponent } from "../flight.booking.popup/flight.booking.pop.component";
 @Component({
   selector: "app-flight-pax-component",
   templateUrl: "./flight.pax.component.html",
@@ -21,7 +22,8 @@ export class PaxAccordionToggleComponent {
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private _dataService: FormService
+    private _dataService: FormService,
+    private  modal: NgbdModalComponent 
   ) { }
 
   ngOnInit() {
@@ -99,13 +101,15 @@ export class PaxAccordionToggleComponent {
   onSubmit() {
     if (this.myPaxForm.valid) {
       console.log("Form Submitted!");
-    
+      setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
+
     Object.keys(this.myPaxForm.controls).forEach((key: string) => {
       console.log(this.myPaxForm.controls[key].value);
       this._dataService.setOption(key,this.myPaxForm.controls[key].value);
 
     });
-   
+    setTimeout(()=>{ this.modal.closeActive(); }, 4000);
+
     this.router.navigate(['payment']);
     
    }

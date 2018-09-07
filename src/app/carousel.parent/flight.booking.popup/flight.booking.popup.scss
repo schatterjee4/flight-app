@@ -3,6 +3,7 @@
     font-style: normal;
     width: 40px;
     height: 40px;
+    font-size: 100px;
     content: '\f058';
     color: rgb(9, 194, 92);
 }
@@ -19,7 +20,9 @@
         top: 10%;
     }
 }
-
+.flight-pop-table-header{
+    text-align: center;
+}
 .flight-pop-table-header h3 {
     font-family: Whitney-Bold !important;
     color: #40403f;
@@ -53,7 +56,9 @@
     font-size: 15px;
     font-weight: 400;
 }
-
+.modal-body.modal-md{
+    padding: 0;
+}
 .loader .modal-dialog>.modal-content {
     border: unset;
     background-color: transparent;
@@ -82,4 +87,7 @@
 .modal-footer,
 .modal-header {
     border-color: transparent;
+}
+.book-sucess{
+    display:block;
 }

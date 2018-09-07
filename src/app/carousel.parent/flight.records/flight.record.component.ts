@@ -35,8 +35,9 @@ export class FlightRecordComponent  implements OnInit   {
     this._isLoading$.next(true);
    let pnrSrch = this._dataService.get()['pnrSrch'];
    let lnameSrch = this._dataService.get()['lnameSrch'];
+   let formdata = {};
    this._dataService.fetchView(pnrSrch, lnameSrch).subscribe((data: any) => {
-    let formdata = [];
+    
      if(data!=null && data!="" && Object.keys(data).length !=0){
       formdata = data;
 
@@ -47,8 +48,9 @@ export class FlightRecordComponent  implements OnInit   {
      formdata = Object.assign(formdata,{'originDescr':originDescr});
      formdata = Object.assign(formdata,{'destDescr':destDescr});
      let status = this._dataService.getStatusDescr(formdata['status']);
-     status = status!=null || status.length== 0 ? status[0].value:"";
-     formdata = Object.assign(formdata,{'statusDescr':status});
+     let statusDescr ="";
+     statusDescr = status!=null || status.length== 0 ? status[0].value : "";
+     formdata = Object.assign(formdata,{'statusDescr':statusDescr});
 
      let duration = formdata['duration'];
     if(duration!=null && duration!="")
@@ -67,6 +69,7 @@ export class FlightRecordComponent  implements OnInit   {
   },
   complete => {
     console.log('done');
+    this.myrecordForm.setValue({'data':formdata});
     this.modal.closeActive();
     this._isLoading$.next(false);
    

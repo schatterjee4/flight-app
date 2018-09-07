@@ -47,17 +47,25 @@ export class FlightPaymentComponent implements OnInit {
     onSubmit() {
         this.pnr =  this.makeid();
         this._dataService.setOption('fop',  this.myPaymentForm.value.fop);
+        setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
+
         this._dataService.savePnr().subscribe((data:any) => {
             if(data!=null)
             {
+                this.modal.closeActive();
                 this._dataService.setOption("bookingRef", data.pnr);
-                this.modal.openVerticallyCentered(null,'lg','');
+                this.modal.openVerticallyCentered(null,'md','');
 
                     this.router.navigate(['bookingdetails']);
                
             }
           //  console.log(this.outboundFlights);
 
+        },
+        complete => {
+          console.log('done');
+          this.modal.closeActive();
+         
         });
      
     }

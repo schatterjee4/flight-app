@@ -4,8 +4,7 @@
             <div class="p0-xs-down flight-section-search-head col-8"></div>
         </div>
         <form [formGroup]="myrecordForm" (ngSubmit)="onSubmit()">
-
-        <div class="row row-table margin-top-5" *ngIf="myrecordForm.value.data?.length > 0">
+        <div class="row row-table margin-top-5" *ngIf="(myrecordForm.value.data| json)!= '{}'">
             <div class="col-6">
                 <div class="row row-table margin-top-5">
                     <div class="col-12 m-0 outbound-header  flight-pax-table-header">
@@ -71,7 +70,9 @@
 
                                             </div>
                                             <div class="col-3 text-right">
-                                                {{myrecordForm.value.data.carrierName}}
+                                                {{myrecordForm.value.data.carrierName}}                                                             
+                                                <span class="{{myrecordForm.value.data.carrier}}-logo"></span>
+
                                             </div>
                                         </div>
 
@@ -156,9 +157,9 @@
 
             </div>
         </div>
-        <div class="row row-table margin-top-5" *ngIf="myrecordForm.value.data?.length <= 0">
+        <div class="row row-table margin-top-5" *ngIf="(myrecordForm.value.data | json)== '{}'">
                 <div class="col-12">
-                <div class="container">
+                <div class="container no-results-div">
                         <div class="row row-table ">
             <div class="col-12 no-results-found">
                 No results found!
