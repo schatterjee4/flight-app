@@ -8,7 +8,7 @@ import { BasicFormComponent } from "./form.component";
 import { MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { FlightResultComponent } from "./flight.result/flight.result.component";
 import {Routes, RouterModule} from "@angular/router";
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule  } from '@angular/forms';
 import { CarouselSectionComponent } from './carousel.section.component';
 import { FlightPaymentComponent} from './flight.payment/flight.payment.component';
 import {PaxAccordionToggleComponent} from './flight.pax/flight.pax.component';
@@ -44,7 +44,9 @@ const routes: Routes = [
         MatCheckboxModule,
         ReactiveFormsModule,
         NgbAccordionModule,
-        RouterModule.forRoot(routes,{ useHash: false })
+        RouterModule.forRoot(routes,{ useHash: false }),
+        FormsModule
+
 
     ],
     declarations: [

@@ -19,6 +19,7 @@ export class FlightPaymentComponent implements OnInit {
     multiplier:number;
     check: boolean;
     disabled:String;
+    ccNumber:String;
     @Input() containername: string;
     //constructor(private carouselService: CarouselService) { }
     constructor(
@@ -27,12 +28,15 @@ export class FlightPaymentComponent implements OnInit {
         private fb: FormBuilder,
         private _dataService: FormService,
         private  modal: NgbdModalComponent 
+
     ) { }
 
     ngOnInit() {
         this.myPaymentForm = this.fb.group({
             totalPrice: this._dataService.get()['totalPrice'],
-            fop:'cc'
+            fop:'cc',
+            ccLasttFour:'',
+            ccLength:0
         });
         this.points=0;
         this.remainingPoints=0;
@@ -94,6 +98,22 @@ export class FlightPaymentComponent implements OnInit {
             this.check=false;
         }
       }
+      ccFormat(event: any) {
+        var v =  this.ccNumber.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+        var matches = v.match(/\d{4,16}/g);
+        var match = matches && matches[0] || ''
+        var parts = []
+        var len=match.length;
+        for (let i= 0; i<len; i+=4) {
+            parts.push(match.substring(i, i+4));
+        }
+    
+        if (parts.length) {
+            this.ccNumber= parts.join(' ');
+        } 
+          return  this.ccNumber;
+        
+    }
 
 
 }

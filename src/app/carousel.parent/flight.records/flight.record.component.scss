@@ -1,5 +1,4 @@
 @import url('../carousel.parent.component.scss');
-
 .outbound-record {
     border-top: 1px solid #DADADA;
     border-bottom: 1px solid#DADADA;
@@ -50,7 +49,7 @@
 
 .pax-record-detail {
     border-bottom: 1px solid #ccc;
-   // padding-top: 5px;
+    // padding-top: 5px;
     padding-bottom: 5px;
 }
 
@@ -225,14 +224,25 @@
 .booking-ref {
     color: #A29993
 }
-.status-ref{
-    font-size:15px;
+
+.status-ref {
+    font-size: 15px;
     color: #6f6660;
-    display:block;
-    float:right; 
+    display: block;
+    float: right;
 }
 
 .cancelConfirm {
     padding-top: 5px;
     margin-right: 10px;
+}
+
+.status-ref span.active {
+    color: rgb(9, 194, 92);
+    display: inline-block;
+}
+
+.status-ref span.inactive {
+    color: #e01933;
+    display: inline-block;
 }
