@@ -102,9 +102,10 @@
                                     </div>
                                 </div>
                                 <div class="row row-table pr-0 cancelConfirm">
-                                    <div class="col-8  padding-bt-2 padding-top-2 cancelQstn"></div>
-
-                                    <div class="col-4 pr-0 ">
+                                    <div class="col-2 offset-7  ">
+                                        <input src="" class="btn submit paynowBtn" id="pay-back" name="ap3-flights-submit" type="button" value="Go Back" (click)="redirectToRoute('/')">
+                                    </div>
+                                    <div class="col-3  pr-0 ">
                                         <input src="" class="btn submit paynowBtn" id="pay-submit" name="ap3-flights-submit" type="submit" value="Cancel Booking" [disabled]=" myrecordForm.value.data.status=='C'">
 
                                     </div>
