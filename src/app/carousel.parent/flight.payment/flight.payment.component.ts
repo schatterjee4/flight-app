@@ -19,7 +19,7 @@ export class FlightPaymentComponent implements OnInit {
     multiplier:number;
     check: boolean;
     disabled:String;
-    ccNumber:String;
+    ccNumber: string;
     @Input() containername: string;
     //constructor(private carouselService: CarouselService) { }
     constructor(
@@ -34,9 +34,7 @@ export class FlightPaymentComponent implements OnInit {
     ngOnInit() {
         this.myPaymentForm = this.fb.group({
             totalPrice: this._dataService.get()['totalPrice'],
-            fop:'cc',
-            ccLasttFour:'',
-            ccLength:0
+            fop:'cc'
         });
         this.points=0;
         this.remainingPoints=0;
@@ -51,6 +49,13 @@ export class FlightPaymentComponent implements OnInit {
     onSubmit() {
         this.pnr =  this.makeid();
         this._dataService.setOption('fop',  this.myPaymentForm.value.fop);
+        if(this.myPaymentForm.value.fop==='cc'){
+          let ccnum = this.ccNumber.replace(/\s/g, '');
+        this._dataService.setOption('ccLastFour',  ccnum.substring(ccnum.length-4, ccnum.length));
+        this._dataService.setOption('ccLength',  ccnum.length);
+        this._dataService.setOption('ccType',  this.ccType());
+        }
+
         setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
 
         this._dataService.savePnr().subscribe((data:any) => {
@@ -113,6 +118,28 @@ export class FlightPaymentComponent implements OnInit {
         } 
           return  this.ccNumber;
         
+    }
+    ccType(): string
+    {
+        const regexAmex =   new RegExp('^3[47][0-9]{5,}$');
+        let regexVisa= new RegExp('^4[0-9]{6,}$');
+        // tslint:disable-next-line:max-line-length
+        let regexMasterCard= new RegExp('^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$');
+        let regexDiscover=new RegExp('^3(?:0[0-5]|[68][0-9])[0-9]{4,}$');
+        let ccType='';
+        let ccnum = this.ccNumber.replace(/\s/g, '');
+
+        // tslint:disable-next-line:max-line-length
+        const arrayCheck = [{'key':"AMEX","regex":regexAmex},{'key':"MASTERCARD","regex":regexMasterCard},{'key':"VISA","regex":regexVisa},{'key':"DISCOVER","regex":regexDiscover}];
+        arrayCheck.forEach(reg => {
+            if(reg.regex.test(ccnum) && ccType=='')
+            {
+                ccType=reg.key;
+                return;
+            }
+      
+          });
+          return ccType;
     }
 
 

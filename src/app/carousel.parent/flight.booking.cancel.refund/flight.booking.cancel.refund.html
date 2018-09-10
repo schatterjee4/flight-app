@@ -98,6 +98,13 @@
                             <div class="col-6 ">Amount Refundable</div>
                             <div class=" col-4 offset-2 ">${{mycancelForm.value.data.refundAmount}}</div>
                         </div>
+                        <div class="row row-table card-details cancel-confirm" *ngIf="mycancelForm.value.data.fop=='cc'">
+                            <div class="col-3 pr-0">Card Details</div>
+                            <div class="col-5 pl-0"><span class="{{mycancelForm.value.data.ccType.toLowerCase()}} card"></span> <span>ending in {{mycancelForm.value.data.ccLastFour}}</span></div>
+
+                            <div class=" col-4 ">${{mycancelForm.value.data.refundAmount}}</div>
+                        </div>
+
                         <div class="row row-table cancel-confirm">
 
                             <div class="col-6 cancel-confirm-col last-col">Confirm Cancellation</div>

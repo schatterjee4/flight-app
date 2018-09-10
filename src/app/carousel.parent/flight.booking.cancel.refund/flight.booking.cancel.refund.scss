@@ -332,5 +332,37 @@ td {
     border-bottom: 1px solid #ccc;
 }
 
+.card-details {
+    /* Background Gradient for Monochromatic Colors */
+    background-color: #D6ECFF;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: gradient(linear, left top, left bottom, from(#225D8E), to(#D6ECFF)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: #D6ECFF -moz-linear-gradient(top, #225D8E, #D6ECFF) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: "progid: DXImageTransform.Microsoft.gradient(startColorstr=#225D8E, endColorstr=#D6ECFF)" no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid: DXImageTransform.Microsoft.gradient(startColorstr=#225D8E, endColorstr=#225D8E)" no-repeat;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-details span.card {
+    width: 48px;
+    height: 30px;
+    margin-right: 3px;
+    background-repeat: no-repeat;
+}
+
+.card-details span {
+    display: inline-block;
+    font-size: 12px;
+}
+
+.card-details div {
+    display: flex;
+    align-items: center;
+}
+
 
 /*END Form Wizard*/

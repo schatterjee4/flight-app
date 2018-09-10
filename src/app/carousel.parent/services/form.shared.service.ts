@@ -114,6 +114,9 @@ export class FormService {
         objectArr['price']= data['totalPrice'];
         objectArr['baseFare']= data['fareRouteOneVal']*1;
         objectArr['fop']= data['fop'];
+        objectArr['ccLastFour']= data['ccLastFour'];
+        objectArr['ccLength']= data['ccLength'];
+        objectArr['ccType']= data['ccType'];
 
         if( data['fareRouteTwoVal'])
         {
