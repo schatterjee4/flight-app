@@ -84,7 +84,11 @@ export class FlightRecordComponent  implements OnInit   {
   onSubmit() {
     this.modal.openVerticallyCentered('precancelcheck','md','');
    
-    if(this.myrecordForm.value.data.fop=="pp" && this.myrecordForm.value.data.carrier!='EY')
+    let fop= this._dataService.getConfigByName('fop');
+    let airline= this._dataService.getConfigByName('airline');
+
+    // tslint:disable-next-line:max-line-length
+    if((fop!=null && this.myrecordForm.value.data.fop==fop.value[0]) || (airline!=null && this.myrecordForm.value.data.carrier==airline.value[0])  )
     {
       setTimeout(()=>{ this.closeAndOpenModal(); }, 4000);
      

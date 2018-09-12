@@ -54,49 +54,48 @@
                                 <h4>Refund Details</h4>
                             </div>
                         </div>
-
                         <div class="row row-table text-bold-2 ">
-                            <div class="col-6 ">Total Amount Paid</div>
-                            <div class="col-4 offset-2 ">${{mycancelForm.value.data.price}}</div>
+                            <div class="col-8 ">Total Amount Paid</div>
+                            <div class="col-4  ">${{mycancelForm.value.data.price}}</div>
                         </div>
 
                         <div class="row row-table ">
-                            <div class="col-6 ">Base Fare(per pax)</div>
-                            <div class="col-4 offset-2 ">${{mycancelForm.value.data.baseFare}}</div>
+                            <div class="col-8 ">Base Fare(per pax)-<span class="refundInd">{{mycancelForm.value.data.baseFareDescr}}</span></div>
+                            <div class="col-4  ">${{mycancelForm.value.data.baseFare}}</div>
                         </div>
 
                         <div class="row row-table ">
-                            <div class="col-6 ">Airport Tax(per pax)</div>
-                            <div class=" col-4 offset-2">${{mycancelForm.value.data.taxAirport}}</div>
+                            <div class="col-8 ">Airport Tax(per pax)-<span class="refundInd">{{mycancelForm.value.data.taxAirportDescr}}</span></div>
+                            <div class=" col-4 ">${{mycancelForm.value.data.taxAirport}}</div>
                         </div>
 
                         <div class="row row-table ">
-                            <div class="col-6 ">Fuel Tax(per pax) </div>
-                            <div class=" col-4 offset-2">${{mycancelForm.value.data.taxFuel}} </div>
-                        </div>
-
-                        <div class="row row-table ">
-
-                            <div class="col-6 ">Service Charge(per pax)</div>
-                            <div class=" col-4 offset-2 ">${{mycancelForm.value.data.chargeService}}</div>
+                            <div class="col-8 ">Fuel Tax(per pax)-<span class="refundInd">{{mycancelForm.value.data.taxFuelDescr}}</span> </div>
+                            <div class=" col-4 ">${{mycancelForm.value.data.taxFuel}}</div>
                         </div>
 
                         <div class="row row-table ">
 
-                            <div class="col-6 ">Development Fees</div>
-                            <div class=" col-4 offset-2 ">${{mycancelForm.value.data.feesDevelopment}}</div>
+                            <div class="col-8 ">Service Charge(per pax)-<span class="refundInd">{{mycancelForm.value.data.chargeServiceDescr}}</span></div>
+                            <div class=" col-4  ">${{mycancelForm.value.data.chargeService}}</div>
                         </div>
 
                         <div class="row row-table ">
 
-                            <div class="col-6 ">Cancellation Fee</div>
-                            <div class=" col-4 offset-2">${{mycancelForm.value.data.cancellationCharge}}</div>
+                            <div class="col-8 ">Development Fees-<span class="refundInd">{{mycancelForm.value.data.feesDevelopmentDescr}}</span></div>
+                            <div class=" col-4  ">${{mycancelForm.value.data.feesDevelopment}}</div>
                         </div>
 
                         <div class="row row-table ">
 
-                            <div class="col-6 ">Amount Refundable</div>
-                            <div class=" col-4 offset-2 ">${{mycancelForm.value.data.refundAmount}}</div>
+                            <div class="col-8 ">Cancellation Fee</div>
+                            <div class=" col-4 ">${{mycancelForm.value.data.cancellationCharge}}</div>
+                        </div>
+
+                        <div class="row row-table ">
+
+                            <div class="col-8 ">Amount Refundable</div>
+                            <div class=" col-4  ">${{mycancelForm.value.data.refundAmount}}</div>
                         </div>
                         <div class="row row-table card-details cancel-confirm" *ngIf="mycancelForm.value.data.fop=='cc'">
                             <div class="col-3 pr-0">Card Details</div>
@@ -107,8 +106,8 @@
 
                         <div class="row row-table cancel-confirm">
 
-                            <div class="col-6 cancel-confirm-col last-col">Confirm Cancellation</div>
-                            <div class=" col-4 offset-2 cancel-confirm-col pl-0 text-left">
+                            <div class="col-8 cancel-confirm-col last-col">Confirm Cancellation</div>
+                            <div class=" col-4  cancel-confirm-col pl-0 text-left">
                                 <span><input src="" class="btn  paynowBtn pull-left" id="pay-submit" name="ap3-flights-submit" type="button" value="No" (click)="redirectToRoute('/view')"></span>
                                 <span class="ml-1"><input src="" class="btn  paynowBtn pull-left" id="pay-submit" name="ap3-flights-submit" type="submit" value="Yes"></span>
                             </div>

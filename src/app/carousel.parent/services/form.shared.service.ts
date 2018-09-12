@@ -150,5 +150,16 @@ export class FormService {
         return airlines.filter(item => code == item.key);
 
     }
-    
+    fetchConfig(): Observable<any> {
+        return this.http.get('http://localhost:3000/fetchConfig').pipe(
+            map((res:Response) => (
+                res.json()
+            ))
+          );
+    }
+    getConfigByName(name:string):any
+    {
+        const configdata =this.get()['rmsConfig'];
+        return configdata.rmsConfig.filter(item => name==item.configName )[0];
+    }
 }
