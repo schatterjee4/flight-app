@@ -73,6 +73,10 @@ export class BasicFormComponent implements OnInit {
       this._dataService.setOption(key,this.myForm.controls[key].value);
 
     });
+    this._dataService.fetchConfig().subscribe((data: any) => {
+      this._dataService.setOption('rmsConfig', data);
+
+    });
     this.router.navigate(['search']);
   }
   add(refinput)
