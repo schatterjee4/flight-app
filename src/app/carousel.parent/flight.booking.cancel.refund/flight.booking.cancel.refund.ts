@@ -49,6 +49,7 @@ export class FlightCancelRefComponent implements OnInit {
         formdata[element+"Descr"]='Non Refundable';
   
       });
+    }
       formdata = Object.assign(formdata,{'cancellationCharge':data.cancellationCharge});
       formdata = Object.assign(formdata,{'refundAmount':data.refundAmount});
       this.mycancelForm.setValue({'data':formdata});
