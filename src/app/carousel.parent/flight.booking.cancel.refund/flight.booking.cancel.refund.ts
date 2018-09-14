@@ -35,6 +35,20 @@ export class FlightCancelRefComponent implements OnInit {
     let lnameSrch = this._dataService.get()['lnameSrch'];
     this._dataService.fetchRefund(pnrSrch, lnameSrch).subscribe((data: any) => {
       let formdata =this._dataService.get()['viewRecord'];
+      let refundableTax = this._dataService.getConfigByName('refundableTax');
+      let nonrefundableTax = this._dataService.getConfigByName('nonrefundableTax');
+      if(refundableTax !=null && refundableTax!=""){
+      refundableTax.value.forEach(element => {
+        formdata[element+"Descr"]='Refundable';
+  
+      });
+    }
+    if(nonrefundableTax !=null && nonrefundableTax!=""){
+
+      nonrefundableTax.value.forEach(element => {
+        formdata[element+"Descr"]='Non Refundable';
+  
+      });
       formdata = Object.assign(formdata,{'cancellationCharge':data.cancellationCharge});
       formdata = Object.assign(formdata,{'refundAmount':data.refundAmount});
       this.mycancelForm.setValue({'data':formdata});
