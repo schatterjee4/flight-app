@@ -1,6 +1,6 @@
 <div class="modal-header">
     <h4 class="modal-title"></h4>
-    <ng-container *ngIf="modaltype==null||modaltype=='precancel'">
+    <ng-container *ngIf="modaltype==null||modaltype=='precancel'||modaltype=='precanceldate'">
 
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">&times;</span>
@@ -22,7 +22,12 @@
     <ng-container *ngIf="modaltype=='precancel'">
         <div class="col-12 p-2 m-0 flight-pop-table-header ">
             <span class="mainTxt">We are Sorry!</span>
-            <p>Your Booking is not eligible for refund.Please contact our helpline</p>
+            <p *ngIf="modaltype=='precancel'">Your Booking is not eligible for refund.Please contact our helpline</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="modaltype=='precanceldate'">
+        <div class="col-12 p-2 m-0 flight-pop-table-header ">
+         <p >You are eligible for a Risk Free Cancellation. You will be refunded the full amount. Thank You </p>
         </div>
     </ng-container>
     <ng-container *ngIf="modaltype=='loader'">

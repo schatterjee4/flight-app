@@ -86,14 +86,22 @@ export class FlightRecordComponent  implements OnInit   {
    
     let fop= this._dataService.getConfigByName('fop');
     let airline= this._dataService.getConfigByName('airline');
-
+    var bookingDate = new Date(this.myrecordForm.value.data.bookingDate);
+    var date=new Date();
+    var formatDate = date.getMonth()+"/"+date.getDate()+"/"+date.getFullYear();
+    var timeDiff = Math.abs(date.getTime() - bookingDate.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     // tslint:disable-next-line:max-line-length
     if((fop!=null && this.myrecordForm.value.data.fop==fop.value[0]) || (airline!=null && this.myrecordForm.value.data.carrier==airline.value[0])  )
     {
-      setTimeout(()=>{ this.closeAndOpenModal(); }, 4000);
+      setTimeout(()=>{ this.closeAndOpenModal('precancel'); }, 4000);
      
 
-    }else{
+    }else if(diffDays==1){
+      setTimeout(()=>{ this.closeAndOpenModal('precanceldate'); }, 4000);
+
+    }
+    else{
       this._dataService.setOption('viewRecord', this.myrecordForm.value.data);
 
       setTimeout(()=>{this.modal.closeActive(); this.router.navigate(['cancel'])}, 2000);
@@ -101,8 +109,8 @@ export class FlightRecordComponent  implements OnInit   {
    
 
   }
-  closeAndOpenModal(){
-    this.modal.closeActive(); this.modal.openVerticallyCentered('precancel','md','');
+  closeAndOpenModal(msg:string){
+    this.modal.closeActive(); this.modal.openVerticallyCentered(msg,'md','');
   }
   redirectToRoute(route) {
     this.router.navigate([route]);
