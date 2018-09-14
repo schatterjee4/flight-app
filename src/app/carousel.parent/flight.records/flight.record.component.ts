@@ -86,21 +86,21 @@ export class FlightRecordComponent  implements OnInit   {
    
     let fop= this._dataService.getConfigByName('fop');
     let airline= this._dataService.getConfigByName('airline');
-    var bookingDate = new Date(this.myrecordForm.value.data.bookingDate);
+    /*var bookingDate = new Date(this.myrecordForm.value.data.bookingDate);
     var date=new Date();
     var formatDate = date.getMonth()+"/"+date.getDate()+"/"+date.getFullYear();
     var timeDiff = Math.abs(date.getTime() - bookingDate.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); */
     // tslint:disable-next-line:max-line-length
     if((fop!=null && this.myrecordForm.value.data.fop==fop.value[0]) || (airline!=null && this.myrecordForm.value.data.carrier==airline.value[0])  )
     {
       setTimeout(()=>{ this.closeAndOpenModal('precancel'); }, 4000);
      
 
-    }else if(diffDays==1){
+    }/*else if(diffDays==1){
       setTimeout(()=>{ this.closeAndOpenModal('precanceldate'); }, 4000);
 
-    }
+    }*/
     else{
       this._dataService.setOption('viewRecord', this.myrecordForm.value.data);
 
