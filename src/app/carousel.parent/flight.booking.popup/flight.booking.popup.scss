@@ -1,3 +1,5 @@
+@import url('../carousel.parent.component.scss');
+
 .flight-pop-table-header h3::before {
     font-family: "FontAwesome";
     font-style: normal;
@@ -90,4 +92,8 @@
 }
 .book-sucess{
     display:block;
+}
+.custom-date
+{
+    background:unset !important;
 }

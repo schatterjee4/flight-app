@@ -311,7 +311,18 @@ dd {
     height: 2em !important;
     font: inherit !important;
 }
-
+.calendarLgClickIcon {
+    display: block;
+    width: 3.967em;
+    height: 4em;
+    background: transparent url("../../assets/calendar-icon.png") no-repeat;
+    left: 9.4em;
+    position: absolute;
+    top: 20%;
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 9;
+}
 .calendarClickIcon {
     display: block;
     width: 1.967em;
@@ -962,8 +973,7 @@ input[type="text"].custom-date {
     text-transform: uppercase;
     letter-spacing: .001em;
     margin-bottom: 0px;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding:5px;
 }
 
 .panel {
