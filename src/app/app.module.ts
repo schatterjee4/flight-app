@@ -12,6 +12,8 @@ import {FormService} from './carousel.parent/services/form.shared.service';
 import { HttpModule } from '@angular/http';
 import { FlightNavComponent } from './carousel.parent/flight.navigation/flight.navigation';
 import { NgbdModalComponent, NgbdModalOptions } from './carousel.parent/flight.booking.popup/flight.booking.pop.component';
+import { ReactiveFormsModule,FormsModule  } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,10 @@ import { NgbdModalComponent, NgbdModalOptions } from './carousel.parent/flight.b
     CarouselParentModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule, 
+    FormsModule,
+    NgbModule.forRoot(),
+    ReactiveFormsModule
 
   ],
  entryComponents: [NgbdModalOptions],

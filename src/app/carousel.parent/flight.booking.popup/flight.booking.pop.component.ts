@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation, Optional, Input} from '@angular/core';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {NgbModal, ModalDismissReasons, NgbActiveModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -12,9 +12,14 @@ export class NgbdModalOptions {
   closeResult: String;
   @Input() modaltype;
   @Input() size;
+  myreissueForm: FormGroup;
+
  
- 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private fb: FormBuilder) {
+    this.myreissueForm = this.fb.group({
+      datefrom:''
+    
+    });
   }
 
   
