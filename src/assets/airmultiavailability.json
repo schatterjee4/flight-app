@@ -197,7 +197,7 @@
                 "flightDetails": {
                     "typeOfAircraft": "333",
                     "numberOfStops": "0",
-                    "legDuration": "0745"
+                    "legDuration": "0675"
                 },
                 "arrivalStation": {
                     "terminal": "3"
@@ -603,7 +603,7 @@
                 "flightDetails": {
                     "typeOfAircraft": "346",
                     "numberOfStops": "0",
-                    "legDuration": "0835"
+                    "legDuration": "0585"
                 },
                 "departureStation": {
                     "terminal": "2"

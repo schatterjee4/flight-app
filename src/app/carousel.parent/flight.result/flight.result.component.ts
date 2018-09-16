@@ -75,7 +75,19 @@ export class FlightResultComponent implements OnInit {
                 {
                     this.outboundFlights = data.map((flight:any) => {
                         // tslint:disable-next-line:max-line-length
-                        return {price:""+Math.floor(1000 + 800 * Math.random()),category:flight.additionalFlightInfo.flightDetails.numberOfStops==0?"NONSTOP":"",carrier :flight.basicFlightInfo.marketingCompany.identifier, startTime:flight.basicFlightInfo.flightDetails.departureTime.match(/.{1,2}/g).join(':'), endTime:flight.basicFlightInfo.flightDetails.arrivalTime.match(/.{1,2}/g).join(':'),carrierName :flight.basicFlightInfo.marketingCompany.identifier+" "+flight.basicFlightInfo.flightIdentification.number,source:flight.basicFlightInfo.departureLocation.cityAirport,destination:flight.basicFlightInfo.arrivalLocation.cityAirport,duration:flight.additionalFlightInfo.flightDetails.legDuration?flight.additionalFlightInfo.flightDetails.legDuration+"mins":"",aircraftType:flight.additionalFlightInfo.flightDetails.typeOfAircraft};
+                        let duration = flight.additionalFlightInfo.flightDetails.legDuration;
+
+                        if(duration!=null && duration!="")
+                        {
+                          duration = duration.replace("mins","");
+                          var min = duration*1 % 60;
+                          var hours = Math.floor(duration*1 / 60);
+                          duration = hours+"h\n"+min+'m';
+                    
+                        }else{
+                            duration="";
+                        }
+                        return {price:""+Math.floor(1000 + 800 * Math.random()),category:flight.additionalFlightInfo.flightDetails.numberOfStops==0?"NONSTOP":"",carrier :flight.basicFlightInfo.marketingCompany.identifier, startTime:flight.basicFlightInfo.flightDetails.departureTime.match(/.{1,2}/g).join(':'), endTime:flight.basicFlightInfo.flightDetails.arrivalTime.match(/.{1,2}/g).join(':'),carrierName :flight.basicFlightInfo.marketingCompany.identifier+" "+flight.basicFlightInfo.flightIdentification.number,source:flight.basicFlightInfo.departureLocation.cityAirport,destination:flight.basicFlightInfo.arrivalLocation.cityAirport,duration:duration,aircraftType:flight.additionalFlightInfo.flightDetails.typeOfAircraft};
                     });
                 }
               //  console.log(this.outboundFlights);

@@ -59,10 +59,14 @@ export class FlightRecordComponent  implements OnInit   {
      let duration = formdata['duration'];
     if(duration!=null && duration!="")
     {
-      duration = duration.replace("mins","");
-      var min = duration*1 % 60;
-      var hours = Math.floor(duration*1 / 60);
-      formdata = Object.assign(formdata,{'duration':hours+"h\n"+min+'m'});
+      let displayDuration=duration;
+      if(duration.indexOf("h")==-1){
+        duration = duration.replace("mins","");
+        var min = duration*1 % 60;
+        var hours = Math.floor(duration*1 / 60);
+        displayDuration=hours+"h\n"+min+'m';
+      }
+      formdata = Object.assign(formdata,{'duration':displayDuration});
 
     }
   }
@@ -116,4 +120,5 @@ export class FlightRecordComponent  implements OnInit   {
     this.router.navigate([route]);
 
   }
+ 
 }
