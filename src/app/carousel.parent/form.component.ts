@@ -22,12 +22,12 @@ export class BasicFormComponent implements OnInit {
     config.markDisabled = (date: NgbDateStruct) => {
       const today = new Date();
       //console.log("dd"+date.month);
-      //console.log("dt"+today.getMonth());
 
     // alert(  today.getMonth());
       const d = new Date(date.year, date.month - 1, date.day);
 
       console.log(d.getDay()* 1 > today.getDay()*1);
+
 
       return  d.getMonth() < today.getMonth() && d.getDay() < today.getDay();
     };

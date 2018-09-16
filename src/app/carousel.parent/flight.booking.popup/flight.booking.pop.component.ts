@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation, Optional, Input} from '@angular/core';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {NgbModal, ModalDismissReasons, NgbActiveModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import { FormService } from '../services/form.shared.service';
 
@@ -13,16 +13,24 @@ export class NgbdModalOptions {
   closeResult: String;
   @Input() modaltype;
   @Input() size;
+<<<<<<< HEAD
 
   @Input() data;
   myreissueForm: FormGroup;
 
  
   constructor(public activeModal: NgbActiveModal, private fb: FormBuilder,private _dataService: FormService) {
+=======
+  myreissueForm: FormGroup;
+
+ 
+  constructor(public activeModal: NgbActiveModal, private fb: FormBuilder) {
+>>>>>>> 9937a13... fixes
     this.myreissueForm = this.fb.group({
       datefrom:''
     
     });
+<<<<<<< HEAD
   }
   onSubmit() {
     this._dataService.updateReisueAmount().subscribe((data: any) => {
@@ -33,6 +41,8 @@ export class NgbdModalOptions {
         }
       }
     });
+=======
+>>>>>>> 9937a13... fixes
   }
   
 }

@@ -93,4 +93,7 @@ export class FlightCancelRefComponent implements OnInit {
     this.router.navigate([route]);
 
   }
+  openReissue(){
+    setTimeout(() => {this.modal.openVerticallyCentered('reissue','md', '')});
+  }
 }
