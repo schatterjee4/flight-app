@@ -157,6 +157,19 @@ export class FormService {
             ))
           );
     }
+    updateReisueAmount():Observable<any>{
+        let objectArr = {};
+        objectArr['pnr']= this.get()['pnrSrch'];
+        objectArr['reissueAmount']= 50;
+        let requestObj = JSON.stringify(objectArr);
+
+        // tslint:disable-next-line:max-line-length
+        return this.http.post('http://localhost:3000/updateReisueAmount', requestObj, { headers: new Headers({ 'Content-Type': 'application/json' }) }).pipe(
+            map((res:Response) => (
+                res.json()
+            ))
+          );
+    }
     getConfigByName(name:string):any
     {
         const configdata =this.get()['rmsConfig'];
