@@ -26,7 +26,10 @@ export class BasicFormComponent implements OnInit {
 
     // alert(  today.getMonth());
       const d = new Date(date.year, date.month - 1, date.day);
-      return d.getMonth() < today.getMonth();
+
+      console.log(d.getDay()* 1 > today.getDay()*1);
+
+      return  d.getMonth() < today.getMonth() && d.getDay() < today.getDay();
     };
   }
 

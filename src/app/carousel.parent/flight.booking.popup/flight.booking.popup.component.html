@@ -1,6 +1,6 @@
 <div class="modal-header">
     <h4 class="modal-title"></h4>
-    <ng-container *ngIf="modaltype==null||modaltype=='precancel'||modaltype=='precanceldate'">
+    <ng-container *ngIf="modaltype==null||modaltype=='precancel'||modaltype=='precanceldate'||modaltype=='reissue'">
 
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
                 <span aria-hidden="true">&times;</span>
@@ -27,13 +27,25 @@
     </ng-container>
     <ng-container *ngIf="modaltype=='precanceldate'">
         <div class="col-12 p-2 m-0 flight-pop-table-header ">
-         <p >You are eligible for a Risk Free Cancellation. You will be refunded the full amount. Thank You </p>
+            <p>You are eligible for a Risk Free Cancellation. You will be refunded the full amount. Thank You </p>
         </div>
     </ng-container>
     <ng-container *ngIf="modaltype=='loader'">
         <img src="../../../assets/loading-flight.gif" class="loader" width="80%" height="auto" />
     </ng-container>
 
-</div>
+    <ng-container *ngIf="modaltype=='reissue'">
+        <div class="col-12 p-2 m-0 flight-pop-table-header ">
+            <form [formGroup]="myreissueForm" (ngSubmit)="onSubmit()">
+                <input type="text" required class="form-control no-border-rad custom-date" name="dp" formControlName="datefrom" ngbDatepicker #d1="ngbDatepicker">
+                <span class="calendarLgClickIcon right-0" (click)="d1.toggle()" id="origDateCalIcon"></span>
+                <input src="" class="reissuenowBtn submit" id="flights-submit" name="ap3-flights-submit" type="submit" value="Confirm Reissue">
 
-<div class="modal-footer"></div>
+            </form>
+        </div>
+    </ng-container>
+</div>
+<ng-container *ngIf="modaltype!='reissue'">
+
+    <div class="modal-footer"></div>
+</ng-container>

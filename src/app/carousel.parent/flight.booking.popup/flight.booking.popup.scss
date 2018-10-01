@@ -1,3 +1,48 @@
+.reissuenowBtn  {
+    color: #ffffff;
+    background-color: #d6083b!important;
+    //background-color:#54C7C3 !important;
+    // padding:0!important;
+    // width: 135px;
+    // height: 30px;
+    padding-left: 20px !important;
+    padding-right: 50px !important;
+    padding: 12px !important;
+    letter-spacing: .1em;
+    border-radius: 0px !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    display: block;
+    margin: auto;
+    text-align: center;
+    height: unset !important;
+    margin-top:10px;
+}
+
+.reissuenowBtn :hover {
+    //background-color: #6DCECB !important;
+    background-color: #51585c !important;
+}
+input.submit {
+    text-transform: uppercase;
+    height: 30px;
+    float: center;
+    border: 0;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: Montserrat-SemiBold, DroidSans, Arial, Sans-serif;
+    -webkit-font-smoothing: antialiased !important;
+    color: #fff;
+    font-size: 14px;
+    background: #d6083b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+.custom-date
+{
+    background:unset !important;
+}
 .flight-pop-table-header h3::before {
     font-family: "FontAwesome";
     font-style: normal;
@@ -25,7 +70,7 @@
 }
 .flight-pop-table-header h3 {
     font-family: Whitney-Bold !important;
-    color: #40403f;
+    color: hsl(60, 1%, 25%);
     font-size: 25px;
     font-weight: 400;
 }
@@ -90,4 +135,18 @@
 }
 .book-sucess{
     display:block;
+}
+.calendarLgClickIcon {
+    
+    background: transparent url("../../../assets/calendar-icon.png") no-repeat;
+    display: inline-block;
+    width: 41px;
+    height: 40px;
+    right: 0;
+    position: absolute;
+    top: 15%;
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 9;
+
 }
