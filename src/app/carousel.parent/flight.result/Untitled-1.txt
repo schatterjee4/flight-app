@@ -1,0 +1,21 @@
+  <div class="col-11 padding-right-2 ">
+
+                                            <span class="payHeader">Base Fare : </span><span class="payValue">${{mydetailForm.value.fareRouteOneVal*1}}</span>
+                                        </div>
+                                        <div class="col-11 padding-right-2 ">
+
+                                            <span class="payHeader">Airport Tax : </span> <span class="payValue">${{mydetailForm.value.taxAirport*1}}</span>
+                                        </div>
+                                        <div class="col-11 padding-right-2 ">
+
+                                            <span class="payHeader">Fuel Tax : </span><span class="payValue">${{mydetailForm.value.taxFuel*1}}</span>
+                                        </div>
+                                        <div class="col-11 padding-right-2 ">
+
+                                            <span class="payHeader">Service Charge : </span> <span class="payValue">${{mydetailForm.value.chargeService*1}}</span>
+                                        </div>
+                                        <div class="col-11 padding-right-2 ">
+
+                                            <span class="payHeader">Development fees : </span><span class="payValue">${{mydetailForm.value.feesDevelopment*1}}</span>
+
+                                        </div>
