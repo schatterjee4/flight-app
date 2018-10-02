@@ -31,6 +31,15 @@ export class FlightCancelRefComponent implements OnInit {
     setTimeout(() => {this.modal.openVerticallyCentered('loader','md','loader')});
     this._isLoading$.next(true);
 
+  this.fetchData();
+    
+   
+    this.mycancelForm.valueChanges.subscribe(console.log);
+   
+
+    
+  }
+  fetchData(){
     let pnrSrch = this._dataService.get()['pnrSrch'];
     let lnameSrch = this._dataService.get()['lnameSrch'];
     this._dataService.fetchRefund(pnrSrch, lnameSrch).subscribe((data: any) => {
@@ -50,24 +59,19 @@ export class FlightCancelRefComponent implements OnInit {
   
       });
     }
-      formdata = Object.assign(formdata,{'cancellationCharge':data.cancellationCharge});
-      formdata = Object.assign(formdata,{'refundAmount':data.refundAmount});
-      this.mycancelForm.setValue({'data':formdata});
-      console.log(formdata);
-      setTimeout(() => {this.modal.closeActive(); this._isLoading$.next(false);
-      },2000);
-    },
-    complete => {
-      console.log('done');
-      this.modal.closeActive();
-      this._isLoading$.next(false);
-     
-    });
+    formdata = Object.assign(formdata,{'cancellationCharge':data.cancellationCharge});
+    formdata = Object.assign(formdata,{'refundAmount':data.refundAmount});
+    this.mycancelForm.setValue({'data':formdata});
+    console.log(formdata);
+    setTimeout(() => {this.modal.closeActive(); this._isLoading$.next(false);
+    },2000);
+  },
+  complete => {
+    console.log('done');
+    this.modal.closeActive();
+    this._isLoading$.next(false);
    
-    this.mycancelForm.valueChanges.subscribe(console.log);
-   
-
-    
+  });
   }
   onSubmit() {
     if (this.mycancelForm.valid) {
@@ -94,6 +98,13 @@ export class FlightCancelRefComponent implements OnInit {
 
   }
   openReissue(){
-    setTimeout(() => {this.modal.openVerticallyCentered('reissue','md', '')});
+    setTimeout(() => {this.modal.openVerticallyCentered('reissue','md', '','',this.getNotification.bind(this)); });
   }
+  getNotification(evtPrice) {
+    console.log('Message received...');
+    let viewRecord=this._dataService.get()['viewRecord'];
+    viewRecord = Object.assign(viewRecord,{'price':evtPrice});
+    this._dataService.setOption('viewRecord',viewRecord);
+this.fetchData();
+ }
 }
