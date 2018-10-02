@@ -1,8 +1,6 @@
 <div class="tabs-content clear flight-schedule container-fluid" data-trip-index="0" data-bundle-product="" data-bundle-amount="0">
     <div class="container" *ngIf="!(_isLoading$ | async)">
-        <div class="row m0-xs-down">
-            <div class="p0-xs-down flight-section-search-head col-8"></div>
-        </div>
+
         <form [formGroup]="myrecordForm" (ngSubmit)="onSubmit()">
             <div class="row row-table margin-top-5" *ngIf="(myrecordForm.value.data| json)!= '{}'">
                 <div class="col-6">
@@ -12,7 +10,7 @@
                         </div>
                         <div class="col-12 m-0 outbound-header flight-pax-table-header ">
                             <h5>
-                                <span class="booking-ref">Booking Reference:</span> {{myrecordForm.value.data.pnr}}
+                                <span class="booking-ref">Booking Reference: {{myrecordForm.value.data.pnr}}</span>
                                 <span class="status-ref">STATUS:  <span class="active" [ngClass]="{'inactive':myrecordForm.value.data.status=='C'}">{{myrecordForm.value.data.statusDescr}}</span></span>
                             </h5>
                         </div>
