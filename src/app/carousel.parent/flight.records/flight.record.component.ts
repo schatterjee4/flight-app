@@ -119,15 +119,15 @@ export class FlightRecordComponent  implements OnInit   {
           let viewRecord=this._dataService.get()['viewRecord'];
           viewRecord = Object.assign(viewRecord,{'refundAmount':refundAmount});
           this._dataService.setOption('viewRecord',viewRecord);
-          setTimeout(function() {
+          setTimeout(()=>{
             this.closeAndOpenModal('fullrefund'); 
-            setTimeout(function() {
+            setTimeout(()=>{
               this.modal.closeActive();
-              setTimeout(function() {
+              setTimeout(()=>{
                 this.router.navigate(['refund']);
-              }, 1000, this);
-            }, 2000, this);
-        }, 1000, this);
+              }, 1000);
+            }, 2000);
+        }, 500);
        
 
         }
