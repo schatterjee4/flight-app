@@ -222,7 +222,11 @@
 }
 
 .booking-ref {
-    color: #A29993
+    color: #A29993;
+}
+
+.booking-ref span {
+    text-transform: uppercase;
 }
 
 .status-ref {

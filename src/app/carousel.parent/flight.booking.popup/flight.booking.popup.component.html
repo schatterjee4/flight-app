@@ -22,10 +22,15 @@
     <ng-container *ngIf="modaltype=='precancel'">
         <div class="col-12 p-2 m-0 flight-pop-table-header ">
             <span class="mainTxt">We are Sorry!</span>
-            <p *ngIf="modaltype=='precancel'">Your Booking is not eligible for refund.Please contact our helpline</p>
+            <p *ngIf="modaltype=='precancel'">Your ticket is not eligible for an online refund . Please look at our <a href="https://www.google.com">terms and conditions</a> for online refund. I request you to please contact our service desk @1234</p>
         </div>
     </ng-container>
     <ng-container *ngIf="modaltype=='precanceldate'">
+        <div class="col-12 p-2 m-0 flight-pop-table-header ">
+            <p>You are eligible for a Risk Free Cancellation. You will be refunded the full amount. Thank You </p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="modaltype=='fullrefund'">
         <div class="col-12 p-2 m-0 flight-pop-table-header ">
             <p>You are eligible for a Risk Free Cancellation. You will be refunded the full amount. Thank You </p>
         </div>

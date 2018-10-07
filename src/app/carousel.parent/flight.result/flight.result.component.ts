@@ -108,6 +108,13 @@ export class FlightResultComponent implements OnInit {
     onSubmit() {
         if (this.mydetailForm.valid) {
         }
+        let multipleFactor = parseInt(this._dataService.get()['adult']) + parseInt(this._dataService.get()['child']);
+        this.mydetailForm.value.fareRouteOneVal = this.mydetailForm.value.fareRouteOneVal * multipleFactor;
+        this.mydetailForm.value.fareRouteTwoVal = this.mydetailForm.value.fareRouteTwoVal * multipleFactor;
+        this.mydetailForm.value.taxAirport = this.mydetailForm.value.taxAirport * multipleFactor;
+        this.mydetailForm.value.taxFuel = this.mydetailForm.value.taxFuel * multipleFactor;
+        this.mydetailForm.value.chargeService = this.mydetailForm.value.chargeService * multipleFactor;
+        this.mydetailForm.value.feesDevelopment = this.mydetailForm.value.feesDevelopment * multipleFactor;
        // this._dataService.setOption('totalPrice',parseInt(this.mydetailForm.value.fareRouteOneVal)+parseInt(this.mydetailForm.value.fareRouteTwoVal));
        // tslint:disable-next-line:max-line-length
        this.mydetailForm.controls['totalPrice'].setValue(parseInt(this.mydetailForm.value.fareRouteOneVal)+parseInt(this.mydetailForm.value.fareRouteTwoVal)

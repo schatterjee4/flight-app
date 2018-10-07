@@ -90,25 +90,70 @@ export class FlightRecordComponent  implements OnInit   {
    
     let fop= this._dataService.getConfigByName('fop');
     let airline= this._dataService.getConfigByName('airline');
-    /*var bookingDate = new Date(this.myrecordForm.value.data.bookingDate);
+    var bookingDate = new Date(this.myrecordForm.value.data.bookingDate);
     var date=new Date();
     var formatDate = date.getMonth()+"/"+date.getDate()+"/"+date.getFullYear();
     var timeDiff = Math.abs(date.getTime() - bookingDate.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); */
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     // tslint:disable-next-line:max-line-length
-    if((fop!=null && this.myrecordForm.value.data.fop==fop.value[0]) || (airline!=null && this.myrecordForm.value.data.carrier==airline.value[0])  )
+    if((fop!=null && this.myrecordForm.value.data.fop==fop.value[0]) || (airline!=null && this.myrecordForm.value.data.carrier!=airline.value[0])  )
     {
       setTimeout(()=>{ this.closeAndOpenModal('precancel'); }, 4000);
      
 
     }/*else if(diffDays==1){
-      setTimeout(()=>{ this.closeAndOpenModal('precanceldate'); }, 4000);
-
+      
     }*/
     else{
-      this._dataService.setOption('viewRecord', this.myrecordForm.value.data);
 
-      setTimeout(()=>{this.modal.closeActive(); this.router.navigate(['cancel'])}, 2000);
+      let pnrSrch = this._dataService.get()['pnrSrch'];
+      let lnameSrch = this._dataService.get()['lnameSrch'];
+      this._dataService.fetchRefund(pnrSrch, lnameSrch).subscribe((dataref: any) => {
+    let refundAmount = dataref.refundAmount ;
+    console.log(dataref);
+    if(dataref.fullrefund){
+    this._dataService.confirmCancel(pnrSrch, refundAmount).subscribe((data: any) => {
+      if(data!=null)
+      {
+        if(data.status=="Success"){
+          let viewRecord=this._dataService.get()['viewRecord'];
+          viewRecord = Object.assign(viewRecord,{'refundAmount':refundAmount});
+          this._dataService.setOption('viewRecord',viewRecord);
+          setTimeout(function() {
+            this.closeAndOpenModal('fullrefund'); 
+            setTimeout(function() {
+              this.modal.closeActive();
+              setTimeout(function() {
+                this.router.navigate(['refund']);
+              }, 1000, this);
+            }, 2000, this);
+        }, 1000, this);
+       
+
+        }
+      }
+    });
+   } else{
+    this._dataService.setOption('viewRecord', this.myrecordForm.value.data);
+
+    setTimeout(()=>{this.modal.closeActive(); this.router.navigate(['cancel']); }, 2000);
+
+   }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
     }
    
 
