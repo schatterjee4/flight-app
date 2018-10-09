@@ -60,11 +60,11 @@ export class FlightResultComponent implements OnInit {
        this._dataService.setOption('fareRouteTwoVal', this.mydetailForm.value.fareRouteTwoVal);
         if(this.flightsearchdata.datefrom!=null)
         {
-            this.flightsearchdata.datefrom = this.flightsearchdata.datefrom['day']+' '+months[this.flightsearchdata.datefrom['month']]+' '+this.flightsearchdata.datefrom['year'];
+            this.flightsearchdata.datefrom = this.flightsearchdata.datefrom['day']+' '+months[this.flightsearchdata.datefrom['month']-1]+' '+this.flightsearchdata.datefrom['year'];
         }
         if(this.flightsearchdata.dateto!=null && this._dataService.get()['triptype'] == 'two')
         {
-            this.flightsearchdata.dateto = this.flightsearchdata.dateto['day']+' '+months[this.flightsearchdata.dateto['month']]+' '+this.flightsearchdata.dateto['year'];
+            this.flightsearchdata.dateto = this.flightsearchdata.dateto['day']+' '+months[this.flightsearchdata.dateto['month']-1]+' '+this.flightsearchdata.dateto['year'];
         }
         console.log(this.flightsearchdata.datefrom);
         this

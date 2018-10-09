@@ -40,7 +40,8 @@ export class FlightRecordComponent  implements OnInit   {
     
      if(data!=null && data!="" && Object.keys(data).length !=0){
       formdata = data;
-
+      let bookingMonth = new Date(formdata['traveldate']).getMonth();
+      formdata = Object.assign(formdata,{'bookingMonth':bookingMonth});
      let origin = formdata['source'];
      let originDescr = states.filter(v => v.key.toLowerCase().indexOf(origin.toLowerCase()) > -1).map((state) => state.value );
      let dest = formdata['destination'];
@@ -73,7 +74,35 @@ export class FlightRecordComponent  implements OnInit   {
      this.myrecordForm.setValue({'data':formdata});
     this.modal.closeActive();
     this._isLoading$.next(false);
-
+    console.log("status  is: "+formdata['statusDescr']);   
+    var regex = new RegExp(':', 'g');
+   
+    // tslint:disable-next-line:max-line-length
+    // tslint:disable-next-line:radix
+    if(formdata['bookingMonth']+1 == 12 && parseInt(formdata['startTime'].replace(regex,"")) >=parseInt(1210) && (formdata['statusDescr'] != "Cancelled" && formdata['destination'] == "DEL"))
+    {
+    
+        // tslint:disable-next-line:max-line-length
+        this._dataService.confirmCancel(this.myrecordForm.value.data['pnr'], this.myrecordForm.value.data['price']).subscribe((data: any) => {
+          if(data!=null)
+          {
+            if(data.status=="Success"){
+              let viewRecord=this._dataService.get()['viewRecord'];
+              viewRecord = Object.assign(viewRecord,{'refundAmount':this.myrecordForm.value.data['price']});
+              this._dataService.setOption('viewRecord',viewRecord);
+              setTimeout(()=>{
+                this.closeAndOpenModal('fullrefund'); 
+                setTimeout(()=>{
+                  this.modal.closeActive();
+                  setTimeout(()=>{
+                    this.router.navigate(['refund']);
+                  }, 100);
+                }, 100);
+            }, 100);
+          }
+        }
+        });
+    }
   },
   complete => {
     console.log('done');

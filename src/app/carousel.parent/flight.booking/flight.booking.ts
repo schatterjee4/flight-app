@@ -28,11 +28,11 @@ export class FlightBookingComponent {
     console.log(this.origin);
     if(this.data.datefrom!=null)
     {
-        this.data.datefrom = this.data.datefrom['day']+' '+months[this.data.datefrom['month']]+' '+this.data.datefrom['year'];
+        this.data.datefrom = this.data.datefrom['day']+' '+months[this.data.datefrom['month']-1]+' '+this.data.datefrom['year'];
     }
     if(this.data.dateto!=null)
     {
-        this.data.dateto = this.data.dateto['day']+' '+months[this.data.dateto['month']]+' '+this.data.dateto['year'];
+        this.data.dateto = this.data.dateto['day']+' '+months[this.data.dateto['month']-1]+' '+this.data.dateto['year'];
     }
     setTimeout(() => {this.modal.closeActive();
     },2000);
