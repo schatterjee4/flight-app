@@ -72,6 +72,8 @@ export class FlightRecordComponent  implements OnInit   {
     }
   }
      this.myrecordForm.setValue({'data':formdata});
+     this._dataService.setOption('viewRecord', this.myrecordForm.value.data);
+
     this.modal.closeActive();
     this._isLoading$.next(false);
     console.log("status  is: "+formdata['statusDescr']);   
